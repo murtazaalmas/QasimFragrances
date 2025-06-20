@@ -12,7 +12,7 @@
   <div class="products-grid four-in-row">
     @for (product of products; track product.name) {
       <div class="product-card">
-        <img [src]="product.img" [alt]="product.name" (click)="openModal(product)" style="cursor:pointer;" />
+        <img [src]="product.images[0]" [alt]="product.name" (click)="openModal(product)" style="cursor:pointer;" />
         <h3>{{ product.name }}</h3>
         <div class="product-pricing">
           <span class="price">{{ product.price }}</span>
@@ -29,7 +29,15 @@
 <div class="modal-backdrop" *ngIf="selectedProduct" (click)="closeModal()">
   <div class="modal-content" (click)="$event.stopPropagation()">
     <div class="modal-image">
-      <img [src]="selectedProduct.img" [alt]="selectedProduct.name" />
+      <img [src]="selectedProduct.images[selectedImageIndex]" [alt]="selectedProduct.name" />
+      <div class="modal-thumbnails">
+        <img *ngFor="let img of selectedProduct.images; let idx = index"
+             [src]="img"
+             [alt]="selectedProduct.name + ' thumbnail ' + (idx+1)"
+             [class.selected-thumb]="selectedImageIndex === idx"
+             (click)="selectedImageIndex = idx"
+        />
+      </div>
     </div>
     <div class="modal-details">
       <button class="close-x" (click)="closeModal()" aria-label="Close">&times;</button>
