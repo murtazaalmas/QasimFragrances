@@ -19,15 +19,16 @@
 
   <div class="logo">
     <i class="fa-solid fa-leaf fa-2x" style="color: #e60023;"></i>
+    <span class="brand-name">Q Fragrance</span>
   </div>
 
   <div class="right-icons">
     <i class="fa-solid fa-magnifying-glass"></i>
     <i class="fa-solid fa-truck"></i>
     <i class="fa-solid fa-user"></i>
-    <div class="cart-icon">
+    <div class="cart-icon" (click)="onCartClick()">
       <i class="fa-solid fa-cart-shopping"></i>
-      <span class="badge">0</span>
+      <span class="badge">{{ cartCount }}</span>
     </div>
     <div class="currency">
       <span>₨</span> PKR

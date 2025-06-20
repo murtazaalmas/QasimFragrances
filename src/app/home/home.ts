@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { NgIf, NgFor, NgClass } from '@angular/common';
 
 @Component({
@@ -10,6 +10,7 @@ import { NgIf, NgFor, NgClass } from '@angular/common';
 })
 export class Home {
   @Input() selectedCategory: string = 'All';
+  @Output() addToCart = new EventEmitter<any>();
   products = [
     {
       images: ['/images/1.webp', '/images/2.webp', '/images/3.webp'],

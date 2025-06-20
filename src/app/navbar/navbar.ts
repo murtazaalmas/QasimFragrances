@@ -9,9 +9,15 @@ import { NgClass } from '@angular/common';
 })
 export class Navbar {
   @Input() selectedCategory: string = 'All';
+  @Input() cartCount: number = 0;
   @Output() categorySelected = new EventEmitter<string>();
+  @Output() cartSidebar = new EventEmitter<void>();
 
   selectCategory(category: string) {
     this.categorySelected.emit(category);
+  }
+
+  onCartClick() {
+    this.cartSidebar.emit();
   }
 }

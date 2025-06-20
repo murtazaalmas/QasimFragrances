@@ -48,6 +48,15 @@ body {
   justify-content: center;
 }
 
+.brand-name {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #e60023;
+  margin-left: 0.6rem;
+  letter-spacing: 1px;
+  font-family: 'Montserrat', Arial, sans-serif;
+}
+
 .logo i {
   font-size: 44px;
   color: #e60023;
