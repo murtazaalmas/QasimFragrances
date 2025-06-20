@@ -1,16 +1,16 @@
-<section class="hero">
+<section class="hero" *ngIf="showHero">
   <div class="hero__content">
     <h1>Discover Your Signature Scent</h1>
     <p>Shop the latest and most popular fragrances for men, women, and kids. Find gift sets and scented candles to elevate every moment.</p>
-    <a href="#" class="hero__cta">Shop New Arrivals</a>
+    <a href="#" class="hero__cta">Shop All</a>
   </div>
-  <img class="hero__img" src="/images/pexels-valeriya-965989.jpg" alt="Fragrance Banner" />
+  <img class="hero__img" src="/images/main.webp" alt="Fragrance Banner" />
 </section>
 
 <section class="featured-products">
   <h2>Featured Fragrances</h2>
   <div class="products-grid four-in-row">
-    @for (product of products; track product.name) {
+    @for (product of filteredProducts; track product.name) {
       <div class="product-card">
         <img [src]="product.images[0]" [alt]="product.name" (click)="openModal(product)" style="cursor:pointer;" />
         <h3>{{ product.name }}</h3>
@@ -19,7 +19,6 @@
           <span class="old" *ngIf="product.old">{{ product.old }}</span>
         </div>
         <button class="add-to-bag" (click)="$event.stopPropagation()">Add to Bag</button>
-
       </div>
     }
   </div>

@@ -37,12 +37,11 @@
 
 <nav class="main-nav">
   <ul>
-    <li class="active">New Arrivals</li>
-    <li>Men</li>
-    <li>Women</li>
-    <li>Kids</li>
-    <li>Gift Sets</li>
-    <li>Scented Candles</li>
-    <li>Sale</li>
+    <li (click)="selectCategory('All')" [ngClass]="{active: selectedCategory === 'All'}">All</li>
+    <li (click)="selectCategory('New')" [ngClass]="{active: selectedCategory === 'New'}">New Products</li>
+    <li (click)="selectCategory('Men')" [ngClass]="{active: selectedCategory === 'Men'}">Men</li>
+    <li (click)="selectCategory('Women')" [ngClass]="{active: selectedCategory === 'Women'}">Women</li>
+    <li (click)="selectCategory('Kids')" [ngClass]="{active: selectedCategory === 'Kids'}">Kids</li>
+    <li (click)="selectCategory('Sale')" [ngClass]="{active: selectedCategory === 'Sale'}">Sale</li>
   </ul>
 </nav>
