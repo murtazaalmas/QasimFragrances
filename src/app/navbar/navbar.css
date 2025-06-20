@@ -153,6 +153,7 @@ body {
     flex-direction: column;
     align-items: stretch;
     padding: 8px 4px;
+    gap: 15px;
   }
   .main-nav ul {
     flex-wrap: wrap;
