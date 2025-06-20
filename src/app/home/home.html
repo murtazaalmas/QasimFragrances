@@ -10,42 +10,49 @@
 <section class="featured-products">
   <h2>Featured Fragrances</h2>
   <div class="products-grid four-in-row">
-    <div class="product-card">
-      <img src="/images/1.jpeg" alt="Signature Scent 1" />
-      <button class="add-to-bag">Add to Bag</button>
-      <h3>Signature Scent 1</h3>
-      <div class="product-pricing">
-        <span class="price">PKR 3,992</span>
-        <span class="old">PKR 4,990</span>
+    @for (product of products; track product.name) {
+      <div class="product-card">
+        <img [src]="product.img" [alt]="product.name" (click)="openModal(product)" style="cursor:pointer;" />
+        <h3>{{ product.name }}</h3>
+        <div class="product-pricing">
+          <span class="price">{{ product.price }}</span>
+          <span class="old" *ngIf="product.old">{{ product.old }}</span>
+        </div>
+        <button class="add-to-bag" (click)="$event.stopPropagation()">Add to Bag</button>
+
       </div>
+    }
+  </div>
+</section>
+
+<!-- Modal -->
+<div class="modal-backdrop" *ngIf="selectedProduct" (click)="closeModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <div class="modal-image">
+      <img [src]="selectedProduct.img" [alt]="selectedProduct.name" />
     </div>
-    <div class="product-card">
-      <img src="/images/2.jpeg" alt="Signature Scent 2" />
-      <button class="add-to-bag">Add to Bag</button>
-      <h3>Signature Scent 2</h3>
-      <div class="product-pricing">
-        <span class="price">PKR 3,490</span>
+    <div class="modal-details">
+      <button class="close-x" (click)="closeModal()" aria-label="Close">&times;</button>
+      <h3>{{ selectedProduct.name }}</h3>
+      <div class="modal-rating">
+        <ng-container *ngIf="selectedProduct.rating as rating">
+          <span *ngFor="let star of [1,2,3,4,5]; let i = index">
+            <span [ngClass]="{'star-filled': i < getFloor(rating), 'star-half': i === getFloor(rating) && rating % 1 >= 0.5}">&#9733;</span>
+          </span>
+          <span class="rating-value">{{ rating }}</span>
+        </ng-container>
       </div>
-    </div>
-    <div class="product-card">
-      <img src="/images/3.jpeg" alt="Signature Scent 3" />
-      <button class="add-to-bag">Add to Bag</button>
-      <h3>Signature Scent 3</h3>
       <div class="product-pricing">
-        <span class="price">PKR 5,121</span>
-        <span class="old">PKR 5,690</span>
+        <span class="price">{{ selectedProduct.price }}</span>
+        <span class="old" *ngIf="selectedProduct.old">{{ selectedProduct.old }}</span>
       </div>
-    </div>
-    <div class="product-card">
-      <img src="/images/images.jpeg" alt="Signature Scent 4" />
-      <button class="add-to-bag">Add to Bag</button>
-      <h3>Signature Scent 4</h3>
-      <div class="product-pricing">
-        <span class="price">PKR 6,200</span>
+      <button class="add-to-bag-modal">Add to Cart</button>
+      <div class="modal-notes">
+        <strong>Notes:</strong> {{ selectedProduct.notes }}
       </div>
     </div>
   </div>
-</section>
+</div>
 
 <section class="categories">
   <h2>Shop By Category</h2>
