@@ -1,0 +1,17 @@
+<section class="reviews-section">
+  <h2>Customer Reviews</h2>
+  <div class="reviews-list">
+    <div class="review-card" *ngFor="let review of reviews">
+      <div class="review-header">
+        <span class="review-name">{{ review.name }}</span>
+        <span class="review-rating">
+          <ng-container *ngFor="let star of [1,2,3,4,5]">
+            <span [class.filled]="star <= review.rating">&#9733;</span>
+          </ng-container>
+        </span>
+      </div>
+      <div class="review-date">{{ review.date }}</div>
+      <div class="review-comment">{{ review.comment }}</div>
+    </div>
+  </div>
+</section> 
