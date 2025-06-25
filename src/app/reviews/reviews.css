@@ -48,7 +48,8 @@
 .review-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 0.5rem;
 }
 .review-name {
   font-weight: 700;
@@ -76,6 +77,16 @@
   line-height: 1.6;
   letter-spacing: 0.1px;
 }
+.review-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 0.7rem;
+  border: 2px solid #e60023;
+  box-shadow: 0 1px 4px rgba(230,0,35,0.10);
+  vertical-align: middle;
+}
 @media (max-width: 600px) {
   .reviews-section {
     padding: 0.7rem;
@@ -83,4 +94,96 @@
   .review-card {
     padding: 0.7rem 0.5rem;
   }
+}
+
+.rating-card {
+  background: #fff;
+  width: 350px;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  margin: 0 auto 2.5rem auto;
+}
+.card-header {
+  display: flex;
+  align-items: flex-start;
+  padding: 16px;
+  border-bottom: 1px solid #eee;
+}
+.title-icon {
+  font-size: 24px;
+  margin-right: 12px;
+}
+.title-text p {
+  margin: 4px 0 0;
+  color: #888;
+  font-size: 13px;
+}
+.close-btn {
+  margin-left: auto;
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: #999;
+  cursor: pointer;
+}
+.card-body {
+  padding: 16px;
+}
+.rating-score {
+  display: flex;
+  align-items: center;
+}
+.score {
+  font-size: 36px;
+  font-weight: bold;
+  margin-right: 8px;
+}
+.stars {
+  font-size: 20px;
+  color: #f6b545;
+}
+.stars .filled {
+  color: #f6b545;
+}
+.rating-meta {
+  margin: 8px 0 16px;
+  font-size: 13px;
+  color: #666;
+  display: flex;
+  justify-content: space-between;
+}
+.rating-meta a {
+  text-decoration: none;
+  color: #467bce;
+}
+.rating-bars .bar {
+  display: flex;
+  align-items: center;
+  margin: 6px 0;
+}
+.rating-bars span {
+  width: 32px;
+  font-size: 13px;
+}
+.progress {
+  flex: 1;
+  height: 8px;
+  background-color: #f6b545;
+  border-radius: 4px;
+  margin-left: 8px;
+  position: relative;
+}
+.card-footer {
+  padding: 12px 16px;
+  border-top: 1px solid #eee;
+  text-align: center;
+}
+.review-btn {
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  background: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
 } 

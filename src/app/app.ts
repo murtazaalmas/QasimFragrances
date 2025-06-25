@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Navbar } from './navbar/navbar';
 import { Home } from './home/home';
 import { NgIf, NgFor } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, Router } from '@angular/router';
 import { CartService } from './cart.service';
 import { Invoice } from './invoice/invoice';
 
@@ -20,7 +20,7 @@ export class App implements OnInit {
   showCartSidebar: boolean = false;
   showInvoice: boolean = false;
 
-  constructor(private cartService: CartService) {}
+  constructor(private cartService: CartService, public router: Router) {}
 
   ngOnInit() {
     this.cartService.cartItems$.subscribe(items => {
