@@ -55,7 +55,7 @@ export class Home {
       category: 'Women'
     },
     {
-      images: ['/images/10.webp', '/images/11.webp', '/images/12.webp'],
+      images: ['/images/16.webp', '/images/16.webp', '/images/16.webp'],
       name: 'DURVESH',
       price: 'PKR 6,200',
       rating: 4.2,
@@ -63,7 +63,7 @@ export class Home {
       category: 'Sale'
     },
     {
-      images: ['/images/10.webp', '/images/11.webp', '/images/12.webp'],
+      images: ['/images/17.webp', '/images/17.webp', '/images/17.webp'],
       name: 'DURVESH',
       price: 'PKR 6,200',
       rating: 4.2,
@@ -71,7 +71,7 @@ export class Home {
       category: 'Sale'
     },
     {
-      images: ['/images/10.webp', '/images/11.webp', '/images/12.webp'],
+      images: ['/images/18.webp', '/images/18.webp', '/images/18.webp'],
       name: 'DURVESH',
       price: 'PKR 6,200',
       rating: 4.2,
@@ -79,7 +79,7 @@ export class Home {
       category: 'Sale'
     },
     {
-      images: ['/images/10.webp', '/images/11.webp', '/images/12.webp'],
+      images: ['/images/19.webp', '/images/19.webp', '/images/19.webp'],
       name: 'DURVESH',
       price: 'PKR 6,200',
       rating: 4.2,
@@ -87,7 +87,7 @@ export class Home {
       category: 'Sale'
     },
     {
-      images: ['/images/10.webp', '/images/11.webp', '/images/12.webp'],
+      images: ['/images/20.webp', '/images/20.webp', '/images/20.webp'],
       name: 'DURVESH',
       price: 'PKR 6,200',
       rating: 4.2,
@@ -95,7 +95,7 @@ export class Home {
       category: 'Sale'
     },
     {
-      images: ['/images/10.webp', '/images/11.webp', '/images/12.webp'],
+      images: ['/images/21.webp', '/images/22.webp', '/images/23.webp'],
       name: 'DURVESH',
       price: 'PKR 6,200',
       rating: 4.2,
@@ -103,7 +103,7 @@ export class Home {
       category: 'Sale'
     },
     {
-      images: ['/images/10.webp', '/images/11.webp', '/images/12.webp'],
+      images: ['/images/24.webp', '/images/25.webp', '/images/26.webp'],
       name: 'DURVESH',
       price: 'PKR 6,200',
       rating: 4.2,
