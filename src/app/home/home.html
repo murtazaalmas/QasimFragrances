@@ -69,7 +69,7 @@
         <span class="price">{{ selectedProduct.price }}</span>
         <span class="old" *ngIf="selectedProduct.old">{{ selectedProduct.old }}</span>
       </div>
-      <button class="add-to-bag-modal">Add to Cart</button>
+      <button class="add-to-bag-modal" (click)="$event.stopPropagation(); addToCart(selectedProduct)">Add to Cart</button>
       <div class="modal-notes">
         <strong>Notes:</strong> {{ selectedProduct.notes }}
       </div>
