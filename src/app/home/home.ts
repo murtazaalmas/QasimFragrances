@@ -27,7 +27,7 @@ export class Home {
       price: 'PKR 3,490',
       rating: 4.0,
       notes: 'Top notes: Bergamot, Heart: Rose, Base: Amber',
-      category: 'Women'
+      category: 'New'
     },
     {
       images: ['/images/7.webp', '/images/8.webp', '/images/19.webp'],
@@ -36,7 +36,7 @@ export class Home {
       old: 'PKR 5,690',
       rating: 4.8,
       notes: 'Top notes: Lavender, Heart: Sandalwood, Base: Vanilla',
-      category: 'Kids'
+      category: 'New'
     },
     {
       images: ['/images/10.webp', '/images/11.webp', '/images/12.webp'],
@@ -52,7 +52,7 @@ export class Home {
       price: 'PKR 4,490',
       rating: 4.2,
       notes: 'Top notes: Apple, Heart: Peony, Base: Cedarwood',
-      category: 'Women'
+      category: 'Men'
     },
     {
       images: ['/images/16.webp', '/images/16.webp', '/images/16.webp'],
@@ -60,7 +60,7 @@ export class Home {
       price: 'PKR 6,200',
       rating: 4.2,
       notes: 'Top notes: Apple, Heart: Peony, Base: Cedarwood',
-      category: 'Sale'
+      category: 'Men'
     },
     {
       images: ['/images/17.webp', '/images/17.webp', '/images/17.webp'],
@@ -68,7 +68,7 @@ export class Home {
       price: 'PKR 6,200',
       rating: 4.2,
       notes: 'Top notes: Apple, Heart: Peony, Base: Cedarwood',
-      category: 'Sale'
+      category: 'Women'
     },
     {
       images: ['/images/18.webp', '/images/18.webp', '/images/18.webp'],
@@ -76,7 +76,7 @@ export class Home {
       price: 'PKR 6,200',
       rating: 4.2,
       notes: 'Top notes: Apple, Heart: Peony, Base: Cedarwood',
-      category: 'Sale'
+      category: 'Women'
     },
     {
       images: ['/images/19.webp', '/images/19.webp', '/images/19.webp'],
@@ -84,7 +84,7 @@ export class Home {
       price: 'PKR 6,200',
       rating: 4.2,
       notes: 'Top notes: Apple, Heart: Peony, Base: Cedarwood',
-      category: 'Sale'
+      category: 'Kids'
     },
     {
       images: ['/images/20.webp', '/images/20.webp', '/images/20.webp'],
@@ -92,7 +92,7 @@ export class Home {
       price: 'PKR 6,200',
       rating: 4.2,
       notes: 'Top notes: Apple, Heart: Peony, Base: Cedarwood',
-      category: 'Sale'
+      category: 'Kids'
     },
     {
       images: ['/images/21.webp', '/images/22.webp', '/images/23.webp'],

@@ -33,8 +33,12 @@ body {
 .icon-text i {
   font-size: 22px;
   margin-bottom: 4px;
-  color: #e60023;
+  color: #888;
   transition: color 0.2s;
+}
+
+.icon-text.active i {
+  color: #e60023;
 }
 
 .icon-text:hover,

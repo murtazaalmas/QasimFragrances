@@ -29,4 +29,15 @@ export class Navbar {
   goContact() {
     this.router.navigate(['/contact']);
   }
+
+  get currentRoute(): string {
+    return this.router.url;
+  }
+
+  isActive(path: string): boolean {
+    if (path === '/') {
+      return this.currentRoute === '/' || this.currentRoute === '';
+    }
+    return this.currentRoute.startsWith(path);
+  }
 }

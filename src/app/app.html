@@ -1,4 +1,5 @@
 <app-navbar [cartCount]="cartCount" (cartSidebar)="openCartSidebar()"></app-navbar>
+<app-home [selectedCategory]="selectedCategory" (addToCart)="addToCart($event)"></app-home>
 <router-outlet></router-outlet>
 <div *ngIf="notification" class="notification-toast">{{ notification }}</div>
 

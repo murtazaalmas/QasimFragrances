@@ -3,16 +3,16 @@
 -->
 <header class="top-bar">
   <div class="left-icons">
-    <div class="icon-text" (click)="goHome()">
-      <i class="fa-solid fa-gift"></i>
+    <div class="icon-text" (click)="goHome()" [ngClass]="{active: isActive('/')}" >
+      <i class="fa-solid fa-house"></i>
       <span>Home</span>
     </div>
-    <div class="icon-text" (click)="goReviews()">
-      <i class="fa-solid fa-book-open"></i>
+    <div class="icon-text" (click)="goReviews()" [ngClass]="{active: isActive('/reviews')}">
+      <i class="fa-solid fa-star"></i>
       <span>Reviews</span>
     </div>
-    <div class="icon-text" (click)="goContact()">
-      <i class="fa-solid fa-store"></i>
+    <div class="icon-text" (click)="goContact()" [ngClass]="{active: isActive('/contact')}">
+      <i class="fa-solid fa-envelope"></i>
       <span>Contact</span>
     </div>
   </div>
@@ -25,7 +25,6 @@
   <div class="right-icons">
     <i class="fa-solid fa-magnifying-glass"></i>
     <i class="fa-solid fa-truck"></i>
-    <i class="fa-solid fa-user"></i>
     <div class="cart-icon" (click)="onCartClick()">
       <i class="fa-solid fa-cart-shopping"></i>
       <span class="badge">{{ cartCount }}</span>
