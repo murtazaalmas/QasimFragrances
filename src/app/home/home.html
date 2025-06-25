@@ -29,7 +29,7 @@
           <span class="price">{{ product.price }}</span>
           <span class="old" *ngIf="product.old">{{ product.old }}</span>
         </div>
-        <button class="add-to-bag" (click)="$event.stopPropagation(); addToCart.emit(product)">Add to Cart</button>
+        <button class="add-to-bag" (click)="$event.stopPropagation(); addToCart(product)">Add to Cart</button>
       </div>
     }
   </div>

@@ -3,6 +3,7 @@ import { NgClass, NgIf, NgFor } from '@angular/common';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ProductService } from '../product.service';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-navbar',
@@ -13,12 +14,13 @@ import { ProductService } from '../product.service';
 export class Navbar {
   @Input() cartCount: number = 0;
   @Output() cartSidebar = new EventEmitter<void>();
+  @Output() addToCartSuccess = new EventEmitter<void>();
 
   showSearchInput = false;
   searchTerm = '';
   products: any[] = [];
 
-  constructor(private router: Router, private productService: ProductService) {
+  constructor(private router: Router, private productService: ProductService, private cartService: CartService) {
     this.products = this.productService.products;
     console.log('Navbar products loaded:', this.products);
   }
@@ -66,5 +68,10 @@ export class Navbar {
     }
     const term = this.searchTerm.trim().toLowerCase();
     return this.products.filter(p => p.name.toLowerCase().includes(term));
+  }
+
+  addToCart(product: any) {
+    this.cartService.addToCart(product);
+    this.addToCartSuccess.emit();
   }
 }

@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Navbar } from './navbar/navbar';
 import { Home } from './home/home';
 import { NgIf, NgFor } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
+import { CartService } from './cart.service';
 
 @Component({
   selector: 'app-root',
@@ -10,29 +11,23 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
-export class App {
+export class App implements OnInit {
   protected title = 'Fragrances';
   selectedCategory: string = 'All';
   cartItems: any[] = [];
   notification: string | null = null;
   showCartSidebar: boolean = false;
 
+  constructor(private cartService: CartService) {}
+
+  ngOnInit() {
+    this.cartService.cartItems$.subscribe(items => {
+      this.cartItems = items;
+    });
+  }
+
   setCategory(category: string) {
     this.selectedCategory = category;
-  }
-
-  addToCart(product: any) {
-    const existing = this.cartItems.find(item => item.name === product.name);
-    if (existing) {
-      existing.qty = (existing.qty || 1) + 1;
-    } else {
-      this.cartItems.push({ ...product, qty: 1 });
-    }
-    this.showNotification('Added to cart');
-  }
-
-  get cartCount() {
-    return this.cartItems.reduce((sum, item) => sum + (item.qty || 1), 0);
   }
 
   showNotification(message: string) {
@@ -51,7 +46,11 @@ export class App {
   }
 
   removeFromCart(product: any) {
-    this.cartItems = this.cartItems.filter(item => item.name !== product.name);
+    this.cartService.removeFromCart(product);
+  }
+
+  get cartCount() {
+    return this.cartItems.reduce((sum, item) => sum + (item.qty || 1), 0);
   }
 
   get cartTotal() {

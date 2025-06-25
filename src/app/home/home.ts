@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { NgIf, NgFor, NgClass } from '@angular/common';
 import { ProductService } from '../product.service';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-home',
@@ -11,14 +12,14 @@ import { ProductService } from '../product.service';
 })
 export class Home {
   @Input() selectedCategory: string = 'All';
-  @Output() addToCart = new EventEmitter<any>();
+  @Output() addToCartSuccess = new EventEmitter<void>();
   products: any[] = [];
 
   public searchTerm: string = '';
   selectedProduct: any = null;
   selectedImageIndex: number = 0;
 
-  constructor(private productService: ProductService) {
+  constructor(private productService: ProductService, private cartService: CartService) {
     this.products = this.productService.products;
   }
 
@@ -69,5 +70,11 @@ export class Home {
 
   setCategory(category: string) {
     this.selectedCategory = category;
+  }
+
+  addToCart(product: any) {
+    this.cartService.addToCart(product);
+    this.addToCartSuccess.emit();
+    console.log('Cart Items:', this.cartService.cartItems);
   }
 }
