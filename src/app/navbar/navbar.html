@@ -3,17 +3,17 @@
 -->
 <header class="top-bar">
   <div class="left-icons">
-    <div class="icon-text">
+    <div class="icon-text" (click)="goHome()">
       <i class="fa-solid fa-gift"></i>
-      <span>IDEAS REWARDS</span>
+      <span>Home</span>
     </div>
-    <div class="icon-text">
+    <div class="icon-text" (click)="goReviews()">
       <i class="fa-solid fa-book-open"></i>
-      <span>LOOKBOOK</span>
+      <span>Reviews</span>
     </div>
-    <div class="icon-text">
+    <div class="icon-text" (click)="goContact()">
       <i class="fa-solid fa-store"></i>
-      <span>STORE</span>
+      <span>Contact</span>
     </div>
   </div>
 
@@ -35,14 +35,3 @@
     </div>
   </div>
 </header>
-
-<nav class="main-nav">
-  <ul>
-    <li (click)="selectCategory('All')" [ngClass]="{active: selectedCategory === 'All'}">All</li>
-    <li (click)="selectCategory('New')" [ngClass]="{active: selectedCategory === 'New'}">New Products</li>
-    <li (click)="selectCategory('Men')" [ngClass]="{active: selectedCategory === 'Men'}">Men</li>
-    <li (click)="selectCategory('Women')" [ngClass]="{active: selectedCategory === 'Women'}">Women</li>
-    <li (click)="selectCategory('Kids')" [ngClass]="{active: selectedCategory === 'Kids'}">Kids</li>
-    <li (click)="selectCategory('Sale')" [ngClass]="{active: selectedCategory === 'Sale'}">Sale</li>
-  </ul>
-</nav>

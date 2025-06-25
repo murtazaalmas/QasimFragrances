@@ -1,5 +1,5 @@
-<app-navbar [selectedCategory]="selectedCategory" (categorySelected)="setCategory($event)" [cartCount]="cartCount" (cartSidebar)="openCartSidebar()"></app-navbar>
-<app-home [selectedCategory]="selectedCategory" (addToCart)="addToCart($event)"></app-home>
+<app-navbar [cartCount]="cartCount" (cartSidebar)="openCartSidebar()"></app-navbar>
+<router-outlet></router-outlet>
 <div *ngIf="notification" class="notification-toast">{{ notification }}</div>
 
 <!-- Right Sidebar Cart -->
@@ -17,7 +17,7 @@
           <div>Qty: {{ item.qty }}</div>
           <div>Price: {{ item.price }}</div>
           <button class="remove-cart-item" (click)="removeFromCart(item)" aria-label="Remove">&times;</button>
-        </div>
+      </div>
       </div>
       <div class="cart-sidebar-total">Total: PKR {{ cartTotal }}</div>
       <button class="checkout-btn" *ngIf="cartItems.length">Proceed to Checkout</button>
@@ -26,4 +26,4 @@
       <div class="cart-sidebar-empty">Your bag is empty.</div>
     </ng-template>
   </aside>
-</div>
+  </div>

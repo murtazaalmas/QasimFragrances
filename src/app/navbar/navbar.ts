@@ -1,5 +1,6 @@
 import { Component, Output, EventEmitter, Input } from '@angular/core';
 import { NgClass } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -8,16 +9,24 @@ import { NgClass } from '@angular/common';
   styleUrl: './navbar.css'
 })
 export class Navbar {
-  @Input() selectedCategory: string = 'All';
   @Input() cartCount: number = 0;
-  @Output() categorySelected = new EventEmitter<string>();
   @Output() cartSidebar = new EventEmitter<void>();
 
-  selectCategory(category: string) {
-    this.categorySelected.emit(category);
-  }
+  constructor(private router: Router) {}
 
   onCartClick() {
     this.cartSidebar.emit();
+  }
+
+  goHome() {
+    this.router.navigate(['/']);
+  }
+
+  goReviews() {
+    this.router.navigate(['/reviews']);
+  }
+
+  goContact() {
+    this.router.navigate(['/contact']);
   }
 }

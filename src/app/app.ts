@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { Navbar } from './navbar/navbar';
 import { Home } from './home/home';
 import { NgIf, NgFor } from '@angular/common';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [Navbar, Home, NgIf, NgFor],
+  imports: [Navbar, Home, NgIf, NgFor, RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

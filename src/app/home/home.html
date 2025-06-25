@@ -1,3 +1,14 @@
+<section class="home-categories-nav">
+  <ul>
+    <li (click)="setCategory('All')" [ngClass]="{active: selectedCategory === 'All'}">Home</li>
+    <li (click)="setCategory('New')" [ngClass]="{active: selectedCategory === 'New'}">New</li>
+    <li (click)="setCategory('Men')" [ngClass]="{active: selectedCategory === 'Men'}">Men</li>
+    <li (click)="setCategory('Women')" [ngClass]="{active: selectedCategory === 'Women'}">Women</li>
+    <li (click)="setCategory('Kids')" [ngClass]="{active: selectedCategory === 'Kids'}">Kids</li>
+    <li (click)="setCategory('Sale')" [ngClass]="{active: selectedCategory === 'Sale'}">Sale</li>
+  </ul>
+</section>
+
 <section class="hero" *ngIf="showHero">
   <div class="hero__content">
     <h1>Discover Your Signature Scent</h1>

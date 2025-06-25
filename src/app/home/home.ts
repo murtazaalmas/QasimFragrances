@@ -150,4 +150,8 @@ export class Home {
   get showHero() {
     return !this.selectedCategory || this.selectedCategory === 'All' ;
   }
+
+  setCategory(category: string) {
+    this.selectedCategory = category;
+  }
 }
