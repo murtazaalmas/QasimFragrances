@@ -4,10 +4,11 @@ import { Home } from './home/home';
 import { NgIf, NgFor } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { CartService } from './cart.service';
+import { Invoice } from './invoice/invoice';
 
 @Component({
   selector: 'app-root',
-  imports: [Navbar, Home, NgIf, NgFor, RouterOutlet],
+  imports: [Navbar, Home, NgIf, NgFor, RouterOutlet, Invoice],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -17,6 +18,7 @@ export class App implements OnInit {
   cartItems: any[] = [];
   notification: string | null = null;
   showCartSidebar: boolean = false;
+  showInvoice: boolean = false;
 
   constructor(private cartService: CartService) {}
 
@@ -58,5 +60,13 @@ export class App implements OnInit {
       const price = parseInt((item.price || '0').replace(/[^\d]/g, ''));
       return sum + price * (item.qty || 1);
     }, 0);
+  }
+
+  openInvoice() {
+    this.showInvoice = true;
+  }
+
+  closeInvoice() {
+    this.showInvoice = false;
   }
 }

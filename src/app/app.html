@@ -22,10 +22,11 @@
       </div>
       </div>
       <div class="cart-sidebar-total">Total: PKR {{ cartTotal }}</div>
-      <button class="checkout-btn" *ngIf="cartItems.length">Proceed to Checkout</button>
+      <button class="checkout-btn" *ngIf="cartItems.length" (click)="openInvoice()">Proceed to Checkout</button>
     </div>
     <ng-template #emptyCart>
       <div class="cart-sidebar-empty">Your bag is empty.</div>
     </ng-template>
   </aside>
-</div>
+  </div>
+<app-invoice *ngIf="showInvoice" [cartItems]="cartItems" [cartTotal]="cartTotal" (close)="closeInvoice()"></app-invoice>
