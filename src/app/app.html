@@ -1,30 +1,30 @@
-<app-navbar [cartCount]="cartCount" (cartSidebar)="openCartSidebar()"></app-navbar>
-<app-home [selectedCategory]="selectedCategory" (addToCart)="addToCart($event)"></app-home>
-<router-outlet></router-outlet>
-<div *ngIf="notification" class="notification-toast">{{ notification }}</div>
-
-<!-- Right Sidebar Cart -->
-<div class="cart-sidebar-backdrop" *ngIf="showCartSidebar" (click)="closeCartSidebar()">
-  <aside class="cart-sidebar" (click)="$event.stopPropagation()">
-    <div class="cart-sidebar-header">
-      <h2>Your Bag</h2>
-      <button class="close-cart-sidebar" (click)="closeCartSidebar()">&times;</button>
-    </div>
-    <div *ngIf="cartItems.length; else emptyCart">
-      <div class="cart-sidebar-item" *ngFor="let item of cartItems">
-        <img [src]="item.images[0]" [alt]="item.name" class="cart-sidebar-img" />
-        <div class="cart-sidebar-info">
-          <div class="cart-sidebar-name">{{ item.name }}</div>
-          <div>Qty: {{ item.qty }}</div>
-          <div>Price: {{ item.price }}</div>
-          <button class="remove-cart-item" (click)="removeFromCart(item)" aria-label="Remove">&times;</button>
+<app-navbar #navbar [cartCount]="cartCount" (cartSidebar)="openCartSidebar()"></app-navbar>
+<div *ngIf="!navbar.searchTerm || navbar.searchTerm.trim() === ''">
+  <router-outlet></router-outlet>
+  <div *ngIf="notification" class="notification-toast">{{ notification }}</div>
+  <!-- Right Sidebar Cart -->
+  <div class="cart-sidebar-backdrop" *ngIf="showCartSidebar" (click)="closeCartSidebar()">
+    <aside class="cart-sidebar" (click)="$event.stopPropagation()">
+      <div class="cart-sidebar-header">
+        <h2>Your Bag</h2>
+        <button class="close-cart-sidebar" (click)="closeCartSidebar()">&times;</button>
       </div>
+      <div *ngIf="cartItems.length; else emptyCart">
+        <div class="cart-sidebar-item" *ngFor="let item of cartItems">
+          <img [src]="item.images[0]" [alt]="item.name" class="cart-sidebar-img" />
+          <div class="cart-sidebar-info">
+            <div class="cart-sidebar-name">{{ item.name }}</div>
+            <div>Qty: {{ item.qty }}</div>
+            <div>Price: {{ item.price }}</div>
+            <button class="remove-cart-item" (click)="removeFromCart(item)" aria-label="Remove">&times;</button>
+        </div>
+        </div>
+        <div class="cart-sidebar-total">Total: PKR {{ cartTotal }}</div>
+        <button class="checkout-btn" *ngIf="cartItems.length">Proceed to Checkout</button>
       </div>
-      <div class="cart-sidebar-total">Total: PKR {{ cartTotal }}</div>
-      <button class="checkout-btn" *ngIf="cartItems.length">Proceed to Checkout</button>
-    </div>
-    <ng-template #emptyCart>
-      <div class="cart-sidebar-empty">Your bag is empty.</div>
-    </ng-template>
-  </aside>
+      <ng-template #emptyCart>
+        <div class="cart-sidebar-empty">Your bag is empty.</div>
+      </ng-template>
+    </aside>
   </div>
+</div>

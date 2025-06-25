@@ -23,7 +23,8 @@
   </div>
 
   <div class="right-icons">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass" (click)="toggleSearchInput()"></i>
+    <input *ngIf="showSearchInput" class="search-input" type="text" [(ngModel)]="searchTerm" (input)="onSearchChange()" placeholder="Search products..." autofocus />
     <i class="fa-solid fa-truck"></i>
     <div class="cart-icon" (click)="onCartClick()">
       <i class="fa-solid fa-cart-shopping"></i>
@@ -34,3 +35,27 @@
     </div>
   </div>
 </header>
+
+<div *ngIf="searchTerm && searchTerm.trim() !== ''" class="navbar-search-results">
+  <section class="featured-products">
+    <h2>Search Items</h2>
+    <div class="products-grid four-in-row">
+      <ng-container *ngIf="filteredProducts.length > 0; else noResults">
+        <ng-container *ngFor="let product of filteredProducts">
+          <div class="product-card">
+            <img [src]="product.images[0]" [alt]="product.name" />
+            <h3>{{ product.name }}</h3>
+            <div class="product-pricing">
+              <span class="price">{{ product.price }}</span>
+              <span class="old" *ngIf="product.old">{{ product.old }}</span>
+            </div>
+            <button class="add-to-bag">Add to Cart</button>
+          </div>
+        </ng-container>
+      </ng-container>
+      <ng-template #noResults>
+        <div class="no-results">No products found.</div>
+      </ng-template>
+    </div>
+  </section>
+</div>
