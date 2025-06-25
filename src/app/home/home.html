@@ -12,25 +12,32 @@
 <section class="hero" *ngIf="showHero">
   <div class="hero__content">
     <h1>Discover Your Signature Scent</h1>
-    <p>Shop the latest and most popular fragrances for men, women, and kids. Find gift sets and scented candles to elevate every moment.</p>
+    <p>Shop the latest and most popular fragrances for men, women, and kids. Find gift sets and scented candles to
+      elevate every moment.</p>
     <a href="#" class="hero__cta">Shop All</a>
   </div>
   <img class="hero__img" src="/images/main.webp" alt="Fragrance Banner" />
 </section>
 
 <section class="featured-products">
-  <h2>Featured Fragrances</h2>
+  <h2>
+    @if (selectedCategory === 'All') {
+    Explore Fragrances
+    } @else {
+    {{ selectedCategory }} Fragrances
+    }
+  </h2>
   <div class="products-grid four-in-row">
     @for (product of filteredProducts; track product.name) {
-      <div class="product-card">
-        <img [src]="product.images[0]" [alt]="product.name" (click)="openModal(product)" style="cursor:pointer;" />
-        <h3>{{ product.name }}</h3>
-        <div class="product-pricing">
-          <span class="price">{{ product.price }}</span>
-          <span class="old" *ngIf="product.old">{{ product.old }}</span>
-        </div>
-        <button class="add-to-bag" (click)="$event.stopPropagation(); addToCart(product)">Add to Cart</button>
+    <div class="product-card">
+      <img [src]="product.images[0]" [alt]="product.name" (click)="openModal(product)" style="cursor:pointer;" />
+      <h3>{{ product.name }}</h3>
+      <div class="product-pricing">
+        <span class="price">{{ product.price }}</span>
+        <span class="old" *ngIf="product.old">{{ product.old }}</span>
       </div>
+      <button class="add-to-bag" (click)="$event.stopPropagation(); addToCart(product)">Add to Cart</button>
+    </div>
     }
   </div>
 </section>
@@ -41,12 +48,9 @@
     <div class="modal-image">
       <img [src]="selectedProduct.images[selectedImageIndex]" [alt]="selectedProduct.name" />
       <div class="modal-thumbnails">
-        <img *ngFor="let img of selectedProduct.images; let idx = index"
-             [src]="img"
-             [alt]="selectedProduct.name + ' thumbnail ' + (idx+1)"
-             [class.selected-thumb]="selectedImageIndex === idx"
-             (click)="selectedImageIndex = idx"
-        />
+        <img *ngFor="let img of selectedProduct.images; let idx = index" [src]="img"
+          [alt]="selectedProduct.name + ' thumbnail ' + (idx+1)" [class.selected-thumb]="selectedImageIndex === idx"
+          (click)="selectedImageIndex = idx" />
       </div>
     </div>
     <div class="modal-details">
@@ -55,7 +59,8 @@
       <div class="modal-rating">
         <ng-container *ngIf="selectedProduct.rating as rating">
           <span *ngFor="let star of [1,2,3,4,5]; let i = index">
-            <span [ngClass]="{'star-filled': i < getFloor(rating), 'star-half': i === getFloor(rating) && rating % 1 >= 0.5}">&#9733;</span>
+            <span
+              [ngClass]="{'star-filled': i < getFloor(rating), 'star-half': i === getFloor(rating) && rating % 1 >= 0.5}">&#9733;</span>
           </span>
           <span class="rating-value">{{ rating }}</span>
         </ng-container>
@@ -71,4 +76,3 @@
     </div>
   </div>
 </div>
-
