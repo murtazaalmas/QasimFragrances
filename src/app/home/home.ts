@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { NgIf, NgFor, NgClass } from '@angular/common';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-home',
@@ -11,109 +12,19 @@ import { NgIf, NgFor, NgClass } from '@angular/common';
 export class Home {
   @Input() selectedCategory: string = 'All';
   @Output() addToCart = new EventEmitter<any>();
-  products = [
-    {
-      images: ['/images/1.webp', '/images/2.webp', '/images/3.webp'],
-      name: 'HAIDER',
-      price: 'PKR 3,992',
-      old: 'PKR 4,990',
-      rating: 4.5,
-      notes: 'Top notes: Citrus, Heart: Jasmine, Base: Musk',
-      category: 'New'
-    },
-    {
-      images: ['/images/4.webp', '/images/5.webp', '/images/6.webp'],
-      name: 'JALAL',
-      price: 'PKR 3,490',
-      rating: 4.0,
-      notes: 'Top notes: Bergamot, Heart: Rose, Base: Amber',
-      category: 'New'
-    },
-    {
-      images: ['/images/7.webp', '/images/8.webp', '/images/19.webp'],
-      name: 'MIR',
-      price: 'PKR 5,121',
-      old: 'PKR 5,690',
-      rating: 4.8,
-      notes: 'Top notes: Lavender, Heart: Sandalwood, Base: Vanilla',
-      category: 'New'
-    },
-    {
-      images: ['/images/10.webp', '/images/11.webp', '/images/12.webp'],
-      name: 'DURVESH',
-      price: 'PKR 6,200',
-      rating: 4.2,
-      notes: 'Top notes: Apple, Heart: Peony, Base: Cedarwood',
-      category: 'Men'
-    },
-    {
-      images: ['/images/13.webp', '/images/14.webp', '/images/15.webp'],
-      name: 'Ishq',
-      price: 'PKR 4,490',
-      rating: 4.2,
-      notes: 'Top notes: Apple, Heart: Peony, Base: Cedarwood',
-      category: 'Men'
-    },
-    {
-      images: ['/images/16.webp', '/images/16.webp', '/images/16.webp'],
-      name: 'DURVESH',
-      price: 'PKR 6,200',
-      rating: 4.2,
-      notes: 'Top notes: Apple, Heart: Peony, Base: Cedarwood',
-      category: 'Men'
-    },
-    {
-      images: ['/images/17.webp', '/images/17.webp', '/images/17.webp'],
-      name: 'DURVESH',
-      price: 'PKR 6,200',
-      rating: 4.2,
-      notes: 'Top notes: Apple, Heart: Peony, Base: Cedarwood',
-      category: 'Women'
-    },
-    {
-      images: ['/images/18.webp', '/images/18.webp', '/images/18.webp'],
-      name: 'DURVESH',
-      price: 'PKR 6,200',
-      rating: 4.2,
-      notes: 'Top notes: Apple, Heart: Peony, Base: Cedarwood',
-      category: 'Women'
-    },
-    {
-      images: ['/images/19.webp', '/images/19.webp', '/images/19.webp'],
-      name: 'DURVESH',
-      price: 'PKR 6,200',
-      rating: 4.2,
-      notes: 'Top notes: Apple, Heart: Peony, Base: Cedarwood',
-      category: 'Kids'
-    },
-    {
-      images: ['/images/20.webp', '/images/20.webp', '/images/20.webp'],
-      name: 'DURVESH',
-      price: 'PKR 6,200',
-      rating: 4.2,
-      notes: 'Top notes: Apple, Heart: Peony, Base: Cedarwood',
-      category: 'Kids'
-    },
-    {
-      images: ['/images/21.webp', '/images/22.webp', '/images/23.webp'],
-      name: 'DURVESH',
-      price: 'PKR 6,200',
-      rating: 4.2,
-      notes: 'Top notes: Apple, Heart: Peony, Base: Cedarwood',
-      category: 'Sale'
-    },
-    {
-      images: ['/images/24.webp', '/images/25.webp', '/images/26.webp'],
-      name: 'DURVESH',
-      price: 'PKR 6,200',
-      rating: 4.2,
-      notes: 'Top notes: Apple, Heart: Peony, Base: Cedarwood',
-      category: 'Sale'
-    },
-  ];
+  products: any[] = [];
 
+  public searchTerm: string = '';
   selectedProduct: any = null;
   selectedImageIndex: number = 0;
+
+  constructor(private productService: ProductService) {
+    this.products = this.productService.products;
+  }
+
+  get isSearching() {
+    return this.searchTerm && this.searchTerm.trim() !== '';
+  }
 
   openModal(product: any) {
     this.selectedProduct = product;
@@ -141,14 +52,19 @@ export class Home {
   }
 
   get filteredProducts() {
-    if (!this.selectedCategory || this.selectedCategory === 'All') {
-      return this.products;
+    let filtered = this.products;
+    if (this.selectedCategory && this.selectedCategory !== 'All') {
+      filtered = filtered.filter(p => p.category === this.selectedCategory);
     }
-    return this.products.filter(p => p.category === this.selectedCategory);
+    if (this.searchTerm && this.searchTerm.trim() !== '') {
+      const term = this.searchTerm.trim().toLowerCase();
+      filtered = filtered.filter(p => p.name.toLowerCase().includes(term));
+    }
+    return filtered;
   }
 
   get showHero() {
-    return !this.selectedCategory || this.selectedCategory === 'All' ;
+    return (!this.selectedCategory || this.selectedCategory === 'All') && !this.isSearching;
   }
 
   setCategory(category: string) {
