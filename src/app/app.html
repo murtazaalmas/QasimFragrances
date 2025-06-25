@@ -1,8 +1,5 @@
 <app-navbar #navbar [cartCount]="cartCount" (cartSidebar)="openCartSidebar()"
   (addToCartSuccess)="showNotification('Added to cart')"></app-navbar>
-<div *ngIf="!navbar.searchTerm || navbar.searchTerm.trim() === ''">
-  <app-home *ngIf="router.url === '/'" [selectedCategory]="selectedCategory" (addToCartSuccess)="showNotification('Added to cart')"></app-home>
-</div>
 <router-outlet></router-outlet>
 <div *ngIf="notification" class="notification-toast">{{ notification }}</div>
 <!-- Right Sidebar Cart -->
