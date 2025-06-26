@@ -1,10 +1,10 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { NgIf, NgFor } from '@angular/common';
+import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-invoice',
   standalone: true,
-  imports: [NgIf, NgFor],
+  imports: [NgFor],
   templateUrl: './invoice.html',
   styleUrl: './invoice.css'
 })
