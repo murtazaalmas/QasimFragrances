@@ -8,7 +8,7 @@ import { Invoice } from './invoice/invoice';
 
 @Component({
   selector: 'app-root',
-  imports: [Navbar, NgIf, NgFor, RouterOutlet, Invoice],
+  imports: [Navbar, Home, NgIf, NgFor, RouterOutlet, Invoice],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
