@@ -19,6 +19,22 @@ export class Home {
   selectedProduct: any = null;
   selectedImageIndex: number = 0;
 
+  heroSlides = [
+    {
+      image: '/images/home1-slide1-img.png',
+      title: 'Discover Signature Scents',
+      description: 'Explore our exclusive collection of luxury perfumes crafted for every personality. Find your new signature fragrance today.',
+      button: 'SHOP PERFUMES'
+    },
+    {
+      image: '/images/home1-slide5-img1-2.png',
+      title: 'Unforgettable Aromas',
+      description: 'Indulge in captivating aromas for men and women. Premium ingredients, long-lasting impressions.',
+      button: 'BROWSE COLLECTION'
+    }
+  ];
+  heroSliderIndex = 0;
+
   constructor(private productService: ProductService, private cartService: CartService) {
     this.products = this.productService.products;
   }
@@ -76,5 +92,13 @@ export class Home {
     this.cartService.addToCart(product);
     this.addToCartSuccess.emit();
     console.log('Cart Items:', this.cartService.cartItems);
+  }
+
+  nextHeroImage() {
+    this.heroSliderIndex = (this.heroSliderIndex + 1) % this.heroSlides.length;
+  }
+
+  prevHeroImage() {
+    this.heroSliderIndex = (this.heroSliderIndex - 1 + this.heroSlides.length) % this.heroSlides.length;
   }
 }

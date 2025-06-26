@@ -1,3 +1,17 @@
+<section class="hero">
+  <div class="nav left" (click)="prevHeroImage()">PREVIOUS</div>
+  <div class="content">
+    <h1>{{ heroSlides[heroSliderIndex].title }}</h1>
+    <p>
+      {{ heroSlides[heroSliderIndex].description }}
+    </p>
+    <button>{{ heroSlides[heroSliderIndex].button }}</button>
+  </div>
+  <div class="images">
+    <img *ngFor="let slide of heroSlides; let i = index" class="slider" [src]="slide.image" [class.active]="i === heroSliderIndex" [style.display]="i === heroSliderIndex ? 'block' : 'none'" />
+  </div>
+  <div class="nav right" (click)="nextHeroImage()">NEXT</div>
+</section>
 <section class="home-categories-nav">
   <ul>
     <li (click)="setCategory('All')" [ngClass]="{active: selectedCategory === 'All'}">All</li>
@@ -8,17 +22,6 @@
     <li (click)="setCategory('Sale')" [ngClass]="{active: selectedCategory === 'Sale'}">Sale</li>
   </ul>
 </section>
-
-<section class="hero" *ngIf="showHero">
-  <div class="hero__content">
-    <h1>Discover Your Signature Scent</h1>
-    <p>Shop the latest and most popular fragrances for men, women, and kids. Find gift sets and scented candles to
-      elevate every moment.</p>
-    <a href="#" class="hero__cta">Shop All</a>
-  </div>
-  <img class="hero__img" src="/images/main.webp" alt="Fragrance Banner" />
-</section>
-
 <section class="featured-products">
   <h2>
     @if (selectedCategory === 'All') {
@@ -69,7 +72,8 @@
         <span class="price">{{ selectedProduct.price }}</span>
         <span class="old" *ngIf="selectedProduct.old">{{ selectedProduct.old }}</span>
       </div>
-      <button class="add-to-bag-modal" (click)="$event.stopPropagation(); addToCart(selectedProduct)">Add to Cart</button>
+      <button class="add-to-bag-modal" (click)="$event.stopPropagation(); addToCart(selectedProduct)">Add to
+        Cart</button>
       <div class="modal-notes">
         <strong>Notes:</strong> {{ selectedProduct.notes }}
       </div>
