@@ -1,10 +1,7 @@
 <app-navbar #navbar [cartCount]="cartCount" (cartSidebar)="openCartSidebar()"
   (addToCartSuccess)="showNotification('Added to cart')"></app-navbar>
-<div *ngIf="navbar.searchTerm  == ''">
-  <!-- <app-home *ngIf="router.url === '/'" [selectedCategory]="selectedCategory" (addToCartSuccess)="showNotification('Added to cart')"></app-home> -->
-  <router-outlet></router-outlet>
-
-</div>
+<app-home *ngIf="router.url === '/' && navbar.searchTerm == ''" [selectedCategory]="selectedCategory" (addToCartSuccess)="showNotification('Added to cart')"></app-home>
+<router-outlet *ngIf="router.url !== '/'"></router-outlet>
 <div *ngIf="notification" class="notification-toast">{{ notification }}</div>
 <!-- Right Sidebar Cart -->
 <div class="cart-sidebar-backdrop" *ngIf="showCartSidebar" (click)="closeCartSidebar()">
@@ -21,7 +18,7 @@
           <div>Qty: {{ item.qty }}</div>
           <div>Price: {{ item.price }}</div>
           <button class="remove-cart-item" (click)="removeFromCart(item)" aria-label="Remove">&times;</button>
-      </div>
+        </div>
       </div>
       <div class="cart-sidebar-total">Total: PKR {{ cartTotal }}</div>
       <button class="checkout-btn" *ngIf="cartItems.length" (click)="openInvoice()">Proceed to Checkout</button>
@@ -30,5 +27,5 @@
       <div class="cart-sidebar-empty">Your bag is empty.</div>
     </ng-template>
   </aside>
-  </div>
+</div>
 <app-invoice *ngIf="showInvoice" [cartItems]="cartItems" [cartTotal]="cartTotal" (close)="closeInvoice()"></app-invoice>
