@@ -18,7 +18,7 @@
           <div>Qty: {{ item.qty }}</div>
           <div>Price: {{ item.price }}</div>
           <button class="remove-cart-item" (click)="removeFromCart(item)" aria-label="Remove">&times;</button>
-        </div>
+      </div>
       </div>
       <div class="cart-sidebar-total">Total: PKR {{ cartTotal }}</div>
       <button class="checkout-btn" *ngIf="cartItems.length" (click)="openInvoice()">Proceed to Checkout</button>
@@ -27,5 +27,5 @@
       <div class="cart-sidebar-empty">Your bag is empty.</div>
     </ng-template>
   </aside>
-</div>
+  </div>
 <app-invoice *ngIf="showInvoice" [cartItems]="cartItems" [cartTotal]="cartTotal" (close)="closeInvoice()"></app-invoice>

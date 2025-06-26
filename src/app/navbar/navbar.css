@@ -256,3 +256,40 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+.search-input-wrapper {
+  position: relative;
+  display: inline-block;
+}
+.search-input {
+  padding: 0.6rem 2.2rem 0.6rem 1rem;
+  font-size: 1rem;
+  border: 1.5px solid #e60023;
+  border-radius: 8px;
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+  background: #faf7f7;
+  color: #222;
+  box-shadow: 0 1px 4px rgba(230,0,35,0.07);
+}
+.search-input:focus {
+  border-color: #b8001a;
+  background: #fff;
+}
+.clear-search {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.1rem;
+  color: #888;
+  cursor: pointer;
+  background: #fff;
+  border-radius: 50%;
+  padding: 2px 4px;
+  transition: background 0.2s, color 0.2s;
+}
+.clear-search:hover {
+  background: #eee;
+  color: #e60023;
+}

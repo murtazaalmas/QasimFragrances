@@ -24,7 +24,12 @@
 
   <div class="right-icons">
     <i class="fa-solid fa-magnifying-glass" (click)="toggleSearchInput()"></i>
-    <input *ngIf="showSearchInput" class="search-input" type="text" [(ngModel)]="searchTerm" (input)="onSearchChange()" placeholder="Search products..." autofocus />
+    <div class="search-input-wrapper" *ngIf="showSearchInput">
+      <input class="search-input" type="text" [(ngModel)]="searchTerm" (input)="onSearchChange()" placeholder="Search products..." autofocus />
+      <span *ngIf="searchTerm" class="clear-search" (click)="searchTerm = ''">
+        <i class="fa-solid fa-xmark"></i>
+      </span>
+    </div>
     <i class="fa-solid fa-truck"></i>
     <div class="cart-icon" (click)="onCartClick()">
       <i class="fa-solid fa-cart-shopping"></i>
