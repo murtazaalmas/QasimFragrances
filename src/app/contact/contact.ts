@@ -15,7 +15,28 @@ export class Contact {
   submitted = false;
 
   submitForm() {
-    this.submitted = true;
-    // Here you would send the form data to your backend or email service
+    fetch('http://localhost:8000/api/contact/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: this.name,
+        email: this.email,
+        subject: 'Contact Form',
+        message: this.message
+      })
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          this.submitted = true;
+        } else {
+          alert('There was an error sending your message.');
+        }
+      })
+      .catch(() => {
+        alert('There was an error sending your message.');
+      });
   }
 } 
