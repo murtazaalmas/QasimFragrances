@@ -65,6 +65,7 @@ export class App implements OnInit {
 
   openInvoice() {
     this.showInvoice = true;
+    this.closeCartSidebar();
   }
 
   closeInvoice() {
