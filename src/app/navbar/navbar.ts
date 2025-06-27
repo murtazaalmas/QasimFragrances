@@ -19,6 +19,9 @@ export class Navbar {
   showSearchInput = false;
   searchTerm = '';
   products: any[] = [];
+  showLoginPopup = false;
+  loginUsername = '';
+  loginPassword = '';
 
   constructor(private router: Router, private productService: ProductService, private cartService: CartService) {
     this.products = this.productService.products;
@@ -73,5 +76,22 @@ export class Navbar {
   addToCart(product: any) {
     this.cartService.addToCart(product);
     this.addToCartSuccess.emit();
+  }
+
+  toggleLoginPopup() {
+    this.showLoginPopup = !this.showLoginPopup;
+  }
+
+  closeLoginPopup() {
+    this.showLoginPopup = false;
+  }
+
+  onLoginSubmit() {
+    // For now, just close the popup and clear fields
+    this.showLoginPopup = false;
+    this.loginUsername = '';
+    this.loginPassword = '';
+    // Add actual login logic here if needed
+    return false; // Prevent default form submission
   }
 }

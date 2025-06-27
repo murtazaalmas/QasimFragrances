@@ -31,6 +31,7 @@
       </span>
     </div>
     <i class="fa-solid fa-truck"></i>
+    <i class="fa-solid fa-user" (click)="toggleLoginPopup()"></i>
     <div class="cart-icon" (click)="onCartClick()">
       <i class="fa-solid fa-cart-shopping"></i>
       <span class="badge">{{ cartCount }}</span>
@@ -61,4 +62,22 @@
       </ng-template>
     </div>
   </section>
+</div>
+
+<div *ngIf="showLoginPopup" class="login-popup-backdrop" (click)="closeLoginPopup()">
+  <div class="login-popup" (click)="$event.stopPropagation()">
+    <button class="close-btn" (click)="closeLoginPopup()">&times;</button>
+    <h3>Login</h3>
+    <form (submit)="onLoginSubmit()">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input id="username" type="text" [(ngModel)]="loginUsername" name="username" required />
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input id="password" type="password" [(ngModel)]="loginPassword" name="password" required />
+      </div>
+      <button type="submit" class="login-btn">Login</button>
+    </form>
+  </div>
 </div>
