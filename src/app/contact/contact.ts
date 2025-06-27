@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 export class Contact {
   name = '';
   email = '';
+  subject = '';
   message = '';
   submitted = false;
 
@@ -23,7 +24,7 @@ export class Contact {
       body: JSON.stringify({
         name: this.name,
         email: this.email,
-        subject: 'Contact Form',
+        subject: this.subject,
         message: this.message
       })
     })

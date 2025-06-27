@@ -5,10 +5,11 @@ import { NgIf, NgFor } from '@angular/common';
 import { RouterOutlet, Router } from '@angular/router';
 import { CartService } from './cart.service';
 import { Invoice } from './invoice/invoice';
+import { Footer } from './footer/footer';
 
 @Component({
   selector: 'app-root',
-  imports: [Navbar, Home, NgIf, NgFor, RouterOutlet, Invoice],
+  imports: [Navbar, Home, NgIf, NgFor, RouterOutlet, Invoice, Footer],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
