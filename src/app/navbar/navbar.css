@@ -153,18 +153,79 @@ body {
 }
 
 @media (max-width: 600px) {
-  .top-bar, .main-nav {
+  .top-bar {
+    position: static;
+    top: unset;
+    z-index: unset;
     flex-direction: column;
-    align-items: stretch;
-    padding: 8px 4px;
-    gap: 15px;
-  }
-  .main-nav ul {
-    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 2vw;
     gap: 8px;
   }
-  .logo i {
-    font-size: 32px;
+  .left-icons,
+  .right-icons {
+    display: none !important;
+  }
+  .desktop-only {
+    display: none !important;
+  }
+  .mobile-hamburger {
+    display: block;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    z-index: 120;
+  }
+  .logo {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+  }
+  .icon-text, .right-icons i, .cart-icon {
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 50%;
+    background: #fafafa;
+    margin: 2px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .brand-name {
+    font-size: 1.1rem;
+    margin-left: 0.5rem;
+  }
+  .search-input-wrapper {
+    width: 100%;
+  }
+  .login-popup {
+    min-width: 90vw;
+    padding: 1.2rem 1rem 1rem 1rem;
+  }
+}
+@media (max-width: 400px) {
+  .top-bar {
+    padding: 4px 1vw;
+  }
+  .login-popup {
+    min-width: 98vw;
+    padding: 0.7rem 0.3rem 0.7rem 0.3rem;
+  }
+}
+@media (min-width: 601px) {
+  .mobile-hamburger {
+    display: none !important;
   }
 }
 
@@ -382,4 +443,143 @@ body {
 
 .close-btn:hover {
   color: #e60023;
+}
+
+/* Mobile menu styles (side drawer) */
+.mobile-menu-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.25);
+  z-index: 2000;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+.mobile-menu {
+  background: #fff;
+  width: 80vw;
+  max-width: 320px;
+  height: 100vh;
+  box-shadow: -2px 0 16px rgba(0,0,0,0.12);
+  padding: 2rem 1.2rem 1.2rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  animation: slideInMenu 0.25s cubic-bezier(.4,0,.2,1);
+}
+@keyframes slideInMenu {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+.mobile-menu-option {
+  font-size: 1.2rem;
+  padding: 1rem 0.5rem;
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 0.7rem;
+  color: #222;
+  background: #f7f7f7;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.mobile-menu-option:hover {
+  background: #e60023;
+  color: #fff;
+}
+.mobile-menu .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #888;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.mobile-menu .close-btn:hover {
+  color: #e60023;
+}
+
+.mobile-search-input-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 0.5rem 0;
+}
+.mobile-search-input-wrapper .search-input {
+  flex: 1;
+  padding: 0.7rem 1rem;
+  border: 1.5px solid #e60023;
+  border-radius: 0.7rem;
+  font-size: 1.1rem;
+  outline: none;
+  margin-right: 0.5rem;
+}
+.mobile-search-input-wrapper .clear-search {
+  color: #e60023;
+  font-size: 1.3rem;
+  cursor: pointer;
+  margin-left: 0.2rem;
+  transition: color 0.2s;
+}
+.mobile-search-input-wrapper .clear-search:hover {
+  color: #b8001a;
+}
+.mobile-search-input-wrapper .search-icon {
+  color: #e60023;
+  font-size: 1.3rem;
+  margin-right: 0.5rem;
+  background: #f7f7f7;
+  border-radius: 50%;
+  padding: 0.5rem;
+  box-shadow: 0 1px 4px rgba(230,0,35,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, color 0.2s;
+}
+.mobile-search-input-wrapper .search-icon:hover {
+  background: #e60023;
+  color: #fff;
+}
+
+.input-relative-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.input-relative-wrapper .search-input {
+  width: 100%;
+  padding-right: 2.2rem;
+}
+.input-relative-wrapper .clear-search {
+  position: absolute;
+  right: 0.7rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #e60023;
+  font-size: 1.3rem;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 1.8rem;
+  width: 1.8rem;
+  transition: color 0.2s;
+}
+.input-relative-wrapper .clear-search:hover {
+  color: #b8001a;
 }

@@ -89,10 +89,24 @@
 }
 @media (max-width: 600px) {
   .reviews-section {
-    padding: 0.7rem;
+    padding: 0.5rem 2vw;
+    margin: 1rem 0.2rem;
   }
   .review-card {
-    padding: 0.7rem 0.5rem;
+    padding: 0.5rem 0.3rem;
+    font-size: 0.98rem;
+  }
+  .review-avatar {
+    width: 30px;
+    height: 30px;
+  }
+  .review-rating {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 400px) {
+  .reviews-section {
+    padding: 0.2rem 0.5vw;
   }
 }
 

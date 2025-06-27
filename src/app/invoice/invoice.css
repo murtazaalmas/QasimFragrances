@@ -81,4 +81,30 @@
 }
 .pay-btn.cod:hover {
   background: #b8001b;
+}
+
+/* --- Mobile Enhancements --- */
+@media (max-width: 600px) {
+  .invoice-popup {
+    min-width: 98vw;
+    padding: 1rem 0.5rem;
+    max-width: 100vw;
+  }
+  .invoice-table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    font-size: 0.98rem;
+  }
+  .pay-btn {
+    width: 100%;
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+    padding: 1.1rem 0;
+  }
+}
+@media (max-width: 400px) {
+  .invoice-popup {
+    padding: 0.5rem 0.1rem;
+  }
 } 

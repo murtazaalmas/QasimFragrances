@@ -2,7 +2,14 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
 -->
 <header class="top-bar">
-  <div class="left-icons">
+  <div class="mobile-hamburger" (click)="toggleMobileMenu()">
+    <i class="fa-solid fa-bars"></i>
+  </div>
+  <div class="logo">
+    <i class="fa-solid fa-leaf fa-2x" style="color: #e60023;"></i>
+    <span class="brand-name">Q Fragrance</span>
+  </div>
+  <div class="left-icons desktop-only">
     <div class="icon-text" (click)="goHome()" [ngClass]="{active: isActive('/')}" >
       <i class="fa-solid fa-house"></i>
       <span>Home</span>
@@ -16,13 +23,7 @@
       <span>Contact</span>
     </div>
   </div>
-
-  <div class="logo">
-    <i class="fa-solid fa-leaf fa-2x" style="color: #e60023;"></i>
-    <span class="brand-name">Q Fragrance</span>
-  </div>
-
-  <div class="right-icons">
+  <div class="right-icons desktop-only">
     <i class="fa-solid fa-magnifying-glass" (click)="toggleSearchInput()"></i>
     <div class="search-input-wrapper" *ngIf="showSearchInput">
       <input class="search-input" type="text" [(ngModel)]="searchTerm" (input)="onSearchChange()" placeholder="Search products..." autofocus />
@@ -36,9 +37,46 @@
       <i class="fa-solid fa-cart-shopping"></i>
       <span class="badge">{{ cartCount }}</span>
     </div>
-   
   </div>
 </header>
+
+<div *ngIf="showMobileMenu" class="mobile-menu-backdrop" (click)="toggleMobileMenu()">
+  <div class="mobile-menu" (click)="$event.stopPropagation()">
+    <button class="close-btn" (click)="toggleMobileMenu()">&times;</button>
+    <div class="mobile-menu-option" (click)="goHome(); toggleMobileMenu()">
+      <i class="fa-solid fa-house"></i> Home
+    </div>
+    <div class="mobile-menu-option" (click)="goReviews(); toggleMobileMenu()">
+      <i class="fa-solid fa-star"></i> Reviews
+    </div>
+    <div class="mobile-menu-option" (click)="goContact(); toggleMobileMenu()">
+      <i class="fa-solid fa-envelope"></i> Contact
+    </div>
+    <div *ngIf="showSearchInput" class="mobile-menu-option mobile-search-input-wrapper">
+      <i class="fa-solid fa-magnifying-glass search-icon" (click)="toggleSearchInput()"></i>
+      <div class="input-relative-wrapper">
+        <input class="search-input" type="text" [(ngModel)]="searchTerm" (input)="onSearchChange()" placeholder="Search products..." autofocus />
+        <span *ngIf="searchTerm" class="clear-search" (click)="searchTerm = ''">
+          <i class="fa-solid fa-xmark"></i>
+        </span>
+      </div>
+    </div>
+    <div *ngIf="!showSearchInput" class="mobile-menu-option">
+      <div  (click)="toggleSearchInput();">
+        <i class="fa-solid fa-magnifying-glass"></i> Search
+      </div>
+    </div>
+    <div class="mobile-menu-option" (click)="onTrackOrder(); toggleMobileMenu()">
+      <i class="fa-solid fa-truck"></i> Track Order
+    </div>
+    <div class="mobile-menu-option" (click)="toggleLoginPopup(); toggleMobileMenu()">
+      <i class="fa-solid fa-user"></i> Login
+    </div>
+    <div class="mobile-menu-option" (click)="onCartClick(); toggleMobileMenu()">
+      <i class="fa-solid fa-cart-shopping"></i> Cart
+    </div>
+  </div>
+</div>
 
 <div *ngIf="searchTerm && searchTerm.trim() !== ''" class="navbar-search-results">
   <section class="featured-products">

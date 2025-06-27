@@ -22,6 +22,7 @@ export class Navbar {
   showLoginPopup = false;
   loginUsername = '';
   loginPassword = '';
+  showMobileMenu = false;
 
   constructor(private router: Router, private productService: ProductService, private cartService: CartService) {
     this.products = this.productService.products;
@@ -93,5 +94,14 @@ export class Navbar {
     this.loginPassword = '';
     // Add actual login logic here if needed
     return false; // Prevent default form submission
+  }
+
+  toggleMobileMenu() {
+    this.showMobileMenu = !this.showMobileMenu;
+  }
+
+  onTrackOrder() {
+    // Placeholder: navigate to tracking page or show a popup
+    alert('Track Order feature coming soon!');
   }
 }

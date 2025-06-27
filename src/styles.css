@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Global mobile enhancements */
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  background: #fafafa;
+  color: #222;
+  margin: 0;
+  padding: 0;
+}
+@media (max-width: 600px) {
+  html {
+    font-size: 15px;
+  }
+  body {
+    padding: 0 2vw;
+  }
+}
+@media (max-width: 400px) {
+  html {
+    font-size: 14px;
+  }
+  body {
+    padding: 0 1vw;
+  }
+}

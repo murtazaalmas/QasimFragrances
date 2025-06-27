@@ -294,29 +294,44 @@ button:hover {
   }
 }
 
+/* --- Mobile Enhancements --- */
 @media (max-width: 600px) {
   .hero {
-    padding: 1rem 0.5rem;
-    border-radius: 1rem;
+    flex-direction: column;
+    height: auto;
+    padding: 16px 2vw;
   }
-  .hero__content h1 {
-    font-size: 1.5rem;
+  .content {
+    max-width: 100%;
+    text-align: center;
+    padding: 16px 4px;
   }
-  .featured-products h2, .categories h2 {
-    font-size: 1.2rem;
+  .images {
+    width: 100%;
+    min-height: 180px;
+    margin-top: 10px;
   }
-  .products-grid {
-    gap: 1rem;
+  .dropper, .bottle {
+    height: 90px;
+    margin: 0 4px;
   }
-  .category-card {
-    min-width: 90px;
-    max-width: 120px;
-    font-size: 0.95rem;
-    padding: 0.7rem 0.5rem 0.3rem 0.5rem;
+  .products-grid, .categories-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.2rem;
   }
-  .category-card img {
-    width: 48px;
-    height: 48px;
+  .product-card, .category-card {
+    width: 100%;
+    min-width: 0;
+    margin: 0 auto;
+    padding: 0.7rem 0.5rem;
+  }
+}
+@media (max-width: 400px) {
+  .hero {
+    padding: 8px 1vw;
+  }
+  .content h1 {
+    font-size: 2rem;
   }
 }
 

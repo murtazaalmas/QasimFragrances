@@ -97,4 +97,37 @@
   .contact-info {
     margin-top: 0.5rem;
   }
+}
+
+/* --- Mobile Enhancements --- */
+@media (max-width: 600px) {
+  .contact-section {
+    padding: 0.7rem 2vw;
+    margin: 1rem 0.2rem;
+  }
+  .contact-content {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    font-size: 1.05rem;
+    padding: 1rem 0.7rem;
+  }
+  .contact-form button {
+    width: 100%;
+    font-size: 1.1rem;
+    padding: 1.1rem 0;
+  }
+  .contact-info {
+    margin-top: 0.7rem;
+    font-size: 1rem;
+    padding: 0.8rem 0.7rem;
+  }
+}
+@media (max-width: 400px) {
+  .contact-section {
+    padding: 0.3rem 0.5vw;
+  }
 } 
