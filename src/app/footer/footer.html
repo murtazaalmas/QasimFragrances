@@ -1,0 +1,81 @@
+<footer class="footer">
+  <div class="footer-content">
+    <!-- Company Info Section -->
+    <div class="footer-section">
+      <div class="footer-logo">
+        <i class="fa-solid fa-leaf fa-2x" style="color: #e60023;"></i>
+        <span class="brand-name">Q Fragrance</span>
+      </div>
+      <p class="company-description">
+        Discover the finest collection of fragrances that tell your unique story. 
+        Premium quality perfumes for every occasion and personality.
+      </p>
+      <div class="social-links">
+        <a href="https://www.instagram.com/attractionperfume007/" target="_blank" class="social-link">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="#" class="social-link">
+          <i class="fa-brands fa-facebook"></i>
+        </a>
+        <a href="#" class="social-link">
+          <i class="fa-brands fa-twitter"></i>
+        </a>
+        <a href="#" class="social-link">
+          <i class="fa-brands fa-youtube"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Quick Links Section -->
+    <div class="footer-section">
+      <h3>Quick Links</h3>
+      <ul class="footer-links">
+        <li><a (click)="goHome()" class="footer-link">Home</a></li>
+        <li><a (click)="goReviews()" class="footer-link">Reviews</a></li>
+        <li><a (click)="goContact()" class="footer-link">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Info Section -->
+    <div class="footer-section">
+      <h3>Contact Info</h3>
+      <div class="contact-info">
+        <div class="contact-item">
+          <i class="fa-solid fa-location-dot"></i>
+          <span>Shop 36,37, Hassan Center, Hall Road, Lahore, Pakistan</span>
+        </div>
+        <div class="contact-item">
+          <i class="fa-solid fa-phone"></i>
+          <a href="tel:+923476833344" class="contact-link">+92 347 6833344</a>
+        </div>
+        <div class="contact-item">
+          <i class="fa-solid fa-envelope"></i>
+          <a href="mailto:MuhammadQasimmail.com" class="contact-link">MuhammadQasimmail.com</a>
+        </div>
+        
+      </div>
+    </div>
+
+    <!-- Newsletter Section -->
+    <div class="footer-section">
+      <h3>Newsletter</h3>
+      <p>Subscribe to get special offers and updates</p>
+      <div class="newsletter-form">
+        <input type="email" placeholder="Enter your email" class="newsletter-input" />
+        <button class="newsletter-btn">
+          <i class="fa-solid fa-paper-plane"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Footer -->
+  <div class="footer-bottom">
+    <div class="footer-bottom-content">
+      <p>&copy; {{ currentYear }} Q Fragrance. All rights reserved.</p>
+      <button class="scroll-to-top" (click)="scrollToTop()">
+        <i class="fa-solid fa-arrow-up"></i>
+      </button>
+    </div>
+  </div>
+</footer> 
