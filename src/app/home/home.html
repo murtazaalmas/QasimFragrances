@@ -36,8 +36,9 @@
       <img [src]="product.images[0]" [alt]="product.name" (click)="openModal(product)" style="cursor:pointer;" />
       <h3>{{ product.name }}</h3>
       <div class="product-pricing">
-        <span class="price">{{ product.price }}</span>
         <span class="old" *ngIf="product.old">{{ product.old }}</span>
+
+        <span class="price">{{ product.price }}</span>
       </div>
       <button class="add-to-bag" (click)="$event.stopPropagation(); addToCart(product)">Add to Cart</button>
     </div>
