@@ -165,16 +165,20 @@ button:hover {
   }
 }
 .product-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 270px;
+  height: 100%;
+  box-sizing: border-box;
+  text-align: center;
   background: #fff;
   border-radius: 1rem;
   box-shadow: 0 2px 12px rgba(230,0,35,0.08);
   padding: 1.2rem 1.1rem 1.2rem 1.1rem;
-  text-align: center;
   transition: box-shadow 0.2s, transform 0.2s;
   position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 .product-card:hover {
   box-shadow: 0 6px 24px rgba(230,0,35,0.16);
@@ -182,20 +186,24 @@ button:hover {
 }
 .product-card img {
   width: 100%;
-  /* max-width: 220px; */
-  height: 350px;
   object-fit: cover;
-  margin-bottom: 1.1rem;
-  margin-top: 0.5rem;
   border-radius: 0.7rem;
   box-shadow: 0 1px 6px rgba(230,0,35,0.07);
+  margin-bottom: 0.5rem;
+  margin-top: 0.2rem;
+  display: block;
 }
 .product-card h3 {
   font-size: 1.13rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.3rem;
   color: #222;
   font-weight: 600;
   margin-top: 0.2rem;
+  min-height: 2.2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 .product-pricing {
   display: flex;
@@ -203,6 +211,8 @@ button:hover {
   justify-content: center;
   gap: 0.7rem;
   margin-bottom: 0.2rem;
+  margin-top: auto;
+  width: 100%;
 }
 .product-pricing .price {
   color: #e60023;
@@ -215,6 +225,10 @@ button:hover {
   font-size: 1rem;
 }
 .add-to-bag {
+  margin-top: auto;
+  width: 100%;
+  align-self: center;
+  text-align: center;
   background: transparent;
   color: #e60023;
   border: 2px solid #e60023;
@@ -225,7 +239,6 @@ button:hover {
   cursor: pointer;
   transition: background 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   box-shadow: 0 1px 4px rgba(230,0,35,0.10);
-  margin-top: 1rem;
 }
 .add-to-bag:hover {
   background: #e60023;
@@ -315,15 +328,31 @@ button:hover {
     height: 90px;
     margin: 0 4px;
   }
-  .products-grid, .categories-grid {
-    grid-template-columns: 1fr !important;
-    gap: 1.2rem;
+  .products-grid,
+  .products-grid.four-in-row {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1rem 0.7rem;
   }
-  .product-card, .category-card {
-    width: 100%;
-    min-width: 0;
-    margin: 0 auto;
-    padding: 0.7rem 0.5rem;
+  .product-card {
+    padding: 0.6rem 0.3rem 0.8rem 0.3rem;
+    margin: 0.2rem;
+  }
+  .product-card img {
+    height: 140px;
+    margin-bottom: 0.5rem;
+    margin-top: 0.2rem;
+  }
+  .product-card h3 {
+    font-size: 0.98rem;
+    margin-bottom: 0.3rem;
+  }
+  .product-pricing .price {
+    font-size: 1rem;
+  }
+  .add-to-bag {
+    font-size: 0.95rem;
+    padding: 0.5rem 0;
+    margin-top: 0.5rem;
   }
 }
 @media (max-width: 400px) {
