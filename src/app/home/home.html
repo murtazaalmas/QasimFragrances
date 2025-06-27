@@ -5,7 +5,7 @@
     <p>
       {{ heroSlides[heroSliderIndex].description }}
     </p>
-    <button>{{ heroSlides[heroSliderIndex].button }}</button>
+    <!-- <button>{{ heroSlides[heroSliderIndex].button }}</button> -->
   </div>
   <div class="images">
     <img *ngFor="let slide of heroSlides; let i = index" class="slider" [src]="slide.image" [class.active]="i === heroSliderIndex" [style.display]="i === heroSliderIndex ? 'block' : 'none'" />
