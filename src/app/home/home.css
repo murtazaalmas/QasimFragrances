@@ -314,21 +314,47 @@ button:hover {
   .hero {
     flex-direction: column;
     height: auto;
-    padding: 16px 2vw;
+    padding: 16px 2vw 8px 2vw;
+    align-items: center;
+    justify-content: flex-start;
+    background-position: center top;
+    background-size: cover;
+    min-height: 320px;
   }
   .content {
     max-width: 100%;
     text-align: center;
-    padding: 16px 4px;
+    padding: 12px 4px 8px 4px;
+    align-items: center;
+    justify-content: center;
+  }
+  .content h1 {
+    font-size: 1.5rem;
+    line-height: 1.2;
+    margin-bottom: 0.7rem;
+  }
+  .content p {
+    font-size: 1rem;
+    margin: 0.5rem 0 1rem 0;
   }
   .images {
     width: 100%;
-    min-height: 180px;
+    min-height: 120px;
     margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 8px;
   }
   .dropper, .bottle {
-    height: 90px;
-    margin: 0 4px;
+    height: 70px;
+    margin: 0 2px;
+    max-width: 40vw;
+    min-width: 40px;
+  }
+  .nav.left, .nav.right {
+    display: none;
   }
   .products-grid,
   .products-grid.four-in-row {
