@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ContactInfoService } from '../contact-info.service';
 
 @Component({
   selector: 'app-contact',
@@ -14,6 +15,12 @@ export class Contact {
   subject = '';
   message = '';
   submitted = false;
+
+  constructor(private contactInfoService: ContactInfoService) {}
+
+  get contactInfo() {
+    return this.contactInfoService.getContactInfo();
+  }
 
   submitForm() {
     fetch('http://localhost:8000/api/contact/', {

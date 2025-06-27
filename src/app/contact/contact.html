@@ -7,14 +7,14 @@
           <i class="fa-solid fa-location-dot"></i>
         </div>
         <h3>Address</h3>
-        <p>Shop 36,37, Hassan Center, Hall Road, Lahore, Pakistan</p>
+        <p>{{ contactInfo.address }}</p>
       </div>
       <div class="contact-card">
         <div class="icon-container">
           <i class="fa-solid fa-phone"></i>
         </div>
         <h3>Phone</h3>
-        <p><a href="tel:+923476833344">+92 347 6833344</a></p>
+        <p><a href="tel:{{ contactInfo.phone }}">{{ contactInfo.phoneFormatted }}</a></p>
         <p><a href="tel:+923123232832">+92 312 3232832</a></p>
       </div>
       <div class="contact-card">
@@ -22,27 +22,27 @@
           <i class="fa-solid fa-envelope"></i>
         </div>
         <h3>Email</h3>
-        <p><a href="mailto:MuhammadQasim@mail.com">MuhammadQasim&#64;mail.com</a></p>
+        <p><a href="mailto:{{ contactInfo.email }}">{{ contactInfo.email }}</a></p>
       </div>
       <div class="contact-card">
         <div class="icon-container">
           <i class="fa-brands fa-instagram"></i>
         </div>
         <h3>Instagram</h3>
-        <p><a href="https://www.instagram.com/attractionperfume007/?igsh=MWl3bTN2N2xha2J4Ng%3D%3D&utm_source=ig_contact_invite#" target="_blank">Attraction Perfume</a></p>
+        <p><a href="{{ contactInfo.instagram.url }}" target="_blank">{{ contactInfo.instagram.displayName }}</a></p>
       </div>
     </div>
   </div>
 
-<div class="contact-map">
-  <!-- Google Maps with pin point marker -->
-  <iframe
-  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2724.976026356318!2d74.3170029!3d31.5626451!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39191b53099a91b3%3A0x82a3f0d789a8f521!2sHassan%20Centre!5e0!3m2!1sen!2s!4v1719496790000!5m2!1sen!2s"
-  width="100%" height="450" style="border:0; border-radius: 1rem; margin: 1.2rem 0;" allowfullscreen="" loading="lazy"
-  referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <div class="contact-map">
+    <!-- Google Maps with pin point marker -->
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2724.976026356318!2d74.3170029!3d31.5626451!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39191b53099a91b3%3A0x82a3f0d789a8f521!2sHassan%20Centre!5e0!3m2!1sen!2s!4v1719496790000!5m2!1sen!2s"
+      width="100%" height="450" style="border:0; border-radius: 1rem; margin: 1.2rem 0;" allowfullscreen=""
+      loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
 
-</div>
+  </div>
 
   <div class="contact-content">
     <div class="contact-headings">

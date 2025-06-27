@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ContactInfoService } from '../contact-info.service';
 
 @Component({
   selector: 'app-footer',
@@ -11,7 +12,11 @@ import { Router } from '@angular/router';
 export class Footer {
   currentYear = new Date().getFullYear();
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private contactInfoService: ContactInfoService) {}
+
+  get contactInfo() {
+    return this.contactInfoService.getContactInfo();
+  }
 
   goHome() {
     this.router.navigate(['/']);
