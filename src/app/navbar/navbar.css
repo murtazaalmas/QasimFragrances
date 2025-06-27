@@ -213,6 +213,19 @@ body {
     min-width: 90vw;
     padding: 1.2rem 1rem 1rem 1rem;
   }
+  .mobile-cart {
+    display: flex !important;
+    align-items: center;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 120;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    padding: 8px 12px;
+    cursor: pointer;
+  }
 }
 @media (max-width: 400px) {
   .top-bar {
@@ -225,6 +238,9 @@ body {
 }
 @media (min-width: 601px) {
   .mobile-hamburger {
+    display: none !important;
+  }
+  .mobile-cart {
     display: none !important;
   }
 }
@@ -582,4 +598,8 @@ body {
 }
 .input-relative-wrapper .clear-search:hover {
   color: #b8001a;
+}
+
+.mobile-cart {
+  display: none;
 }

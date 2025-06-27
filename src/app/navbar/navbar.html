@@ -9,6 +9,10 @@
     <i class="fa-solid fa-leaf fa-2x" style="color: #e60023;"></i>
     <span class="brand-name">Q Fragrance</span>
   </div>
+  <div class="cart-icon mobile-cart" (click)="onCartClick()">
+    <i class="fa-solid fa-cart-shopping"></i>
+    <span class="badge">{{ cartCount }}</span>
+  </div>
   <div class="left-icons desktop-only">
     <div class="icon-text" (click)="goHome()" [ngClass]="{active: isActive('/')}" >
       <i class="fa-solid fa-house"></i>
