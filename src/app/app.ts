@@ -14,7 +14,7 @@ import { Footer } from './footer/footer';
   styleUrl: './app.css'
 })
 export class App implements OnInit {
-  protected title = 'Fragrances';
+  protected title = 'Attraction Perfume';
   selectedCategory: string = 'All';
   cartItems: any[] = [];
   notification: string | null = null;
