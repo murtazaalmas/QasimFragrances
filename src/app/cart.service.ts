@@ -25,4 +25,8 @@ export class CartService {
     const items = this.cartItems.filter(item => item.name !== product.name);
     this.cartItemsSubject.next(items);
   }
+
+  clearCart() {
+    this.cartItemsSubject.next([]);
+  }
 } 

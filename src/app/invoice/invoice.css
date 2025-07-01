@@ -107,4 +107,254 @@
   .invoice-popup {
     padding: 0.5rem 0.1rem;
   }
+}
+
+.cod-popup-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.cod-popup {
+  background: #fff;
+  border-radius: 1.2rem;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.18);
+  padding: 2.2rem 2rem 1.5rem 2rem;
+  min-width: 320px;
+  max-width: 95vw;
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.close-cod-popup {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #e60023;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.close-cod-popup:hover {
+  color: #b8001a;
+}
+
+.cod-popup h3 {
+  margin-top: 0;
+  margin-bottom: 1.2rem;
+  color: #e60023;
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+.cod-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.cod-form input,
+.cod-form textarea {
+  padding: 0.9rem 1rem;
+  border: 1.5px solid #e60023;
+  border-radius: 0.7rem;
+  font-size: 1rem;
+  font-family: inherit;
+  outline: none;
+  transition: border 0.2s;
+}
+.cod-form input:focus,
+.cod-form textarea:focus {
+  border-color: #b8001a;
+}
+.cod-form textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+.cod-form .pay-btn.cod-submit {
+  background: #e60023;
+  color: #fff;
+  border: none;
+  border-radius: 2rem;
+  padding: 0.9rem 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(230,0,35,0.10);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.cod-form .pay-btn.cod-submit:hover {
+  background: #b8001a;
+  box-shadow: 0 4px 16px rgba(230,0,35,0.18);
+}
+
+@media (max-width: 600px) {
+  .cod-popup {
+    padding: 1.2rem 0.7rem 1rem 0.7rem;
+    min-width: 0;
+    max-width: 98vw;
+  }
+}
+
+.cod-summary {
+  margin-bottom: 1.2rem;
+  background: #faf7f7;
+  border-radius: 0.7rem;
+  padding: 1rem 1.2rem;
+  box-shadow: 0 1px 6px rgba(230,0,35,0.06);
+}
+.cod-summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+  color: #444;
+}
+.cod-summary-total {
+  font-weight: 700;
+  color: #e60023;
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+}
+
+.jazzcash-popup-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.jazzcash-popup {
+  background: #fff;
+  border-radius: 1.2rem;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.18);
+  padding: 2.2rem 2rem 1.5rem 2rem;
+  min-width: 320px;
+  max-width: 95vw;
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.close-jazzcash-popup {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #e60023;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.close-jazzcash-popup:hover {
+  color: #b8001a;
+}
+
+.jazzcash-popup h3 {
+  margin-top: 0;
+  margin-bottom: 1.2rem;
+  color: #e60023;
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+.jazzcash-summary {
+  margin-bottom: 1.2rem;
+  background: #faf7f7;
+  border-radius: 0.7rem;
+  padding: 1rem 1.2rem;
+  box-shadow: 0 1px 6px rgba(230,0,35,0.06);
+}
+.jazzcash-summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+  color: #444;
+}
+
+.jazzcash-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.jazzcash-form input {
+  padding: 0.9rem 1rem;
+  border: 1.5px solid #e60023;
+  border-radius: 0.7rem;
+  font-size: 1rem;
+  font-family: inherit;
+  outline: none;
+  transition: border 0.2s;
+}
+.jazzcash-form input:focus {
+  border-color: #b8001a;
+}
+.jazzcash-form .pay-btn.jazzcash-submit {
+  background: #e60023;
+  color: #fff;
+  border: none;
+  border-radius: 2rem;
+  padding: 0.9rem 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(230,0,35,0.10);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.jazzcash-form .pay-btn.jazzcash-submit:hover {
+  background: #b8001a;
+  box-shadow: 0 4px 16px rgba(230,0,35,0.18);
+}
+
+@media (max-width: 600px) {
+  .jazzcash-popup {
+    padding: 1.2rem 0.7rem 1rem 0.7rem;
+    min-width: 0;
+    max-width: 98vw;
+  }
+}
+
+.jazzcash-success-message {
+  text-align: center;
+  color: #198754;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  background: #eafaf1;
+  border-radius: 0.7rem;
+  padding: 1rem 0.5rem;
+}
+
+.form-error {
+  color: #e60023;
+  background: #fff0f3;
+  border: 1px solid #e60023;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.7rem;
+  font-size: 1rem;
+  text-align: center;
 } 
