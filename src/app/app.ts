@@ -6,10 +6,11 @@ import { RouterOutlet, Router } from '@angular/router';
 import { CartService } from './cart.service';
 import { Invoice } from './invoice/invoice';
 import { Footer } from './footer/footer';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
-  imports: [Navbar, Home, NgIf, NgFor, RouterOutlet, Invoice, Footer],
+  imports: [Navbar, Home, NgIf, NgFor, RouterOutlet, Invoice, Footer, HttpClientModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

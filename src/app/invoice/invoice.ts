@@ -2,6 +2,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { NgFor, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CartService } from '../cart.service';
+import { EmailService } from '../email.service';
 
 @Component({
   selector: 'app-invoice',
@@ -31,7 +32,7 @@ export class Invoice {
 
   readonly deliveryCharge = 300;
 
-  constructor(private cartService: CartService) {}
+  constructor(private cartService: CartService, private emailService: EmailService) {}
 
   get totalWithDelivery() {
     return this.cartTotal + this.deliveryCharge;
@@ -54,12 +55,16 @@ export class Invoice {
     this.codSuccess = false;
   }
 
-  submitCodForm() {
+  async submitCodForm() {
     if (!this.codName.trim() || !this.codPhone.trim() || !this.codAddress.trim()) {
       this.codError = 'Please fill in all fields.';
       return;
     }
     this.codSuccess = true;
+    await this.emailService.sendOrderEmail(
+      'New COD Order',
+      `<b>Name:</b> ${this.codName}<br><b>Phone:</b> ${this.codPhone}<br><b>Address:</b> ${this.codAddress}<br><b>Order Total:</b> ${this.totalWithDelivery}`
+    );
   }
 
   okCod() {
@@ -83,12 +88,16 @@ export class Invoice {
     this.jazzcashSuccess = false;
   }
 
-  submitJazzCashForm() {
+  async submitJazzCashForm() {
     if (!this.jazzcashName.trim() || !this.jazzcashAddress.trim() || !this.jazzcashTillId.trim()) {
       this.jazzcashError = 'Please fill in all fields.';
       return;
     }
     this.jazzcashSuccess = true;
+    await this.emailService.sendOrderEmail(
+      'New JazzCash Order',
+      `<b>Name:</b> ${this.jazzcashName}<br><b>Address:</b> ${this.jazzcashAddress}<br><b>Till ID:</b> ${this.jazzcashTillId}<br><b>Order Total:</b> ${this.cartTotal}`
+    );
   }
 
   okJazzCash() {
