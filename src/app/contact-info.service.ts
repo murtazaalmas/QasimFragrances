@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
 export interface ContactInfo {
+  name: string;
   address: string;
   phone: string;
   phoneFormatted: string;
@@ -17,7 +18,8 @@ export interface ContactInfo {
 })
 export class ContactInfoService {
   private contactInfo: ContactInfo = {
-    address: 'Hassan Center, Hall Road, Lahore, Pakistan',
+    name: 'Muhammad Qasim',
+    address: 'Shop # 36,37, Hassan Center, Hall Road, Lahore, Pakistan',
     phone: '+923476833344',
     phoneFormatted: '+92 347 6833344',
     email: 'MuhammadQasim@gmail.com',

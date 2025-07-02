@@ -28,7 +28,7 @@
     </table>
     <div class="payment-section">
       <h3>Choose Payment Method</h3>
-      <button class="pay-btn jazzcash" (click)="openJazzCashPopup()">Pay via JazzCash</button>
+      <button class="pay-btn jazzCash" (click)="openJazzCashPopup()">Pay via jazzCash</button>
       <button class="pay-btn cod" (click)="openCodPopup()">Cash on Delivery</button>
     </div>
 
@@ -48,31 +48,32 @@
           <textarea name="codAddress" [(ngModel)]="codAddress" placeholder="Address" required></textarea>
           <button type="submit" class="pay-btn cod-submit">Submit</button>
         </form>
-        <div *ngIf="codSuccess" class="jazzcash-success-message">
+        <div *ngIf="codSuccess" class="jazzCash-success-message">
           <p>Order will be received in 4-5 working days.</p>
-          <button type="button" class="pay-btn jazzcash-submit" (click)="okCod()">OK</button>
+          <button type="button" class="pay-btn jazzCash-submit" (click)="okCod()">OK</button>
         </div>
       </div>
     </div>
 
-    <div class="jazzcash-popup-backdrop" *ngIf="showJazzCashPopup">
-      <div class="jazzcash-popup">
-        <button class="close-jazzcash-popup" (click)="closeJazzCashPopup()">&times;</button>
-        <h3>JazzCash Payment</h3>
-        <div class="jazzcash-summary">
-          <div class="jazzcash-summary-row"><span>Total Amount:</span> <span>{{ cartTotal }}</span></div>
-          <div class="jazzcash-summary-row"><span>JazzCash No:</span> <span>03476833344</span></div>
+    <div class="jazzCash-popup-backdrop" *ngIf="showJazzCashPopup">
+      <div class="jazzCash-popup">
+        <button class="close-jazzCash-popup" (click)="closeJazzCashPopup()">&times;</button>
+        <h3>jazzCash Payment</h3>
+        <div class="jazzCash-summary">
+          <div class="cod-summary-row cod-summary-total"><span>Total Amount:</span> <span>{{ cartTotal }}</span></div>
+          <div class="jazzCash-summary-row"><span>Account Name:</span> <span>{{ contactInfo.name }}</span></div>
+          <div class="jazzCash-summary-row"><span>jazzCash Account:</span> <span><a href="tel:{{ contactInfo.phone }}">{{ contactInfo.phoneFormatted }}</a></span></div>
         </div>
-        <form *ngIf="!jazzcashSuccess" (ngSubmit)="submitJazzCashForm()" #jazzcashForm="ngForm" class="jazzcash-form">
-          <div *ngIf="jazzcashError" class="form-error">{{ jazzcashError }}</div>
-          <input type="text" name="jazzcashName" [(ngModel)]="jazzcashName" placeholder="Name" required />
-          <input type="text" name="jazzcashAddress" [(ngModel)]="jazzcashAddress" placeholder="Address" required />
-          <input type="text" name="jazzcashTillId" [(ngModel)]="jazzcashTillId" placeholder="Enter Till ID" required />
-          <button type="submit" class="pay-btn jazzcash-submit">Submit</button>
+        <form *ngIf="!jazzCashSuccess" (ngSubmit)="submitJazzCashForm()" #jazzCashForm="ngForm" class="jazzCash-form">
+          <div *ngIf="jazzCashError" class="form-error">{{ jazzCashError }}</div>
+          <input type="text" name="jazzCashName" [(ngModel)]="jazzCashName" placeholder="Name" required />
+          <input type="text" name="jazzCashAddress" [(ngModel)]="jazzCashAddress" placeholder="Address" required />
+          <input type="text" name="jazzCashTillId" [(ngModel)]="jazzCashTillId" placeholder="Enter Till ID" required />
+          <button type="submit" class="pay-btn jazzCash-submit">Submit</button>
         </form>
-        <div *ngIf="jazzcashSuccess" class="jazzcash-success-message">
+        <div *ngIf="jazzCashSuccess" class="jazzCash-success-message">
           <p>Order will be received in 4-5 working days.</p>
-          <button type="button" class="pay-btn jazzcash-submit" (click)="okJazzCash()">OK</button>
+          <button type="button" class="pay-btn jazzCash-submit" (click)="okJazzCash()">OK</button>
         </div>
       </div>
     </div>

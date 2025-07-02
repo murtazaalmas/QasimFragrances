@@ -3,6 +3,7 @@ import { NgFor, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CartService } from '../cart.service';
 import { EmailService } from '../email.service';
+import { ContactInfoService } from '../contact-info.service';
 
 @Component({
   selector: 'app-invoice',
@@ -24,18 +25,26 @@ export class Invoice {
   codSuccess = false;
 
   showJazzCashPopup = false;
-  jazzcashTillId = '';
-  jazzcashName = '';
-  jazzcashAddress = '';
-  jazzcashError = '';
-  jazzcashSuccess = false;
+  jazzCashTillId = '';
+  jazzCashName = '';
+  jazzCashAddress = '';
+  jazzCashError = '';
+  jazzCashSuccess = false;
 
   readonly deliveryCharge = 300;
 
-  constructor(private cartService: CartService, private emailService: EmailService) {}
+  constructor(
+    private cartService: CartService,
+    private emailService: EmailService,
+    private contactInfoService: ContactInfoService
+  ) { }
 
   get totalWithDelivery() {
     return this.cartTotal + this.deliveryCharge;
+  }
+
+  get contactInfo() {
+    return this.contactInfoService.getContactInfo();
   }
 
   getSubtotal(item: any): number {
@@ -78,25 +87,25 @@ export class Invoice {
 
   openJazzCashPopup() {
     this.showJazzCashPopup = true;
-    this.jazzcashError = '';
-    this.jazzcashSuccess = false;
+    this.jazzCashError = '';
+    this.jazzCashSuccess = false;
   }
 
   closeJazzCashPopup() {
     this.showJazzCashPopup = false;
-    this.jazzcashError = '';
-    this.jazzcashSuccess = false;
+    this.jazzCashError = '';
+    this.jazzCashSuccess = false;
   }
 
   async submitJazzCashForm() {
-    if (!this.jazzcashName.trim() || !this.jazzcashAddress.trim() || !this.jazzcashTillId.trim()) {
-      this.jazzcashError = 'Please fill in all fields.';
+    if (!this.jazzCashName.trim() || !this.jazzCashAddress.trim() || !this.jazzCashTillId.trim()) {
+      this.jazzCashError = 'Please fill in all fields.';
       return;
     }
-    this.jazzcashSuccess = true;
+    this.jazzCashSuccess = true;
     await this.emailService.sendOrderEmail(
-      'New JazzCash Order',
-      `<b>Name:</b> ${this.jazzcashName}<br><b>Address:</b> ${this.jazzcashAddress}<br><b>Till ID:</b> ${this.jazzcashTillId}<br><b>Order Total:</b> ${this.cartTotal}`
+      'New jazzCash Order',
+      `<b>Name:</b> ${this.jazzCashName}<br><b>Address:</b> ${this.jazzCashAddress}<br><b>Till ID:</b> ${this.jazzCashTillId}<br><b>Order Total:</b> ${this.cartTotal}`
     );
   }
 
@@ -104,8 +113,8 @@ export class Invoice {
     this.cartService.clearCart();
     this.closeJazzCashPopup();
     this.close.emit();
-    this.jazzcashName = '';
-    this.jazzcashAddress = '';
-    this.jazzcashTillId = '';
+    this.jazzCashName = '';
+    this.jazzCashAddress = '';
+    this.jazzCashTillId = '';
   }
 } 
