@@ -1,5 +1,4 @@
 <section class="hero">
-  <div class="nav left" (click)="prevHeroImage()">PREVIOUS</div>
   <div class="content">
     <h1>{{ heroSlides[heroSliderIndex].title }}</h1>
     <p>
@@ -10,15 +9,15 @@
   <div class="images">
     <img *ngFor="let slide of heroSlides; let i = index" class="slider" [src]="slide.image" [class.active]="i === heroSliderIndex" [style.display]="i === heroSliderIndex ? 'block' : 'none'" />
   </div>
-  <div class="nav right" (click)="nextHeroImage()">NEXT</div>
+  <div class="slider-dots">
+    <span *ngFor="let slide of heroSlides; let i = index" class="dot" [class.active]="i === heroSliderIndex" (click)="heroSliderIndex = i"></span>
+  </div>
 </section>
 <section class="home-categories-nav">
   <ul>
     <li (click)="setCategory('All')" [ngClass]="{active: selectedCategory === 'All'}">All</li>
-    <li (click)="setCategory('New')" [ngClass]="{active: selectedCategory === 'New'}">New</li>
     <li (click)="setCategory('Men')" [ngClass]="{active: selectedCategory === 'Men'}">Men</li>
     <li (click)="setCategory('Women')" [ngClass]="{active: selectedCategory === 'Women'}">Women</li>
-    <li (click)="setCategory('Kids')" [ngClass]="{active: selectedCategory === 'Kids'}">Kids</li>
     <li (click)="setCategory('Sale')" [ngClass]="{active: selectedCategory === 'Sale'}">Sale</li>
   </ul>
 </section>
@@ -35,9 +34,11 @@
     <div class="product-card">
       <img [src]="product.images[0]" [alt]="product.name" (click)="openModal(product)" style="cursor:pointer;" />
       <h3>{{ product.name }}</h3>
+      <div class="product-description">
+        {{ product.description }}
+      </div>
       <div class="product-pricing">
         <span class="old" *ngIf="product.old">{{ product.old }}</span>
-
         <span class="price">{{ product.price }}</span>
       </div>
       <button class="add-to-bag" (click)="$event.stopPropagation(); addToCart(product)">Add to Cart</button>
@@ -60,23 +61,28 @@
     <div class="modal-details">
       <button class="close-x" (click)="closeModal()" aria-label="Close">&times;</button>
       <h3>{{ selectedProduct.name }}</h3>
-      <div class="modal-rating">
-        <ng-container *ngIf="selectedProduct.rating as rating">
-          <span *ngFor="let star of [1,2,3,4,5]; let i = index">
-            <span
-              [ngClass]="{'star-filled': i < getFloor(rating), 'star-half': i === getFloor(rating) && rating % 1 >= 0.5}">&#9733;</span>
-          </span>
-          <span class="rating-value">{{ rating }}</span>
-        </ng-container>
+      <div class="modal-description">
+        {{ selectedProduct.description }}
       </div>
-      <div class="product-pricing">
+      <div class="product-pricing modal-pricing">
+        <label class="price-label">Price:</label>
         <span class="price">{{ selectedProduct.price }}</span>
         <span class="old" *ngIf="selectedProduct.old">{{ selectedProduct.old }}</span>
       </div>
-      <button class="add-to-bag-modal" (click)="$event.stopPropagation(); addToCart(selectedProduct)">Add to
-        Cart</button>
-      <div class="modal-notes">
-        <strong>Notes:</strong> {{ selectedProduct.notes }}
+      <div class="modal-qty">
+        <label for="modal-qty-input">Quantity:</label>
+        <input id="modal-qty-input" type="number" min="1" [max]="selectedProduct.availableQty || 10" [(ngModel)]="selectedProduct.qty" />
+        <span class="qty-available" *ngIf="selectedProduct.availableQty">Available: {{ selectedProduct.availableQty }}</span>
+      </div>
+      <button class="add-to-bag-modal" (click)="$event.stopPropagation(); addToCart(selectedProduct)">Add to Cart</button>
+      <div class="modal-shipping">
+        <strong>Shipping:</strong> Free shipping on all orders
+      </div>
+      <div class="modal-delivery">
+        <strong>Delivery:</strong> Estimated 3-5 days
+      </div>
+      <div class="modal-payment">
+        <strong>Payment:</strong> Cash on Delivery (COD)
       </div>
     </div>
   </div>

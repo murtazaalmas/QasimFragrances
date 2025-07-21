@@ -10,13 +10,13 @@ export class CartService {
     return this.cartItemsSubject.value;
   }
 
-  addToCart(product: any) {
+  addToCart(product: any, qty: number = 1) {
     const items = [...this.cartItems];
     const existing = items.find(item => item.name === product.name);
     if (existing) {
-      existing.qty = (existing.qty || 1) + 1;
+      existing.qty = (existing.qty || 1) + qty;
     } else {
-      items.push({ ...product, qty: 1 });
+      items.push({ ...product, qty: qty });
     }
     this.cartItemsSubject.next(items);
   }

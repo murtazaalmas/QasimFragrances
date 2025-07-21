@@ -1,12 +1,13 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { NgIf, NgFor, NgClass } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { ProductService } from '../product.service';
 import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [NgIf, NgFor, NgClass],
+  imports: [NgIf, NgFor, NgClass, FormsModule],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })
@@ -22,15 +23,27 @@ export class Home {
   heroSlides = [
     {
       image: '/images/home1-slide1-img.png',
-      title: 'Discover Signature Scents',
-      description: 'Explore our exclusive collection of luxury perfumes crafted for every personality. Find your new signature fragrance today.',
-      button: 'SHOP PERFUMES'
+      title: 'Perfume Paradise',
+      description: 'Discover scents that define you. Our perfumes are crafted to awaken your senses and leave a lasting impression. Find your signature fragrance today.',
+      button: 'EXPLORE PERFUMES'
     },
     {
       image: '/images/home1-slide5-img1-2.png',
-      title: 'Unforgettable Aromas',
-      description: 'Indulge in captivating aromas for men and women. Premium ingredients, long-lasting impressions.',
-      button: 'BROWSE COLLECTION'
+      title: 'Signature Scents',
+      description: 'Find your signature scent from our curated collection of timeless and modern perfumes for every personality.',
+      button: 'FIND YOUR SCENT'
+    },
+    {
+      image: '/images/3.webp',
+      title: 'Luxury in a Bottle',
+      description: 'Indulge in luxurious perfumes crafted with the finest ingredients for a long-lasting impression.',
+      button: 'SHOP LUXURY'
+    },
+    {
+      image: '/images/4.webp',
+      title: 'Gifts of Fragrance',
+      description: 'Share the joy of scent. Discover perfect perfume gifts for loved ones and special occasions.',
+      button: 'GIFT PERFUMES'
     }
   ];
   heroSliderIndex = 0;
@@ -89,16 +102,11 @@ export class Home {
   }
 
   addToCart(product: any) {
-    this.cartService.addToCart(product);
+    this.cartService.addToCart(product, product.qty || 1);
     this.addToCartSuccess.emit();
+    if (this.selectedProduct) {
+      this.selectedProduct.qty = null;
+    }
     console.log('Cart Items:', this.cartService.cartItems);
-  }
-
-  nextHeroImage() {
-    this.heroSliderIndex = (this.heroSliderIndex + 1) % this.heroSlides.length;
-  }
-
-  prevHeroImage() {
-    this.heroSliderIndex = (this.heroSliderIndex - 1 + this.heroSlides.length) % this.heroSlides.length;
   }
 }
