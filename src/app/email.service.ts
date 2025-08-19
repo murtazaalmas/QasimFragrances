@@ -1,25 +1,33 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { firstValueFrom } from 'rxjs';
+import emailjs, { type EmailJSResponseStatus } from 'emailjs-com';
 
 @Injectable({ providedIn: 'root' })
 export class EmailService {
-  private apiKey = 'DAC1A343B660EEE1630429BA57A14BCDE03ED936A1BA505707C32AC762988380061DFC77FD13B2A6BDB02D5251E2504D'; // <-- Replace with your Elastic Email API key
-  private fromEmail = 'mmurtazaalmas@gmail.com'; // Use a verified sender
-  private toEmail = 'mmurtazaalmas@gmail.com';
+  // IMPORTANT: Replace with your actual EmailJS credentials
+  private serviceId = 'service_ii989ih';
+  private templateId = 'template_wwbaajo';
+  private publicKey = 'qb2HRfWMxpcTpsoEO';
 
-  constructor(private http: HttpClient) {}
+  constructor() {}
 
-  sendOrderEmail(subject: string, body: string) {
-    const url = 'https://api.elasticemail.com/v2/email/send';
-    const headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
-    const payload = new URLSearchParams({
-      apikey: this.apiKey,
-      from: this.fromEmail,
-      to: this.toEmail,
+  sendOrderEmail(subject: string, name: string, address: string, tillId: string, total: number): Promise<EmailJSResponseStatus> {
+    const templateParams = {
       subject,
-      bodyHtml: body
-    });
-    return firstValueFrom(this.http.post(url, payload.toString(), { headers }));
+      name,
+      address,
+      tillId,
+      total,
+      to_email: 'mmurtazaalmas@gmail.com'
+    };
+
+    // Note: Ensure your EmailJS template has variables like {{subject}} and {{body_html}}
+    return emailjs.send(this.serviceId, this.templateId, templateParams, this.publicKey)
+      .then((response: EmailJSResponseStatus) => {
+        console.log('SUCCESS!', response.status, response.text);
+        return response;
+      }, (error) => {
+        console.log('FAILED...', error);
+        throw error;
+      });
   }
 } 

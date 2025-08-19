@@ -72,7 +72,10 @@ export class Invoice {
     this.codSuccess = true;
     await this.emailService.sendOrderEmail(
       'New COD Order',
-      `<b>Name:</b> ${this.codName}<br><b>Phone:</b> ${this.codPhone}<br><b>Address:</b> ${this.codAddress}<br><b>Order Total:</b> ${this.totalWithDelivery}`
+      this.codName,
+      this.codAddress,
+      `Phone: ${this.codPhone}`,
+      this.totalWithDelivery
     );
   }
 
@@ -105,7 +108,10 @@ export class Invoice {
     this.jazzCashSuccess = true;
     await this.emailService.sendOrderEmail(
       'New jazzCash Order',
-      `<b>Name:</b> ${this.jazzCashName}<br><b>Address:</b> ${this.jazzCashAddress}<br><b>Till ID:</b> ${this.jazzCashTillId}<br><b>Order Total:</b> ${this.cartTotal}`
+      this.jazzCashName,
+      this.jazzCashAddress,
+      this.jazzCashTillId,
+      this.cartTotal
     );
   }
 
