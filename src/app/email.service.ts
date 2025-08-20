@@ -10,13 +10,14 @@ export class EmailService {
 
   constructor() {}
 
-  sendOrderEmail(subject: string, name: string, address: string, tillId: string, total: number): Promise<EmailJSResponseStatus> {
+  sendOrderEmail(subject: string, name: string, address: string, tillId: string, total: number, orderId: string): Promise<EmailJSResponseStatus> {
     const templateParams = {
       subject,
       name,
       address,
       tillId,
       total,
+      orderId,
       to_email: 'mmurtazaalmas@gmail.com'
     };
 

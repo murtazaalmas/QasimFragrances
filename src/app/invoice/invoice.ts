@@ -16,6 +16,7 @@ export class Invoice {
   @Input() cartItems: any[] = [];
   @Input() cartTotal: number = 0;
   @Output() close = new EventEmitter<void>();
+  orderId = '';
 
   showCodPopup = false;
   codName = '';
@@ -41,6 +42,35 @@ export class Invoice {
 
   get totalWithDelivery() {
     return this.cartTotal + this.deliveryCharge;
+  }
+
+  generateOrderId(): string {
+    const generatedIdsKey = 'generatedOrderIds';
+    const generatedIds: number[] = JSON.parse(localStorage.getItem(generatedIdsKey) || '[]');
+
+    let newId: number;
+    let attempts = 0;
+    const maxAttempts = 100; // Safeguard against an infinite loop
+
+    do {
+      newId = Math.floor(100000 + Math.random() * 900000);
+      attempts++;
+      if (attempts > maxAttempts) {
+        console.error('Could not generate a unique 6-digit order ID. Falling back to a timestamp-based ID.');
+        return `fallback_${new Date().getTime()}`;
+      }
+    } while (generatedIds.includes(newId));
+
+    generatedIds.push(newId);
+
+    // To prevent localStorage from growing indefinitely, we can cap the stored IDs.
+    if (generatedIds.length > 5000) {
+      generatedIds.splice(0, generatedIds.length - 5000);
+    }
+
+    localStorage.setItem(generatedIdsKey, JSON.stringify(generatedIds));
+
+    return newId.toString();
   }
 
   get contactInfo() {
@@ -69,13 +99,15 @@ export class Invoice {
       this.codError = 'Please fill in all fields.';
       return;
     }
+    this.orderId = this.generateOrderId();
     this.codSuccess = true;
     await this.emailService.sendOrderEmail(
       'New COD Order',
       this.codName,
       this.codAddress,
       `Phone: ${this.codPhone}`,
-      this.totalWithDelivery
+      this.totalWithDelivery,
+      this.orderId
     );
   }
 
@@ -105,13 +137,15 @@ export class Invoice {
       this.jazzCashError = 'Please fill in all fields.';
       return;
     }
+    this.orderId = this.generateOrderId();
     this.jazzCashSuccess = true;
     await this.emailService.sendOrderEmail(
       'New jazzCash Order',
       this.jazzCashName,
       this.jazzCashAddress,
       this.jazzCashTillId,
-      this.cartTotal
+      this.cartTotal,
+      this.orderId
     );
   }
 
