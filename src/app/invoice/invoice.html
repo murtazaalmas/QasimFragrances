@@ -39,7 +39,7 @@
         <div class="cod-summary">
           <div class="cod-summary-row"><span>Subtotal:</span> <span>{{ cartTotal }}</span></div>
           <div class="cod-summary-row"><span>Delivery Charges:</span> <span>{{ deliveryCharge }}</span></div>
-          <div class="cod-summary-row cod-summary-total"><span>Total:</span> <span>{{ totalWithDelivery }}</span></div>
+          <div class="cod-summary-row cod-summary-total"><span>Total:</span> <span style="color: red">{{ totalWithDelivery }}</span></div>
         </div>
         <form (ngSubmit)="submitCodForm()" #codForm="ngForm" class="cod-form" *ngIf="!codSuccess">
           <div *ngIf="codError" class="form-error">{{ codError }}</div>
@@ -60,7 +60,7 @@
         <button class="close-jazzCash-popup" (click)="closeJazzCashPopup()">&times;</button>
         <h3>jazzCash Payment</h3>
         <div class="jazzCash-summary">
-          <div class="cod-summary-row cod-summary-total"><span>Total Amount:</span> <span>{{ cartTotal }}</span></div>
+          <div class="cod-summary-row cod-summary-total"><span>Total Amount:</span> <span style="color: red">{{ cartTotal }}</span></div>
           <div class="jazzCash-summary-row"><span>Account Name:</span> <span>{{ contactInfo.name }}</span></div>
           <div class="jazzCash-summary-row"><span>jazzCash Account:</span> <span><a href="tel:{{ contactInfo.phone }}">{{ contactInfo.phoneFormatted }}</a></span></div>
         </div>

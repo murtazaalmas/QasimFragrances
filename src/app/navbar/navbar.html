@@ -1,7 +1,4 @@
-<!-- Add the following line to your index.html <head> to load Font Awesome:
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
--->
-<header class="new-navbar">
+<header class="new-navbar" [ngClass]="{ 'scrolled': isScrolled }">
   <!-- Desktop Navigation -->
   <div class="desktop-nav">
     <!-- Top Row -->

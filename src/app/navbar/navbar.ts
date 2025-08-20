@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, Input } from '@angular/core';
+import { Component, Output, EventEmitter, Input, HostListener } from '@angular/core';
 import { NgClass, NgIf, NgFor } from '@angular/common';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -23,6 +23,7 @@ export class Navbar {
   loginUsername = '';
   loginPassword = '';
   showMobileMenu = false;
+  isScrolled = false;
 
   constructor(private router: Router, private productService: ProductService, private cartService: CartService) {
     this.products = this.productService.products;
@@ -119,5 +120,11 @@ export class Navbar {
   onTrackOrder() {
     // Placeholder: navigate to tracking page or show a popup
     alert('Track Order feature coming soon!');
+  }
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    this.isScrolled = scrollPosition > 10;
   }
 }

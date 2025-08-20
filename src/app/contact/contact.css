@@ -74,7 +74,7 @@
   background: #5c5c5c;
   color: #fff;
   border: none;
-  border-radius: 2rem;
+  border-radius: 10px;
   padding: 0.9rem 0;
   font-size: 1.1rem;
   font-weight: 700;
@@ -198,12 +198,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #fff0f3;
+  background: #5c5c5c;
   border-radius: 50%;
 }
 .icon-container i {
   font-size: 2rem;
-  color: #5c5c5c;
+  color: #fff;
 }
 .contact-card h3 {
   margin: 0 0 0.5rem 0;
