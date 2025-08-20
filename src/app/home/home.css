@@ -2,7 +2,7 @@
   position: relative;
   height: 100vh;
   overflow: hidden;
-  background: #faf9f6 url('/images/home1-bg-2.png') no-repeat center center/cover;
+  background: #faf9f6 url('/images/home1-bg-2.webp') no-repeat center center/cover;
 }
 button {
   padding: 10px 20px;
@@ -180,6 +180,7 @@ button:hover {
   bottom: 0;
   background: rgba(0, 0, 0, 0.4);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   opacity: 0;
@@ -559,18 +560,43 @@ button:hover {
   align-items: center;
   gap: 0.7rem;
   font-size: 1.08rem;
+  width: 100%;
 }
 .modal-qty label {
   
   color: #5c5c5c;
 }
 .modal-qty input[type="number"] {
-  width: 60px;
-  padding: 0.3rem 0.5rem;
-  border: 1.5px solid #e0e0e0;
-  border-radius: 6px;
-  font-size: 1.08rem;
-  margin-left: 0.5rem;
+  width: 50px;
+  text-align: center;
+  border: none;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  padding: 0.5rem 0;
+  font-size: 1rem;
+}
+
+.qty-controls {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-left: 10px;
+}
+
+.qty-btn {
+  background: #f0f0f0;
+  border: none;
+  padding: 0.5rem 0.8rem;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.qty-btn:hover {
+  background: #e0e0e0;
 }
 .qty-available {
   color: #888;

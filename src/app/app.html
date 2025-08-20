@@ -20,7 +20,7 @@
           <button class="remove-cart-item" (click)="removeFromCart(item)" aria-label="Remove">&times;</button>
       </div>
       </div>
-      <div class="cart-sidebar-total">Total: PKR {{ cartTotal }}</div>
+      <div class="cart-sidebar-total">Total: Rs {{ cartTotal }}</div>
       <button class="checkout-btn" *ngIf="cartItems.length" (click)="openInvoice()">Proceed to Checkout</button>
     </div>
     <ng-template #emptyCart>

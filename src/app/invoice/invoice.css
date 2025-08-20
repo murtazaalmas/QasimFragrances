@@ -76,21 +76,23 @@
 }
 
 .pay-btn.jazzCash {
-  background: #ffbe00;
-  color: #6d0977;
-}
-
-.pay-btn.jazzCash:hover {
-  background: #ffd966;
-}
-
-.pay-btn.cod {
   background: #5c5c5c;
   color: #fff;
 }
 
+.pay-btn.jazzCash:hover {
+  background: #b8001b;
+}
+
+.pay-btn.cod {
+  background: #fff;
+  color: #5c5c5c;
+  border: 1px solid #5c5c5c;
+}
+
 .pay-btn.cod:hover {
   background: #b8001b;
+  color: #fff;
 }
 
 /* --- Mobile Enhancements --- */

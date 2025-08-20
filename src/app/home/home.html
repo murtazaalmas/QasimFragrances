@@ -21,9 +21,8 @@
       <p> {{ product.description }}</p>
       <p> {{ product.price }}</p>
       <div class="product-overlay">
-        <button class="add-to-cart-icon" >
-          &#128722;
-        </button>
+        <i class="fa-solid fa-cart-shopping" style="color: white; font-size: 2rem;"></i>
+        <p  style="color: white;">Add to Cart</p>
       </div>
     </div>
     }
@@ -50,22 +49,26 @@
       <div class="product-pricing modal-pricing">
         <label class="price-label">Price:</label>
         <span class="price">{{ selectedProduct.price }}</span>
-        <span class="old" *ngIf="selectedProduct.old">{{ selectedProduct.old }}</span>
+        <!-- <span class="old" *ngIf="selectedProduct.old">{{ selectedProduct.old }}</span> -->
       </div>
       <div class="modal-qty">
         <label for="quantity">QTY:</label>
-        <input type="number" id="quantity" [(ngModel)]="quantity" min="1" [max]="selectedProduct.availableQty || 10" />
+        <div class="qty-controls">
+          <button (click)="decrementQuantity()" class="qty-btn">-</button>
+          <input type="number" id="quantity" [(ngModel)]="quantity" min="1" [max]="selectedProduct.availableQty || 10" readonly />
+          <button (click)="incrementQuantity()" class="qty-btn">+</button>
+        </div>
         <span class="qty-available" *ngIf="selectedProduct.availableQty">Available: {{ selectedProduct.availableQty }}</span>
       </div>
       <button class="add-to-bag-modal" (click)="$event.stopPropagation(); addToCart(selectedProduct)">Add to Cart</button>
       <div class="modal-shipping">
-        <strong>Shipping:</strong> Free shipping on all orders
+        <strong>Shipping:</strong> Free shipping on 5 items.
       </div>
       <div class="modal-delivery">
         <strong>Delivery:</strong> Estimated 3-5 days
       </div>
       <div class="modal-payment">
-        <strong>Payment:</strong> Cash on Delivery (COD)
+        <strong>Payment:</strong> JazzCash / COD
       </div>
     </div>
   </div>

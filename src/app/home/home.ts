@@ -97,12 +97,25 @@ export class Home implements OnInit {
   }
 
   addToCart(product: any) {
-    this.cartService.addToCart(product, product.qty || 1);
+    this.cartService.addToCart(product, this.quantity);
     this.addToCartSuccess.emit();
     if (this.selectedProduct) {
       this.selectedProduct.qty = null;
     }
     console.log('Cart Items:', this.cartService.cartItems);
     this.closeModal();
+  }
+
+  incrementQuantity() {
+    const maxQty = this.selectedProduct?.availableQty || 10;
+    if (this.quantity < maxQty) {
+      this.quantity++;
+    }
+  }
+
+  decrementQuantity() {
+    if (this.quantity > 1) {
+      this.quantity--;
+    }
   }
 }
