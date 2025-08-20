@@ -166,6 +166,7 @@
   
   .new-navbar .brand-name {
     color: #000;
+    font-size: 1.2rem;
   }
 
   .mobile-hamburger {
@@ -542,8 +543,4 @@
 }
 .input-relative-wrapper .clear-search:hover {
   color: #5c5c5c;
-}
-
-.mobile-cart {
-  display: none;
 }
