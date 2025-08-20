@@ -15,7 +15,7 @@
 }
 
 .footer-section h3 {
-  color: #e60023;
+  color: #5c5c5c;
   font-size: 1.3rem;
   margin-bottom: 1.2rem;
   font-weight: 600;
@@ -34,7 +34,7 @@
   left: 0;
   width: 30px;
   height: 2px;
-  background: #e60023;
+  background: #5c5c5c;
   border-radius: 1px;
 }
 
@@ -51,7 +51,7 @@
 .footer-logo .brand-name {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #e60023;
+  color: #5c5c5c;
   margin-left: 0.6rem;
   letter-spacing: 1px;
   font-family: 'Montserrat', Arial, sans-serif;
@@ -78,13 +78,13 @@
   background: rgba(230, 0, 35, 0.1);
   border: 1px solid rgba(230, 0, 35, 0.3);
   border-radius: 50%;
-  color: #e60023;
+  color: #5c5c5c;
   text-decoration: none;
   transition: all 0.3s ease;
 }
 
 .social-link:hover {
-  background: #e60023;
+  background: #5c5c5c;
   color: #fff;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(230, 0, 35, 0.3);
@@ -117,12 +117,12 @@
   left: 0;
   width: 0;
   height: 1px;
-  background: #e60023;
+  background: #5c5c5c;
   transition: width 0.3s ease;
 }
 
 .footer-link:hover {
-  color: #e60023;
+  color: #5c5c5c;
 }
 
 .footer-link:hover::before {
@@ -145,7 +145,7 @@
 }
 
 .contact-item i {
-  color: #e60023;
+  color: #5c5c5c;
   margin-top: 2px;
   min-width: 16px;
 }
@@ -157,7 +157,7 @@
 }
 
 .contact-link:hover {
-  color: #e60023;
+  color: #5c5c5c;
 }
 
 /* Newsletter Section */
@@ -184,13 +184,13 @@
 }
 
 .newsletter-input:focus {
-  border-color: #e60023;
+  border-color: #5c5c5c;
   background: rgba(255, 255, 255, 0.15);
 }
 
 .newsletter-btn {
   padding: 0.8rem 1rem;
-  background: #e60023;
+  background: #5c5c5c;
   border: none;
   border-radius: 8px;
   color: #fff;
@@ -202,7 +202,7 @@
 }
 
 .newsletter-btn:hover {
-  background: #b8001a;
+  background: #5c5c5c;
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(230, 0, 35, 0.3);
 }
@@ -229,7 +229,7 @@
 }
 
 .scroll-to-top {
-  background: #e60023;
+  background: #5c5c5c;
   border: none;
   border-radius: 50%;
   width: 45px;
@@ -244,7 +244,7 @@
 }
 
 .scroll-to-top:hover {
-  background: #b8001a;
+  background: #5c5c5c;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(230, 0, 35, 0.3);
 }

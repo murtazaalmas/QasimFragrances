@@ -1,47 +1,30 @@
 <section class="hero">
-  <div class="content">
-    <h1>{{ heroSlides[heroSliderIndex].title }}</h1>
-    <p>
-      {{ heroSlides[heroSliderIndex].description }}
-    </p>
-    <!-- <button>{{ heroSlides[heroSliderIndex].button }}</button> -->
-  </div>
-  <div class="images">
-    <img *ngFor="let slide of heroSlides; let i = index" class="slider" [src]="slide.image" [class.active]="i === heroSliderIndex" [style.display]="i === heroSliderIndex ? 'block' : 'none'" />
-  </div>
   <div class="slider-dots">
-    <span *ngFor="let slide of heroSlides; let i = index" class="dot" [class.active]="i === heroSliderIndex" (click)="heroSliderIndex = i"></span>
+    <span *ngFor="let slide of heroSlides; let i = index" class="dot" [class.active]="i === heroSliderIndex"
+      (click)="heroSliderIndex = i"></span>
   </div>
 </section>
+<h2 class="section-title">BEST SELLERS</h2>
 <section class="home-categories-nav">
   <ul>
-    <li (click)="setCategory('All')" [ngClass]="{active: selectedCategory === 'All'}">All</li>
-    <li (click)="setCategory('Men')" [ngClass]="{active: selectedCategory === 'Men'}">Men</li>
-    <li (click)="setCategory('Women')" [ngClass]="{active: selectedCategory === 'Women'}">Women</li>
-    <li (click)="setCategory('Sale')" [ngClass]="{active: selectedCategory === 'Sale'}">Sale</li>
+    <li (click)="setCategory('Men')" [ngClass]="{active: selectedCategory === 'Men'}">For Men</li>
+    <li (click)="setCategory('Women')" [ngClass]="{active: selectedCategory === 'Women'}">For Women</li>
   </ul>
 </section>
 <section class="featured-products">
-  <h2>
-    @if (selectedCategory === 'All') {
-    Explore Fragrances
-    } @else {
-    {{ selectedCategory }} Fragrances
-    }
-  </h2>
+
   <div class="products-grid four-in-row">
     @for (product of filteredProducts; track product.name) {
-    <div class="product-card">
-      <img [src]="product.images[0]" [alt]="product.name" (click)="openModal(product)" style="cursor:pointer;" />
-      <h3>{{ product.name }}</h3>
-      <div class="product-description">
-        {{ product.description }}
+    <div class="product-card" (click)="openModal(product)" style="cursor:pointer;">
+      <img [src]="product.images[0]" [alt]="product.name"  />
+      <p> {{ product.name }}</p>
+      <p> {{ product.description }}</p>
+      <p> {{ product.price }}</p>
+      <div class="product-overlay">
+        <button class="add-to-cart-icon" >
+          &#128722;
+        </button>
       </div>
-      <div class="product-pricing">
-        <span class="old" *ngIf="product.old">{{ product.old }}</span>
-        <span class="price">{{ product.price }}</span>
-      </div>
-      <button class="add-to-bag" (click)="$event.stopPropagation(); addToCart(product)">Add to Cart</button>
     </div>
     }
   </div>
@@ -50,6 +33,7 @@
 <!-- Modal -->
 <div class="modal-backdrop" *ngIf="selectedProduct" (click)="closeModal()">
   <div class="modal-content" (click)="$event.stopPropagation()">
+    <button class="close-x" (click)="closeModal()" aria-label="Close">&times;</button>
     <div class="modal-image">
       <img [src]="selectedProduct.images[selectedImageIndex]" [alt]="selectedProduct.name" />
       <div class="modal-thumbnails">
@@ -59,7 +43,6 @@
       </div>
     </div>
     <div class="modal-details">
-      <button class="close-x" (click)="closeModal()" aria-label="Close">&times;</button>
       <h3>{{ selectedProduct.name }}</h3>
       <div class="modal-description">
         {{ selectedProduct.description }}
@@ -70,8 +53,8 @@
         <span class="old" *ngIf="selectedProduct.old">{{ selectedProduct.old }}</span>
       </div>
       <div class="modal-qty">
-        <label for="modal-qty-input">Quantity:</label>
-        <input id="modal-qty-input" type="number" min="1" [max]="selectedProduct.availableQty || 10" [(ngModel)]="selectedProduct.qty" />
+        <label for="quantity">QTY:</label>
+        <input type="number" id="quantity" [(ngModel)]="quantity" min="1" [max]="selectedProduct.availableQty || 10" />
         <span class="qty-available" *ngIf="selectedProduct.availableQty">Available: {{ selectedProduct.availableQty }}</span>
       </div>
       <button class="add-to-bag-modal" (click)="$event.stopPropagation(); addToCart(selectedProduct)">Add to Cart</button>

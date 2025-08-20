@@ -54,6 +54,22 @@ export class Navbar {
     this.router.navigate(['/contact']);
   }
 
+  goAbout() {
+    this.router.navigate(['/about']);
+  }
+
+  goCollections() {
+    this.router.navigate(['/collections']);
+  }
+
+  goFragrances() {
+    this.router.navigate(['/fragrances']);
+  }
+
+  goGifts() {
+    this.router.navigate(['/gifts']);
+  }
+
   get currentRoute(): string {
     return this.router.url;
   }

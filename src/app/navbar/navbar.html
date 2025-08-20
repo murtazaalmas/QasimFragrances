@@ -1,46 +1,49 @@
 <!-- Add the following line to your index.html <head> to load Font Awesome:
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
 -->
-<header class="top-bar">
-  <div class="mobile-hamburger" (click)="toggleMobileMenu()">
-    <i class="fa-solid fa-bars"></i>
+<header class="new-navbar">
+  <!-- Desktop Navigation -->
+  <div class="desktop-nav">
+    <!-- Top Row -->
+    <div class="top-row">
+      <div class="logo-container">
+        <span class="brand-name">Attraction Perfume</span>
+      </div>
+      <div class="cart-container">
+        <div class="right-icons">
+          <div class="cart-icon" (click)="onCartClick()">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span class="badge">{{ cartCount }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Row -->
+    <div class="bottom-row">
+      <nav class="nav-links">
+        <a (click)="goHome()" [ngClass]="{active: isActive('/')}">Home</a>
+        <a (click)="goAbout()" [ngClass]="{active: isActive('/about')}">About</a>
+        <a (click)="goCollections()" [ngClass]="{active: isActive('/collections')}">Collections</a>
+        <a (click)="goFragrances()" [ngClass]="{active: isActive('/fragrances')}">Fragrances</a>
+        <a (click)="goGifts()" [ngClass]="{active: isActive('/gifts')}">Gifts</a>
+        <a (click)="goContact()" [ngClass]="{active: isActive('/contact')}">Contact</a>
+      </nav>
+    </div>
   </div>
-  <div class="logo">
-    <img src="/images/logo.jpg" alt="Attraction Perfume Logo" class="logo-image">
-    <span class="brand-name">Attraction Perfume</span>
-  </div>
-  <div class="cart-icon mobile-cart" (click)="onCartClick()">
-    <i class="fa-solid fa-cart-shopping"></i>
-    <span class="badge">{{ cartCount }}</span>
-  </div>
-  <div class="left-icons desktop-only">
-    <div class="icon-text" (click)="goHome()" [ngClass]="{active: isActive('/')}" >
-      <i class="fa-solid fa-house"></i>
-      <span>Home</span>
-    </div>
-    <div class="icon-text" (click)="goReviews()" [ngClass]="{active: isActive('/reviews')}">
-      <i class="fa-solid fa-star"></i>
-      <span>Reviews</span>
-    </div>
-    <div class="icon-text" (click)="goContact()" [ngClass]="{active: isActive('/contact')}">
-      <i class="fa-solid fa-envelope"></i>
-      <span>Contact</span>
-    </div>
-  </div>
-  <div class="right-icons desktop-only">
-    <i class="fa-solid fa-magnifying-glass" (click)="toggleSearchInput()"></i>
-    <div class="search-input-wrapper" *ngIf="showSearchInput">
-      <input class="search-input" type="text" [(ngModel)]="searchTerm" (input)="onSearchChange()" placeholder="Search products..." autofocus />
-      <span *ngIf="searchTerm" class="clear-search" (click)="searchTerm = ''">
-        <i class="fa-solid fa-xmark"></i>
-      </span>
-    </div>
-    <i class="fa-solid fa-truck"></i>
-    <i class="fa-solid fa-user" (click)="toggleLoginPopup()"></i>
-    <div class="cart-icon" (click)="onCartClick()">
-      <i class="fa-solid fa-cart-shopping"></i>
-      <span class="badge">{{ cartCount }}</span>
-    </div>
+
+  <!-- Mobile Navigation -->
+  <div class="mobile-nav">
+      <div class="mobile-hamburger" (click)="toggleMobileMenu()">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+      <div class="logo">
+        <span class="brand-name">Attraction Perfume</span>
+      </div>
+      <div class="cart-icon mobile-cart" (click)="onCartClick()">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span class="badge">{{ cartCount }}</span>
+      </div>
   </div>
 </header>
 
@@ -50,31 +53,23 @@
     <div class="mobile-menu-option" (click)="goHome(); toggleMobileMenu()">
       <i class="fa-solid fa-house"></i> Home
     </div>
-    <div class="mobile-menu-option" (click)="goReviews(); toggleMobileMenu()">
-      <i class="fa-solid fa-star"></i> Reviews
+    <div class="mobile-menu-option" (click)="goAbout(); toggleMobileMenu()">
+      <i class="fa-solid fa-circle-info"></i> About
+    </div>
+    <div class="mobile-menu-option" (click)="goCollections(); toggleMobileMenu()">
+      <i class="fa-solid fa-layer-group"></i> Collections
+    </div>
+    <div class="mobile-menu-option" (click)="goFragrances(); toggleMobileMenu()">
+      <i class="fa-solid fa-spray-can-sparkles"></i> Fragrances
+    </div>
+    <div class="mobile-menu-option" (click)="goGifts(); toggleMobileMenu()">
+      <i class="fa-solid fa-gift"></i> Gifts
     </div>
     <div class="mobile-menu-option" (click)="goContact(); toggleMobileMenu()">
       <i class="fa-solid fa-envelope"></i> Contact
     </div>
-    <div *ngIf="showSearchInput" class="mobile-menu-option mobile-search-input-wrapper">
-      <i class="fa-solid fa-magnifying-glass search-icon" (click)="toggleSearchInput()"></i>
-      <div class="input-relative-wrapper">
-        <input class="search-input" type="text" [(ngModel)]="searchTerm" (input)="onSearchChange()" placeholder="Search products..." autofocus />
-        <span *ngIf="searchTerm" class="clear-search" (click)="searchTerm = ''">
-          <i class="fa-solid fa-xmark"></i>
-        </span>
-      </div>
-    </div>
-    <div *ngIf="!showSearchInput" class="mobile-menu-option">
-      <div  (click)="toggleSearchInput();">
-        <i class="fa-solid fa-magnifying-glass"></i> Search
-      </div>
-    </div>
     <div class="mobile-menu-option" (click)="onTrackOrder(); toggleMobileMenu()">
       <i class="fa-solid fa-truck"></i> Track Order
-    </div>
-    <div class="mobile-menu-option" (click)="toggleLoginPopup(); toggleMobileMenu()">
-      <i class="fa-solid fa-user"></i> Login
     </div>
     <div class="mobile-menu-option" (click)="onCartClick(); toggleMobileMenu()">
       <i class="fa-solid fa-cart-shopping"></i> Cart

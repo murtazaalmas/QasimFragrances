@@ -7,10 +7,12 @@ html {
 }
 *, *:before, *:after {
   box-sizing: inherit;
+  font-weight: normal;
+  text-transform: uppercase;
 }
 body {
   font-family: 'Inter', Arial, sans-serif;
-  background: #fafafa;
+  background: #fff;
   color: #222;
   margin: 0;
   padding: 0;

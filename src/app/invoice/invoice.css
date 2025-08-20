@@ -85,7 +85,7 @@
 }
 
 .pay-btn.cod {
-  background: #e60023;
+  background: #5c5c5c;
   color: #fff;
 }
 
@@ -157,19 +157,19 @@
   background: none;
   border: none;
   font-size: 2rem;
-  color: #e60023;
+  color: #5c5c5c;
   cursor: pointer;
   transition: color 0.2s;
 }
 
 .close-cod-popup:hover {
-  color: #b8001a;
+  color: #5c5c5c;
 }
 
 .cod-popup h3 {
   margin-top: 0;
   margin-bottom: 1.2rem;
-  color: #e60023;
+  color: #5c5c5c;
   text-align: center;
   font-size: 1.3rem;
 }
@@ -183,7 +183,7 @@
 .cod-form input,
 .cod-form textarea {
   padding: 0.9rem 1rem;
-  border: 1.5px solid #e60023;
+  border: 1.5px solid #5c5c5c;
   border-radius: 0.7rem;
   font-size: 1rem;
   font-family: inherit;
@@ -193,7 +193,7 @@
 
 .cod-form input:focus,
 .cod-form textarea:focus {
-  border-color: #b8001a;
+  border-color: #5c5c5c;
 }
 
 .cod-form textarea {
@@ -202,7 +202,7 @@
 }
 
 .cod-form .pay-btn.cod-submit {
-  background: #e60023;
+  background: #5c5c5c;
   color: #fff;
   border: none;
   border-radius: 2rem;
@@ -215,7 +215,7 @@
 }
 
 .cod-form .pay-btn.cod-submit:hover {
-  background: #b8001a;
+  background: #5c5c5c;
   box-shadow: 0 4px 16px rgba(230, 0, 35, 0.18);
 }
 
@@ -245,7 +245,7 @@
 
 .cod-summary-total {
   font-weight: 700;
-  color: #e60023;
+  color: #5c5c5c;
   font-size: 1.1rem;
   margin-top: 0.5rem;
 }
@@ -285,19 +285,19 @@
   background: none;
   border: none;
   font-size: 2rem;
-  color: #e60023;
+  color: #5c5c5c;
   cursor: pointer;
   transition: color 0.2s;
 }
 
 .close-jazzCash-popup:hover {
-  color: #b8001a;
+  color: #5c5c5c;
 }
 
 .jazzCash-popup h3 {
   margin-top: 0;
   margin-bottom: 1.2rem;
-  color: #e60023;
+  color: #5c5c5c;
   text-align: center;
   font-size: 1.3rem;
 }
@@ -326,7 +326,7 @@
 
 .jazzCash-form input {
   padding: 0.9rem 1rem;
-  border: 1.5px solid #e60023;
+  border: 1.5px solid #5c5c5c;
   border-radius: 0.7rem;
   font-size: 1rem;
   font-family: inherit;
@@ -335,11 +335,11 @@
 }
 
 .jazzCash-form input:focus {
-  border-color: #b8001a;
+  border-color: #5c5c5c;
 }
 
 .jazzCash-form .pay-btn.jazzCash-submit {
-  background: #e60023;
+  background: #5c5c5c;
   color: #fff;
   border: none;
   border-radius: 2rem;
@@ -352,7 +352,7 @@
 }
 
 .jazzCash-form .pay-btn.jazzCash-submit:hover {
-  background: #b8001a;
+  background: #5c5c5c;
   box-shadow: 0 4px 16px rgba(230, 0, 35, 0.18);
 }
 
@@ -376,9 +376,9 @@
 }
 
 .form-error {
-  color: #e60023;
+  color: #5c5c5c;
   background: #fff0f3;
-  border: 1px solid #e60023;
+  border: 1px solid #5c5c5c;
   border-radius: 0.5rem;
   padding: 0.5rem 1rem;
   margin-bottom: 0.7rem;
@@ -393,6 +393,6 @@ a {
 }
 
 a:hover {
-  color: #e60023;
+  color: #5c5c5c;
   text-decoration: none;
 }

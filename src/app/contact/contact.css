@@ -6,7 +6,7 @@
 }
 .contact-section h2 {
   font-size: 2rem;
-  color: #e60023;
+  color: #5c5c5c;
   margin-bottom: 1.5rem;
   margin-top: 0;
   text-align: center;
@@ -36,7 +36,7 @@
 }
 .contact-headings h2 {
   font-size: 1.8rem;
-  color: #e60023;
+  color: #5c5c5c;
   margin-bottom: 0.5rem;
 }
 .contact-headings p {
@@ -59,7 +59,7 @@
 .contact-form input,
 .contact-form textarea {
   padding: 0.8rem 1.1rem;
-  border: 1.5px solid #e60023;
+  border: 1.5px solid #5c5c5c;
   border-radius: 0.7rem;
   font-size: 1rem;
   font-family: inherit;
@@ -68,10 +68,10 @@
 }
 .contact-form input:focus,
 .contact-form textarea:focus {
-  border-color: #b8001a;
+  border-color: #5c5c5c;
 }
 .contact-form button {
-  background: #e60023;
+  background: #5c5c5c;
   color: #fff;
   border: none;
   border-radius: 2rem;
@@ -83,7 +83,7 @@
   transition: background 0.2s, box-shadow 0.2s;
 }
 .contact-form button:hover {
-  background: #b8001a;
+  background: #5c5c5c;
   box-shadow: 0 4px 16px rgba(230,0,35,0.18);
 }
 .thank-you {
@@ -105,12 +105,12 @@
   margin-bottom: 1.5rem;
 }
 .contact-info h4 {
-  color: #e60023;
+  color: #5c5c5c;
   margin: 0px 0 0.7rem 0;
   font-size: 1.5rem;
 }
 .contact-info i {
-  color: #e60023;
+  color: #5c5c5c;
   margin-right: 0.7rem;
 }
 .contact-info a {
@@ -203,7 +203,7 @@
 }
 .icon-container i {
   font-size: 2rem;
-  color: #e60023;
+  color: #5c5c5c;
 }
 .contact-card h3 {
   margin: 0 0 0.5rem 0;
@@ -218,7 +218,7 @@
   font-weight: 500;
 }
 .contact-card a:hover {
-  color: #e60023;
+  color: #5c5c5c;
   text-decoration: none;
 }
 @media (max-width: 700px) {

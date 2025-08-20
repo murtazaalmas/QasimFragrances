@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { NgIf, NgFor, NgClass } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ProductService } from '../product.service';
@@ -11,54 +11,49 @@ import { CartService } from '../cart.service';
   templateUrl: './home.html',
   styleUrl: './home.css'
 })
-export class Home {
-  @Input() selectedCategory: string = 'All';
+export class Home implements OnInit {
+  @Input() selectedCategory: string = 'Men';
   @Output() addToCartSuccess = new EventEmitter<void>();
   products: any[] = [];
 
   public searchTerm: string = '';
   selectedProduct: any = null;
   selectedImageIndex: number = 0;
+  quantity: number = 1;
+  heroSliderIndex = 0;
 
   heroSlides = [
     {
       image: '/images/home1-slide1-img.png',
       title: 'Perfume Paradise',
-      description: 'Discover scents that define you. Our perfumes are crafted to awaken your senses and leave a lasting impression. Find your signature fragrance today.',
-      button: 'EXPLORE PERFUMES'
     },
     {
       image: '/images/home1-slide5-img1-2.png',
       title: 'Signature Scents',
-      description: 'Find your signature scent from our curated collection of timeless and modern perfumes for every personality.',
-      button: 'FIND YOUR SCENT'
     },
     {
       image: '/images/3.webp',
       title: 'Luxury in a Bottle',
-      description: 'Indulge in luxurious perfumes crafted with the finest ingredients for a long-lasting impression.',
-      button: 'SHOP LUXURY'
     },
-    {
-      image: '/images/4.webp',
-      title: 'Gifts of Fragrance',
-      description: 'Share the joy of scent. Discover perfect perfume gifts for loved ones and special occasions.',
-      button: 'GIFT PERFUMES'
-    }
   ];
-  heroSliderIndex = 0;
+  notificationService: any;
 
   constructor(private productService: ProductService, private cartService: CartService) {
     this.products = this.productService.products;
+  }
+
+  ngOnInit(): void {
+    this.selectedCategory = 'Men';
   }
 
   get isSearching() {
     return this.searchTerm && this.searchTerm.trim() !== '';
   }
 
-  openModal(product: any) {
+  openModal(product: any): void {
     this.selectedProduct = product;
     this.selectedImageIndex = 0;
+    this.quantity = 1;
   }
 
   closeModal() {
@@ -83,7 +78,7 @@ export class Home {
 
   get filteredProducts() {
     let filtered = this.products;
-    if (this.selectedCategory && this.selectedCategory !== 'All') {
+    if (this.selectedCategory) {
       filtered = filtered.filter(p => p.category === this.selectedCategory);
     }
     if (this.searchTerm && this.searchTerm.trim() !== '') {
@@ -94,7 +89,7 @@ export class Home {
   }
 
   get showHero() {
-    return (!this.selectedCategory || this.selectedCategory === 'All') && !this.isSearching;
+    return !this.isSearching;
   }
 
   setCategory(category: string) {
@@ -108,5 +103,6 @@ export class Home {
       this.selectedProduct.qty = null;
     }
     console.log('Cart Items:', this.cartService.cartItems);
+    this.closeModal();
   }
 }
