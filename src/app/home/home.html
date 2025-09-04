@@ -1,4 +1,4 @@
-<section class="hero">
+<section class="hero" [style.background-image]="'url(' + heroSlides[heroSliderIndex].image + ')'">
   <div class="slider-dots">
     <span *ngFor="let slide of heroSlides; let i = index" class="dot" [class.active]="i === heroSliderIndex"
       (click)="heroSliderIndex = i"></span>

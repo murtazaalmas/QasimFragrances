@@ -24,15 +24,15 @@ export class Home implements OnInit {
 
   heroSlides = [
     {
-      image: '/images/home1-slide1-img.png',
+      image: '/images/home1-bg-2.webp',
       title: 'Perfume Paradise',
     },
     {
-      image: '/images/home1-slide5-img1-2.png',
+      image: '/images/home1-bg-3.webp',
       title: 'Signature Scents',
     },
     {
-      image: '/images/3.webp',
+      image: '/images/home1-bg-2.webp',
       title: 'Luxury in a Bottle',
     },
   ];
