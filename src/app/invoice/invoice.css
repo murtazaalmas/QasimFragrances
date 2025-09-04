@@ -290,11 +290,11 @@ a:hover {
   background: var(--dark);
   position: relative;
   height: 63px;
-  width: 240px;
+  /* width: 240px; */
   padding: 0;
   outline: none;
   cursor: pointer;
-  border-radius: 32px;
+  border-radius: 4px;
   -webkit-mask-image: -webkit-radial-gradient(white, black);
   mask-image: radial-gradient(white, black);
   -webkit-tap-highlight-color: transparent;
