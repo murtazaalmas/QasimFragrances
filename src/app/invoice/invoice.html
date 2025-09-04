@@ -1,7 +1,7 @@
 <div class="invoice-backdrop">
   <div class="invoice-popup">
     <button class="close-invoice" (click)="close.emit()">&times;</button>
-    <h2>Invoice</h2>
+    <h2>Order Summary</h2>
     <table class="invoice-table">
       <thead>
         <tr>
@@ -27,55 +27,48 @@
       </tfoot>
     </table>
     <div class="payment-section">
-      <h3>Choose Payment Method</h3>
-      <button class="pay-btn jazzCash" (click)="openJazzCashPopup()">Pay via jazzCash</button>
-      <button class="pay-btn cod" (click)="openCodPopup()">Cash on Delivery</button>
+      <button class="pay-btn jazzCash" (click)="openCheckoutPopup()">Checkout</button>
+     
     </div>
 
-    <div class="cod-popup-backdrop" *ngIf="showCodPopup">
-      <div class="cod-popup">
-        <button class="close-cod-popup" (click)="closeCodPopup()">&times;</button>
-        <h3>Cash on Delivery Details</h3>
-        <div class="cod-summary">
-          <div class="cod-summary-row"><span>Subtotal:</span> <span>{{ cartTotal }}</span></div>
-          <div class="cod-summary-row"><span>Delivery Charges:</span> <span>{{ deliveryCharge }}</span></div>
-          <div class="cod-summary-row cod-summary-total"><span>Total:</span> <span style="color: red">{{ totalWithDelivery }}</span></div>
+    <div class="checkout-popup-backdrop" *ngIf="showCheckoutPopup">
+      <div class="checkout-popup">
+        <button class="close-checkout-popup" (click)="closeCheckoutPopup()">&times;</button>
+        <h3>Checkout</h3>
+        <div class="checkout-summary">
+          <div class="checkout-summary-row checkout-summary-total"><span>Total Amount:</span> <span style="color: red">{{ cartTotal }}</span></div>
+          <div class="checkout-summary-row"><span>Account Name:</span> <span>{{ contactInfo.name }}</span></div>
+          <div class="checkout-summary-row"><span>Account:</span> <span><a href="tel:{{ contactInfo.phone }}">{{ contactInfo.phoneFormatted }}</a></span></div>
         </div>
-        <form (ngSubmit)="submitCodForm()" #codForm="ngForm" class="cod-form" *ngIf="!codSuccess">
-          <div *ngIf="codError" class="form-error">{{ codError }}</div>
-          <input type="text" name="codName" [(ngModel)]="codName" placeholder="Name" required />
-          <input type="tel" name="codPhone" [(ngModel)]="codPhone" placeholder="Phone Number" required />
-          <textarea name="codAddress" [(ngModel)]="codAddress" placeholder="Address" required></textarea>
-          <button type="submit" class="pay-btn cod-submit">Submit</button>
+        <form *ngIf="!checkoutSuccess" (ngSubmit)="submitCheckoutForm()" #checkoutForm="ngForm" class="checkout-form">
+          <div *ngIf="checkoutError" class="form-error">{{ checkoutError }}</div>
+          <input type="text" name="checkoutName" [(ngModel)]="checkoutName" placeholder="Name" required />
+          <input type="text" name="checkoutAddress" [(ngModel)]="checkoutAddress" placeholder="Address" required />
+          <input type="text" name="checkoutTillId" [(ngModel)]="checkoutTillId" placeholder="Enter Till ID" required />
+          <button class="order" (click)="animateOrderButton()">
+            <span class="default">Complete Order</span>
+            <span class="success">Order Placed
+              <svg viewbox="0 0 12 10">
+                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+              </svg>
+            </span>
+            <div class="box"></div>
+            <div class="truck">
+              <div class="back"></div>
+              <div class="front">
+                <div class="window"></div>
+              </div>
+              <div class="light top"></div>
+              <div class="light bottom"></div>
+            </div>
+            <div class="lines"></div>
+          </button>
         </form>
-        <div *ngIf="codSuccess" class="jazzCash-success-message">
+        <div *ngIf="checkoutSuccess" class="checkout-success-message">
           <p>Order will be received in 4-5 working days.</p>
-          <button type="button" class="pay-btn jazzCash-submit" (click)="okCod()">OK</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="jazzCash-popup-backdrop" *ngIf="showJazzCashPopup">
-      <div class="jazzCash-popup">
-        <button class="close-jazzCash-popup" (click)="closeJazzCashPopup()">&times;</button>
-        <h3>jazzCash Payment</h3>
-        <div class="jazzCash-summary">
-          <div class="cod-summary-row cod-summary-total"><span>Total Amount:</span> <span style="color: red">{{ cartTotal }}</span></div>
-          <div class="jazzCash-summary-row"><span>Account Name:</span> <span>{{ contactInfo.name }}</span></div>
-          <div class="jazzCash-summary-row"><span>jazzCash Account:</span> <span><a href="tel:{{ contactInfo.phone }}">{{ contactInfo.phoneFormatted }}</a></span></div>
-        </div>
-        <form *ngIf="!jazzCashSuccess" (ngSubmit)="submitJazzCashForm()" #jazzCashForm="ngForm" class="jazzCash-form">
-          <div *ngIf="jazzCashError" class="form-error">{{ jazzCashError }}</div>
-          <input type="text" name="jazzCashName" [(ngModel)]="jazzCashName" placeholder="Name" required />
-          <input type="text" name="jazzCashAddress" [(ngModel)]="jazzCashAddress" placeholder="Address" required />
-          <input type="text" name="jazzCashTillId" [(ngModel)]="jazzCashTillId" placeholder="Enter Till ID" required />
-          <button type="submit" class="pay-btn jazzCash-submit">Submit</button>
-        </form>
-        <div *ngIf="jazzCashSuccess" class="jazzCash-success-message">
-          <p>Order will be received in 4-5 working days.</p>
-          <button type="button" class="pay-btn jazzCash-submit" (click)="okJazzCash()">OK</button>
+          <button type="button" class="pay-btn checkout-submit" (click)="okCheckout()">OK</button>
         </div>
       </div>
     </div>
   </div>
-</div> 
+</div>

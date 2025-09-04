@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { LoadingComponent } from '../loading/loading';
 
 @Component({
   selector: 'app-fragrances-collection',
-  imports: [],
+  imports: [LoadingComponent],
   templateUrl: './fragrances-collection.html',
   styleUrl: './fragrances-collection.css'
 })

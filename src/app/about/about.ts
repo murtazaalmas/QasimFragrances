@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { LoadingComponent } from '../loading/loading';
 
 @Component({
   selector: 'app-about',
-  imports: [],
+  imports: [LoadingComponent],
   templateUrl: './about.html',
   styleUrl: './about.css'
 })

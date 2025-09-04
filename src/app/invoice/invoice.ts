@@ -25,12 +25,12 @@ export class Invoice {
   codError = '';
   codSuccess = false;
 
-  showJazzCashPopup = false;
-  jazzCashTillId = '';
-  jazzCashName = '';
-  jazzCashAddress = '';
-  jazzCashError = '';
-  jazzCashSuccess = false;
+  showCheckoutPopup = false;
+  checkoutTillId = '';
+  checkoutName = '';
+  checkoutAddress = '';
+  checkoutError = '';
+  checkoutSuccess = false;
 
   readonly deliveryCharge = 300;
 
@@ -120,41 +120,51 @@ export class Invoice {
     this.codAddress = '';
   }
 
-  openJazzCashPopup() {
-    this.showJazzCashPopup = true;
-    this.jazzCashError = '';
-    this.jazzCashSuccess = false;
+  openCheckoutPopup() {
+    this.showCheckoutPopup = true;
+    this.checkoutError = '';
+    this.checkoutSuccess = false;
   }
 
-  closeJazzCashPopup() {
-    this.showJazzCashPopup = false;
-    this.jazzCashError = '';
-    this.jazzCashSuccess = false;
+  closeCheckoutPopup() {
+    this.showCheckoutPopup = false;
+    this.checkoutError = '';
+    this.checkoutSuccess = false;
   }
 
-  async submitJazzCashForm() {
-    if (!this.jazzCashName.trim() || !this.jazzCashAddress.trim() || !this.jazzCashTillId.trim()) {
-      this.jazzCashError = 'Please fill in all fields.';
+  async submitCheckoutForm() {
+    if (!this.checkoutName.trim() || !this.checkoutAddress.trim() || !this.checkoutTillId.trim()) {
+      this.checkoutError = 'Please fill in all fields.';
       return;
     }
     this.orderId = this.generateOrderId();
-    this.jazzCashSuccess = true;
+    this.checkoutSuccess = true;
     await this.emailService.sendOrderEmail(
-      'New jazzCash Order',
-      this.jazzCashName,
-      this.jazzCashAddress,
-      this.jazzCashTillId,
+      'New Checkout Order',
+      this.checkoutName,
+      this.checkoutAddress,
+      this.checkoutTillId,
       this.cartTotal,
       this.orderId
     );
   }
 
-  okJazzCash() {
+  okCheckout() {
     this.cartService.clearCart();
-    this.closeJazzCashPopup();
+    this.closeCheckoutPopup();
     this.close.emit();
-    this.jazzCashName = '';
-    this.jazzCashAddress = '';
-    this.jazzCashTillId = '';
+    this.checkoutName = '';
+    this.checkoutAddress = '';
+    this.checkoutTillId = '';
+  }
+
+  animateOrderButton() {
+    const orderButton = document.querySelector('.order');
+    if (orderButton && !orderButton.classList.contains('animate')) {
+      orderButton.classList.add('animate');
+      setTimeout(() => {
+        orderButton.classList.remove('animate');
+      }, 10000);
+    }
   }
 } 
