@@ -25,7 +25,7 @@ export class ContactInfoService {
     email: 'MuhammadQasim@gmail.com',
     instagram: {
       url: 'https://www.instagram.com/attractionperfume007/?igsh=MWl3bTN2N2xha2J4Ng%3D%3D&utm_source=ig_contact_invite#',
-      displayName: 'Attraction Perfume'
+      displayName: 'Daas Perfume'
     },
     businessHours: 'Mon - Sat: 9:00 AM - 8:00 PM'
   };

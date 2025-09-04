@@ -63,13 +63,7 @@ export class Navbar {
     this.router.navigate(['/collections']);
   }
 
-  goFragrances() {
-    this.router.navigate(['/fragrances']);
-  }
-
-  goGifts() {
-    this.router.navigate(['/gifts']);
-  }
+  
 
   get currentRoute(): string {
     return this.router.url;

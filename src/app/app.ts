@@ -15,7 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
   styleUrl: './app.css'
 })
 export class App implements OnInit {
-  protected title = 'Attraction Perfume';
+  protected title = 'Daas Perfume';
   selectedCategory: string = 'All';
   cartItems: any[] = [];
   notification: string | null = null;

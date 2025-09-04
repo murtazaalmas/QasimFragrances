@@ -43,6 +43,32 @@
   letter-spacing: 1.5px;
   transition: color 0.3s ease-in-out;
   text-transform: uppercase;
+  background: linear-gradient(90deg, #ff0000, #ff8000, #ffff00, #80ff00, #00ff80, #00ffff, #0080ff, #8000ff, #ff00ff, #ff0080);
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  -webkit-background-clip: text;
+  text-fill-color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: rainbowGlitter 3s linear infinite, glitter 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes rainbowGlitter {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes glitter {
+  0% {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+  }
+  100% {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+  }
 }
 
 .new-navbar:hover .brand-name {

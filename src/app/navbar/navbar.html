@@ -4,7 +4,7 @@
     <!-- Top Row -->
     <div class="top-row">
       <div class="logo-container">
-        <span class="brand-name">Attraction Perfume</span>
+        <span class="brand-name">Daas Perfume</span>
       </div>
       <div class="cart-container">
         <div class="right-icons">
@@ -22,8 +22,6 @@
         <a (click)="goHome()" [ngClass]="{active: isActive('/')}">Home</a>
         <a (click)="goAbout()" [ngClass]="{active: isActive('/about')}">About</a>
         <a (click)="goCollections()" [ngClass]="{active: isActive('/collections')}">Collections</a>
-        <a (click)="goFragrances()" [ngClass]="{active: isActive('/fragrances')}">Fragrances</a>
-        <a (click)="goGifts()" [ngClass]="{active: isActive('/gifts')}">Gifts</a>
         <a (click)="goContact()" [ngClass]="{active: isActive('/contact')}">Contact</a>
       </nav>
     </div>
@@ -35,7 +33,7 @@
         <i class="fa-solid fa-bars"></i>
       </div>
       <div class="logo">
-        <span class="brand-name">Attraction Perfume</span>
+        <span class="brand-name">Daas Perfume</span>
       </div>
       <div class="cart-icon mobile-cart" (click)="onCartClick()">
         <i class="fa-solid fa-cart-shopping"></i>
@@ -55,12 +53,6 @@
     </div>
     <div class="mobile-menu-option" (click)="goCollections(); toggleMobileMenu()">
       <i class="fa-solid fa-layer-group"></i> Collections
-    </div>
-    <div class="mobile-menu-option" (click)="goFragrances(); toggleMobileMenu()">
-      <i class="fa-solid fa-spray-can-sparkles"></i> Fragrances
-    </div>
-    <div class="mobile-menu-option" (click)="goGifts(); toggleMobileMenu()">
-      <i class="fa-solid fa-gift"></i> Gifts
     </div>
     <div class="mobile-menu-option" (click)="goContact(); toggleMobileMenu()">
       <i class="fa-solid fa-envelope"></i> Contact
