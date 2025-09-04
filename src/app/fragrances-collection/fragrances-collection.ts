@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-fragrances-collection',
@@ -6,6 +6,12 @@ import { Component } from '@angular/core';
   templateUrl: './fragrances-collection.html',
   styleUrl: './fragrances-collection.css'
 })
-export class FragrancesCollection {
+export class FragrancesCollection implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+
+  }
 
 }
