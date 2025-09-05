@@ -4,48 +4,33 @@
   <section class="checkout-left" aria-label="Shipping address and methods">
     <h1 class="secure-checkout-title" aria-level="1" tabindex="0">Secure Checkout</h1>
 
-    <div class="progress-bar-labels" aria-hidden="true">
-      <div class="completed-label">Shipping</div>
-      <div>Review & Payments</div>
-    </div>
-
     <form aria-label="Shipping address form" novalidate (ngSubmit)="onSubmit()">
       <fieldset>
         <legend><h2>Shipping Address</h2></legend>
 
-        <label for="email">
-          Email Address <span class="required" aria-hidden="true">*</span>
-          <span tabindex="0" class="tooltip" data-tooltip="We will use this email for order updates.">?</span>
-        </label>
-        <input id="email" type="email" name="email" [(ngModel)]="email" (input)="saveFormData()" required aria-required="true" placeholder="Enter your email" />
-
-        <p class="note-small">You can create an account after checkout.</p>
+        <div class="form-group">
+          <input id="email" type="email" name="email" [(ngModel)]="email" (input)="saveFormData()" required aria-required="true" />
+          <label for="email">Email Address <span class="required">*</span></label>
+        </div>
 
         <div class="two-columns">
-          <div>
-            <label for="firstName">
-              First Name <span class="required" aria-hidden="true">*</span>
-            </label>
-            <input id="firstName" type="text" name="firstName" [(ngModel)]="firstName" (input)="saveFormData()" required aria-required="true" placeholder="First Name" />
+          <div class="form-group">
+            <input id="firstName" type="text" name="firstName" [(ngModel)]="firstName" (input)="saveFormData()" required aria-required="true" />
+            <label for="firstName">First Name <span class="required">*</span></label>
           </div>
-          <div>
-            <label for="lastName">
-              Last Name <span class="required" aria-hidden="true">*</span>
-            </label>
-            <input id="lastName" type="text" name="lastName" [(ngModel)]="lastName" (input)="saveFormData()" required aria-required="true" placeholder="Last Name" />
+          <div class="form-group">
+            <input id="lastName" type="text" name="lastName" [(ngModel)]="lastName" (input)="saveFormData()" required aria-required="true" />
+            <label for="lastName">Last Name <span class="required">*</span></label>
           </div>
         </div>
 
-        <label for="street">
-          Street Address <span class="required" aria-hidden="true">*</span>
-        </label>
-        <input id="street" type="text" name="street" [(ngModel)]="streetAddress" (input)="saveFormData()" required aria-required="true" placeholder="Street Address" />
+        <div class="form-group">
+          <input id="street" type="text" name="street" [(ngModel)]="streetAddress" (input)="saveFormData()" required aria-required="true" />
+          <label for="street">Street Address <span class="required">*</span></label>
+        </div>
 
         <div class="two-columns">
-          <div>
-            <label for="country">
-              Country <span class="required" aria-hidden="true">*</span>
-            </label>
+          <div class="form-group">
             <select id="country" name="country" [(ngModel)]="country" (change)="saveFormData()" required aria-required="true">
               <option selected disabled value="">Pakistan</option>
               <option value="Pakistan">Pakistan</option>
@@ -53,34 +38,34 @@
               <option value="USA">USA</option>
               <option value="UK">United Kingdom</option>
             </select>
+            <label for="country">Country <span class="required">*</span></label>
           </div>
-          <div>
+          <div class="form-group">
+            <input id="state" name="state" [(ngModel)]="state" (input)="saveFormData()" />
             <label for="state">State/Province</label>
-            <input id="state" name="state" [(ngModel)]="state" (input)="saveFormData()" placeholder="State or Province" />
           </div>
         </div>
 
         <div class="two-columns">
-          <div>
-            <label for="city">City</label>
+          <div class="form-group">
             <select id="city" name="city" [(ngModel)]="city" (change)="saveFormData()">
               <option selected disabled value="">--Select City--</option>
               <option value="Karachi">Karachi</option>
               <option value="Lahore">Lahore</option>
               <option value="Islamabad">Islamabad</option>
             </select>
+            <label for="city">City</label>
           </div>
-          <div>
+          <div class="form-group">
+            <input id="zip" name="zip" [(ngModel)]="zip" (input)="saveFormData()" />
             <label for="zip">Zip/Postal Code</label>
-            <input id="zip" name="zip" [(ngModel)]="zip" (input)="saveFormData()" placeholder="Zip or Postal Code" />
           </div>
         </div>
 
-        <label for="phone">
-          Phone Number <span class="required" aria-hidden="true">*</span>
-          <span tabindex="0" class="tooltip" data-tooltip="Your contact number for delivery purposes.">?</span>
-        </label>
-        <input id="phone" type="text" name="phone" [(ngModel)]="phone" (input)="saveFormData()" required aria-required="true" placeholder="Phone Number" />
+        <div class="form-group">
+          <input id="phone" type="text" name="phone" [(ngModel)]="phone" (input)="saveFormData()" required aria-required="true" />
+          <label for="phone">Phone Number <span class="required">*</span></label>
+        </div>
       </fieldset>
 
       <section class="shipping-methods" aria-label="Shipping Methods">

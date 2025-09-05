@@ -52,9 +52,18 @@
     <div class="contact-form-wrapper">
       @if (!submitted) {
       <form (ngSubmit)="submitForm()" #contactForm="ngForm" class="contact-form">
-        <input type="text" name="name" [(ngModel)]="name" placeholder="Your Name" required />
-        <input type="email" name="email" [(ngModel)]="email" placeholder="Your Email" required />
-        <textarea name="message" [(ngModel)]="message" placeholder="Your Message" rows="5" required></textarea>
+        <div class="form-group">
+          <input type="text" name="name" [(ngModel)]="name" id="name" required />
+          <label for="name">Your Name</label>
+        </div>
+        <div class="form-group">
+          <input type="email" name="email" [(ngModel)]="email" id="email" required />
+          <label for="email">Your Email</label>
+        </div>
+        <div class="form-group textarea-group">
+          <textarea name="message" [(ngModel)]="message" id="message" rows="5" required></textarea>
+          <label for="message">Your Message</label>
+        </div>
         <button type="submit">Send Message</button>
       </form>
       } @else {

@@ -933,3 +933,54 @@ table.shipping-methods-table td.radio-cell {
     opacity: 0;
   }
 }
+
+/* Floating Label Styles */
+.form-group {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  position: absolute;
+  top: 0.8rem;
+  left: 1.1rem;
+  color: #5c5c5c;
+  font-size: 1rem;
+  pointer-events: none;
+  transition: all 0.2s ease;
+  background: white;
+  padding: 0 0.5rem;
+  transform-origin: left top;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 0.8rem 1.1rem;
+  border: 1.5px solid #5c5c5c;
+  border-radius: 0.7rem;
+  font-size: 1rem;
+  font-family: inherit;
+  outline: none;
+  transition: border 0.2s;
+  background: transparent;
+  z-index: 1;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #5c5c5c;
+}
+
+.form-group input:focus + label,
+.form-group input:not(:placeholder-shown) + label,
+.form-group select:focus + label,
+.form-group select:not(:placeholder-shown) + label {
+  transform: translateY(-1.4rem) scale(0.8);
+  color: #5c5c5c;
+}
+
+.required {
+  color: #c00;
+  margin-left: 3px;
+}
