@@ -1,0 +1,129 @@
+
+<!-- Main container -->
+<main>
+  <section class="checkout-left" aria-label="Shipping address and methods">
+    <h1 class="secure-checkout-title" aria-level="1" tabindex="0">Secure Checkout</h1>
+
+    <div class="progress-bar-labels" aria-hidden="true">
+      <div class="completed-label">Shipping</div>
+      <div>Review & Payments</div>
+    </div>
+
+    <form aria-label="Shipping address form" novalidate (ngSubmit)="onSubmit()">
+      <fieldset>
+        <legend><h2>Shipping Address</h2></legend>
+
+        <label for="email">
+          Email Address <span class="required" aria-hidden="true">*</span>
+          <span tabindex="0" class="tooltip" data-tooltip="We will use this email for order updates.">?</span>
+        </label>
+        <input id="email" type="email" name="email" [(ngModel)]="email" required aria-required="true" placeholder="Enter your email" />
+
+        <p class="note-small">You can create an account after checkout.</p>
+
+        <div class="two-columns">
+          <div>
+            <label for="firstName">
+              First Name <span class="required" aria-hidden="true">*</span>
+            </label>
+            <input id="firstName" type="text" name="firstName" [(ngModel)]="firstName" required aria-required="true" placeholder="First Name" />
+          </div>
+          <div>
+            <label for="lastName">
+              Last Name <span class="required" aria-hidden="true">*</span>
+            </label>
+            <input id="lastName" type="text" name="lastName" [(ngModel)]="lastName" required aria-required="true" placeholder="Last Name" />
+          </div>
+        </div>
+
+        <label for="street">
+          Street Address <span class="required" aria-hidden="true">*</span>
+        </label>
+        <input id="street" type="text" name="street" [(ngModel)]="streetAddress" required aria-required="true" placeholder="Street Address" />
+
+        <div class="two-columns">
+          <div>
+            <label for="country">
+              Country <span class="required" aria-hidden="true">*</span>
+            </label>
+            <select id="country" name="country" [(ngModel)]="country" required aria-required="true">
+              <option selected disabled value="">Pakistan</option>
+              <option value="Pakistan">Pakistan</option>
+              <option value="India">India</option>
+              <option value="USA">USA</option>
+              <option value="UK">United Kingdom</option>
+            </select>
+          </div>
+          <div>
+            <label for="state">State/Province</label>
+            <input id="state" name="state" [(ngModel)]="state" placeholder="State or Province" />
+          </div>
+        </div>
+
+        <div class="two-columns">
+          <div>
+            <label for="city">City</label>
+            <select id="city" name="city" [(ngModel)]="city">
+              <option selected disabled value="">--Select City--</option>
+              <option value="Karachi">Karachi</option>
+              <option value="Lahore">Lahore</option>
+              <option value="Islamabad">Islamabad</option>
+            </select>
+          </div>
+          <div>
+            <label for="zip">Zip/Postal Code</label>
+            <input id="zip" name="zip" [(ngModel)]="zip" placeholder="Zip or Postal Code" />
+          </div>
+        </div>
+
+        <label for="phone">
+          Phone Number <span class="required" aria-hidden="true">*</span>
+          <span tabindex="0" class="tooltip" data-tooltip="Your contact number for delivery purposes.">?</span>
+        </label>
+        <input id="phone" type="text" name="phone" [(ngModel)]="phone" required aria-required="true" placeholder="Phone Number" />
+      </fieldset>
+
+      <section class="shipping-methods" aria-label="Shipping Methods">
+        <h3>Shipping Methods</h3>
+        <table class="shipping-methods-table" role="table">
+          <thead>
+            <tr>
+              <th scope="col">Select Method</th>
+              <th scope="col">Price</th>
+              <th scope="col">Method Title</th>
+              <th scope="col">Carrier Title</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let method of shippingMethods">
+              <td class="radio-cell">
+                <input type="radio" [id]="method.id" name="shippingMethod" [value]="method.id" [(ngModel)]="selectedShipping" checked />
+              </td>
+              <td>PKR {{ method.price.toFixed(2) }}</td>
+              <td>{{ method.title }}</td>
+              <td>{{ method.carrier }}</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="shipping-policy" tabindex="0" role="button" aria-pressed="false" aria-label="See our Shipping Policy">
+          See our Shipping Policy
+        </div>
+      </section>
+    </form>
+  </section>
+
+  <aside class="checkout-right" aria-label="Order Summary">
+    <h3>Order Summary</h3>
+    <p><strong>{{ getItemCount() }} Item{{ getItemCount() !== 1 ? 's' : '' }} in Cart</strong></p>
+    <div class="item" *ngFor="let item of getOrderItems()">
+      <img [src]="item.image" alt="{{ item.name }}" loading="lazy" />
+      <div class="item-details">
+        <div class="title">{{ item.name }}</div>
+        <div>Qty: {{ item.qty }}</div>
+        <div>PKR {{ (item.price * item.qty).toFixed(2) }}</div>
+        <div class="view-details" tabindex="0" role="button" aria-label="View details of item">View Details ▼</div>
+      </div>
+    </div>
+  </aside>
+</main>

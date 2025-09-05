@@ -1,0 +1,564 @@
+/* Custom scrollbar for order summary details */
+.summary-details {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+/* Custom underline on focus for inputs */
+input:focus,
+select:focus {
+  outline: none;
+  border-bottom-color: #000;
+  box-shadow: 0 2px 0 0 rgb(0 0 0 / 0.8);
+}
+
+/* Border bottom for inputs */
+input,
+select {
+  border: none;
+  border-bottom: 1px solid #ccc;
+  padding: 8px 0;
+  font-size: 0.9rem;
+  background: transparent;
+  width: 100%;
+  transition: border-bottom-color 0.3s ease;
+}
+
+/* Tooltip icon styling */
+.tooltip-icon {
+  font-weight: 900;
+  font-size: 16px;
+  cursor: pointer;
+  color: #999;
+  user-select: none;
+  position: relative;
+  top: 3px;
+  margin-left: 6px;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ccc;
+}
+
+/* Tooltip content */
+.tooltip-icon:hover .tooltip-text,
+.tooltip-icon:focus .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  opacity: 0;
+  width: 200px;
+  background-color: #111;
+  color: #fff;
+  text-align: left;
+  border-radius: 4px;
+  padding: 8px;
+  position: absolute;
+  z-index: 10;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -100px;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  font-size: 0.75rem;
+  line-height: 1.2rem;
+}
+
+/* Arrow for tooltip */
+.tooltip-text::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #111 transparent transparent transparent;
+}
+
+/* Scrollbar style for order details */
+.summary-details::-webkit-scrollbar {
+  width: 6px;
+}
+
+.summary-details::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 3px;
+}
+
+.summary-details::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Additional styles from provided HTML */
+
+/* Reset */
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #222;
+  background: #fff;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* Top notification bar */
+.top-notice {
+  background-color: #000;
+  color: #fff;
+  font-size: 12px;
+  text-align: center;
+  padding: 5px 10px;
+  letter-spacing: 0.05em;
+}
+
+/* Header */
+header {
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 100;
+}
+.header-left,
+.header-center,
+.header-right {
+  display: flex;
+  align-items: center;
+}
+.header-left {
+  flex: 1;
+}
+.header-center {
+  flex: 1;
+  justify-content: center;
+}
+.header-right {
+  flex: 1;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  font-size: 14px;
+  line-height: 1.2;
+}
+.header-left a {
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+}
+.header-center .logo {
+  font-weight: 900;
+  font-size: 24px;
+  user-select: none;
+  font-family: serif;
+}
+.header-right div {
+  margin-left: 1.5rem;
+  white-space: nowrap;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+}
+.header-right a {
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-left: 1rem;
+  white-space: nowrap;
+}
+
+/* Main container */
+main {
+  max-width: 1100px;
+  margin: 2rem auto 4rem;
+  padding: 0 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+/* Left form container */
+.checkout-left {
+  flex: 0 1 65%;
+  min-width: 300px;
+}
+
+/* Right summary container */
+.checkout-right {
+  flex: 0 1 30%;
+  min-width: 280px;
+  border: 1px solid #bbb;
+  padding: 1rem 1.5rem;
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+/* Secure Checkout heading */
+.secure-checkout-title {
+  font-weight: 700;
+  font-size: 1.375rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.secure-checkout-title::before {
+  content: "🔒";
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+/* Progress bar container */
+.progress-bar {
+  display: flex;
+  align-items: center;
+  max-width: 300px;
+  gap: 12px;
+  margin-bottom: 3rem;
+}
+
+/* Step circle */
+.progress-bar .step {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2.5px solid #ccc;
+  background: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: #777;
+  cursor: default;
+  user-select: none;
+}
+.progress-bar .step.completed {
+  background: #222;
+  border-color: #222;
+  color: #fff;
+}
+.progress-bar .step.current {
+  background: #fff;
+  border-color: #222;
+  color: #222;
+  font-weight: 900;
+}
+/* Checkmark for completed step */
+.progress-bar .step.completed::after {
+  content: "✓";
+  color: #fff;
+  position: absolute;
+  font-size: 16px;
+  left: 7px;
+  top: 3px;
+}
+
+/* Progress line */
+.progress-bar .line {
+  flex: 1;
+  height: 6px;
+  background: #ccc;
+  border-radius: 3px;
+  position: relative;
+}
+.progress-bar .line .fill {
+  background: #222;
+  height: 6px;
+  width: 60%;
+  border-radius: 3px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Progress labels */
+.progress-bar-labels {
+  display: flex;
+  justify-content: space-between;
+  max-width: 300px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #777;
+  margin-bottom: 3rem;
+  user-select: none;
+}
+.progress-bar-labels .completed-label {
+  color: #222;
+  font-weight: 700;
+}
+
+/* Shipping Address form */
+form h2 {
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+label {
+  font-size: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+}
+label span.required {
+  color: #c00;
+  margin-left: 3px;
+}
+label .tooltip {
+  display: inline-block;
+  margin-left: 6px;
+  font-size: 14px;
+  color: #888;
+  cursor: help;
+  user-select: none;
+  position: relative;
+}
+label .tooltip:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #222;
+  color: #fff;
+  padding: 5px 8px;
+  font-size: 11px;
+  white-space: nowrap;
+  border-radius: 4px;
+  z-index: 10;
+  opacity: 1;
+  pointer-events: none;
+}
+label .tooltip::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #222;
+  color: #fff;
+  padding: 5px 8px;
+  font-size: 11px;
+  white-space: nowrap;
+  border-radius: 4px;
+  z-index: 10;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+input[type="text"],
+input[type="email"],
+select {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  padding: 8px 4px 5px;
+  font-size: 14px;
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+  outline-offset: 4px;
+  outline-color: transparent;
+  transition: outline-color 0.3s ease;
+}
+input[type="text"]:focus,
+input[type="email"]:focus,
+select:focus {
+  outline-color: #222;
+  border-bottom-color: #222;
+}
+
+/* Inline two-column fields */
+.two-columns {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.two-columns > div {
+  flex: 1;
+  min-width: 140px;
+}
+
+/* Small note text */
+.note-small {
+  font-size: 11px;
+  font-weight: 400;
+  color: #555;
+  margin-top: -1rem;
+  margin-bottom: 1.5rem;
+  user-select: none;
+}
+
+/* Shipping Methods */
+.shipping-methods {
+  margin-top: 3rem;
+}
+.shipping-methods h3 {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+table.shipping-methods-table {
+  width: 100%;
+  font-size: 13px;
+  border-collapse: collapse;
+}
+table.shipping-methods-table th,
+table.shipping-methods-table td {
+  padding: 0.4rem 0.5rem;
+  vertical-align: middle;
+  font-weight: 600;
+  text-align: left;
+}
+table.shipping-methods-table th {
+  font-weight: 700;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.8rem;
+}
+table.shipping-methods-table td {
+  font-weight: 600;
+  border-bottom: 1px solid #eee;
+}
+table.shipping-methods-table td.radio-cell {
+  width: 35px;
+  text-align: center;
+  padding-left: 0;
+}
+
+/* Shipping Policy link */
+.shipping-policy {
+  margin-top: 1rem;
+  font-weight: 600;
+  font-size: 13px;
+  text-align: right;
+  cursor: pointer;
+  color: #222;
+  user-select: none;
+}
+.shipping-policy:hover {
+  text-decoration: underline;
+}
+
+/* Order Summary */
+.checkout-right h3 {
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+.checkout-right p {
+  margin: 0.3rem 0;
+  font-size: 13px;
+  font-weight: 600;
+}
+.checkout-right .item {
+  display: flex;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+.checkout-right .item img {
+  width: 50px;
+  height: 60px;
+  object-fit: cover;
+  border: 1px solid #ccc;
+  flex-shrink: 0;
+}
+.checkout-right .item-details {
+  flex: 1;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.checkout-right .item-details .title {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 4px;
+}
+.checkout-right .view-details {
+  font-weight: 400;
+  font-size: 12px;
+  color: #222;
+  cursor: pointer;
+  user-select: none;
+}
+.checkout-right .view-details:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  main {
+    flex-direction: column;
+    max-width: 600px;
+    margin: 1rem auto 3rem;
+  }
+  .checkout-left,
+  .checkout-right {
+    flex: 1 1 100%;
+    min-width: auto;
+  }
+  header {
+    padding: 0.75rem 1rem;
+  }
+  .header-left,
+  .header-center,
+  .header-right {
+    flex: none;
+  }
+  .header-left {
+    justify-content: flex-start;
+  }
+  .header-center {
+    order: -1;
+    justify-content: flex-start;
+    margin-bottom: 0.5rem;
+  }
+  .header-right {
+    justify-content: flex-start;
+    font-size: 13px;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .header-right div,
+  .header-right a {
+    margin-left: 0;
+  }
+  .two-columns {
+    flex-direction: column;
+  }
+}
+@media (max-width: 480px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .header-center {
+    margin-bottom: 1rem;
+  }
+}
