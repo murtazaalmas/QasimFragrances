@@ -18,13 +18,13 @@ export interface ContactInfo {
 })
 export class ContactInfoService {
   private contactInfo: ContactInfo = {
-    name: 'Muhammad Qasim',
-    address: 'Shop # 36,37, Hassan Center, Hall Road, Lahore, Pakistan',
-    phone: '+923476833344',
-    phoneFormatted: '+92 347 6833344',
-    email: 'MuhammadQasim@gmail.com',
+    name: 'Ahmad Daas',
+    address: 'People Colony Gujranwa;a, Pakistan',
+    phone: '+923216467893',
+    phoneFormatted: '+92 321 6467893',
+    email: 'daas@gmail.com',
     instagram: {
-      url: 'https://www.instagram.com/attractionperfume007/?igsh=MWl3bTN2N2xha2J4Ng%3D%3D&utm_source=ig_contact_invite#',
+      url: '',
       displayName: 'Daas Perfume'
     },
     businessHours: 'Mon - Sat: 9:00 AM - 8:00 PM'
