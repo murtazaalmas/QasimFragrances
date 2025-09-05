@@ -106,4 +106,14 @@ export class Checkout implements OnInit {
     // Handle form submission
     console.log('Form submitted');
   }
+
+  animateOrderButton() {
+    const orderButton = document.querySelector('.order');
+    if (orderButton && !orderButton.classList.contains('animate')) {
+      orderButton.classList.add('animate');
+      setTimeout(() => {
+        orderButton.classList.remove('animate');
+      }, 10000000);
+    }
+  }
 }
