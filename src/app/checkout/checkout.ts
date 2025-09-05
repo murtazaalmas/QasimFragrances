@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { NgIf, NgFor } from '@angular/common';
+import { NgIf, NgFor, DecimalPipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-checkout',
   standalone: true,
-  imports: [NgIf, NgFor, FormsModule],
+  imports: [NgIf, NgFor, FormsModule, DecimalPipe],
   templateUrl: './checkout.html',
   styleUrl: './checkout.css'
 })
@@ -35,6 +35,7 @@ export class Checkout implements OnInit {
   ngOnInit(): void {
     this.cartService.cartItems$.subscribe(items => {
       this.cartItems = items;
+      console.log(this.cartItems);
     });
     this.loadFormData();
   }

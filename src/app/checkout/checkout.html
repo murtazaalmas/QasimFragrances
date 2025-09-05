@@ -117,16 +117,30 @@
     </form>
   </section>
 
-  <aside class="checkout-right" aria-label="Order Summary">
-    <h3>Order Summary</h3>
-    <p><strong>{{ getItemCount() }} Item{{ getItemCount() !== 1 ? 's' : '' }} in Cart</strong></p>
-    <div class="item" *ngFor="let item of getOrderItems()">
-      <img [src]="item.image" alt="{{ item.name }}" loading="lazy" />
-      <div class="item-details">
-        <div class="title">{{ item.name }}</div>
-        <div>Qty: {{ item.qty }}</div>
-        <div>PKR {{ (item.price * item.qty).toFixed(2) }}</div>
-        <div class="view-details" tabindex="0" role="button" aria-label="View details of item">View Details ▼</div>
+  <aside class="checkout-right">
+    <div class="drawer-header">
+      <h3>Order Summary</h3>
+      <div class="item-count">{{ getItemCount() }} Item{{ getItemCount() !== 1 ? 's' : '' }}</div>
+    </div>
+    
+    <div class="drawer-content">
+      <div class="items-list">
+        <div class="item" *ngFor="let item of getOrderItems()">
+          <div class="item-image-container">
+            <img [src]="item.image || 'assets/images/placeholder-product.jpg'" alt="{{ item.name }}" loading="lazy" />
+          </div>
+          <div class="item-info">
+            <div class="item-title">{{ item.name }}</div>
+            <div class="item-meta">
+              <span class="item-qty">Qty: {{ item.qty }}</span>
+              <span class="item-price">PKR {{ item.price * item.qty | number:'1.2-2' }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="drawer-footer">
+        <button class="view-details">View Details</button>
       </div>
     </div>
   </aside>
