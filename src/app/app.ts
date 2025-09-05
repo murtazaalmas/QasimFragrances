@@ -65,7 +65,7 @@ export class App implements OnInit {
   }
 
   openInvoice() {
-    this.showInvoice = true;
+    this.router.navigate(['/checkout']);
     this.closeCartSidebar();
   }
 

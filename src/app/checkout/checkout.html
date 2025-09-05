@@ -17,7 +17,7 @@
           Email Address <span class="required" aria-hidden="true">*</span>
           <span tabindex="0" class="tooltip" data-tooltip="We will use this email for order updates.">?</span>
         </label>
-        <input id="email" type="email" name="email" [(ngModel)]="email" required aria-required="true" placeholder="Enter your email" />
+        <input id="email" type="email" name="email" [(ngModel)]="email" (input)="saveFormData()" required aria-required="true" placeholder="Enter your email" />
 
         <p class="note-small">You can create an account after checkout.</p>
 
@@ -26,27 +26,27 @@
             <label for="firstName">
               First Name <span class="required" aria-hidden="true">*</span>
             </label>
-            <input id="firstName" type="text" name="firstName" [(ngModel)]="firstName" required aria-required="true" placeholder="First Name" />
+            <input id="firstName" type="text" name="firstName" [(ngModel)]="firstName" (input)="saveFormData()" required aria-required="true" placeholder="First Name" />
           </div>
           <div>
             <label for="lastName">
               Last Name <span class="required" aria-hidden="true">*</span>
             </label>
-            <input id="lastName" type="text" name="lastName" [(ngModel)]="lastName" required aria-required="true" placeholder="Last Name" />
+            <input id="lastName" type="text" name="lastName" [(ngModel)]="lastName" (input)="saveFormData()" required aria-required="true" placeholder="Last Name" />
           </div>
         </div>
 
         <label for="street">
           Street Address <span class="required" aria-hidden="true">*</span>
         </label>
-        <input id="street" type="text" name="street" [(ngModel)]="streetAddress" required aria-required="true" placeholder="Street Address" />
+        <input id="street" type="text" name="street" [(ngModel)]="streetAddress" (input)="saveFormData()" required aria-required="true" placeholder="Street Address" />
 
         <div class="two-columns">
           <div>
             <label for="country">
               Country <span class="required" aria-hidden="true">*</span>
             </label>
-            <select id="country" name="country" [(ngModel)]="country" required aria-required="true">
+            <select id="country" name="country" [(ngModel)]="country" (change)="saveFormData()" required aria-required="true">
               <option selected disabled value="">Pakistan</option>
               <option value="Pakistan">Pakistan</option>
               <option value="India">India</option>
@@ -56,14 +56,14 @@
           </div>
           <div>
             <label for="state">State/Province</label>
-            <input id="state" name="state" [(ngModel)]="state" placeholder="State or Province" />
+            <input id="state" name="state" [(ngModel)]="state" (input)="saveFormData()" placeholder="State or Province" />
           </div>
         </div>
 
         <div class="two-columns">
           <div>
             <label for="city">City</label>
-            <select id="city" name="city" [(ngModel)]="city">
+            <select id="city" name="city" [(ngModel)]="city" (change)="saveFormData()">
               <option selected disabled value="">--Select City--</option>
               <option value="Karachi">Karachi</option>
               <option value="Lahore">Lahore</option>
@@ -72,7 +72,7 @@
           </div>
           <div>
             <label for="zip">Zip/Postal Code</label>
-            <input id="zip" name="zip" [(ngModel)]="zip" placeholder="Zip or Postal Code" />
+            <input id="zip" name="zip" [(ngModel)]="zip" (input)="saveFormData()" placeholder="Zip or Postal Code" />
           </div>
         </div>
 
@@ -80,7 +80,7 @@
           Phone Number <span class="required" aria-hidden="true">*</span>
           <span tabindex="0" class="tooltip" data-tooltip="Your contact number for delivery purposes.">?</span>
         </label>
-        <input id="phone" type="text" name="phone" [(ngModel)]="phone" required aria-required="true" placeholder="Phone Number" />
+        <input id="phone" type="text" name="phone" [(ngModel)]="phone" (input)="saveFormData()" required aria-required="true" placeholder="Phone Number" />
       </fieldset>
 
       <section class="shipping-methods" aria-label="Shipping Methods">
@@ -95,14 +95,14 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let method of shippingMethods">
-              <td class="radio-cell">
-                <input type="radio" [id]="method.id" name="shippingMethod" [value]="method.id" [(ngModel)]="selectedShipping" checked />
-              </td>
-              <td>PKR {{ method.price.toFixed(2) }}</td>
-              <td>{{ method.title }}</td>
-              <td>{{ method.carrier }}</td>
-            </tr>
+        <tr *ngFor="let method of shippingMethods">
+          <td class="radio-cell">
+            <input type="radio" [id]="method.id" name="shippingMethod" [value]="method.id" [(ngModel)]="selectedShipping" (change)="saveFormData()" />
+          </td>
+          <td>PKR {{ method.price.toFixed(2) }}</td>
+          <td>{{ method.title }}</td>
+          <td>{{ method.carrier }}</td>
+        </tr>
           </tbody>
         </table>
 

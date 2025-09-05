@@ -28,10 +28,52 @@ export class Checkout implements OnInit {
   zip = '';
   phone = '';
 
+  private readonly CHECKOUT_STORAGE_KEY = 'checkoutFormData';
+
   constructor(private cartService: CartService) {}
 
   ngOnInit(): void {
-    this.cartItems = this.cartService.cartItems;
+    this.cartService.cartItems$.subscribe(items => {
+      this.cartItems = items;
+    });
+    this.loadFormData();
+  }
+
+  public saveFormData() {
+    const formData = {
+      email: this.email,
+      firstName: this.firstName,
+      lastName: this.lastName,
+      streetAddress: this.streetAddress,
+      country: this.country,
+      state: this.state,
+      city: this.city,
+      zip: this.zip,
+      phone: this.phone,
+      selectedShipping: this.selectedShipping
+    };
+    localStorage.setItem(this.CHECKOUT_STORAGE_KEY, JSON.stringify(formData));
+  }
+
+  private loadFormData() {
+    const stored = localStorage.getItem(this.CHECKOUT_STORAGE_KEY);
+    if (stored) {
+      try {
+        const formData = JSON.parse(stored);
+        this.email = formData.email || '';
+        this.firstName = formData.firstName || '';
+        this.lastName = formData.lastName || '';
+        this.streetAddress = formData.streetAddress || '';
+        this.country = formData.country || 'Pakistan';
+        this.state = formData.state || '';
+        this.city = formData.city || '';
+        this.zip = formData.zip || '';
+        this.phone = formData.phone || '';
+        this.selectedShipping = formData.selectedShipping || 'local';
+      } catch (error) {
+        console.error('Error loading form data:', error);
+      }
+    }
   }
 
   getOrderItems() {
