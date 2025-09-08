@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
-import { NgIf, NgFor, NgClass } from '@angular/common';
+import { NgIf, NgFor, NgClass, DecimalPipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ProductService } from '../product.service';
 import { CartService } from '../cart.service';
@@ -7,7 +7,7 @@ import { CartService } from '../cart.service';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [NgIf, NgFor, NgClass, FormsModule],
+  imports: [NgIf, NgFor, NgClass, FormsModule, DecimalPipe],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })

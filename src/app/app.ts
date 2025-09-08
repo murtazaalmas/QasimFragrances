@@ -7,12 +7,13 @@ import { CartService } from './cart.service';
 import { Invoice } from './invoice/invoice';
 import { Footer } from './footer/footer';
 import { HttpClientModule } from '@angular/common/http';
+import { DecimalPipe } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [Navbar, Home, NgIf, NgFor, RouterOutlet, Invoice, Footer, HttpClientModule],
+  imports: [Navbar, Home, NgIf, NgFor, RouterOutlet, Invoice, Footer, HttpClientModule, DecimalPipe],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrls: ['./app.css']
 })
 export class App implements OnInit {
   protected title = 'Itrah Perfume';
@@ -59,8 +60,8 @@ export class App implements OnInit {
 
   get cartTotal() {
     return this.cartItems.reduce((sum, item) => {
-      const price = parseInt((item.price || '0').replace(/[^\d]/g, ''));
-      return sum + price * (item.qty || 1);
+      // const price = parseInt((item.price || '0').replace(/[^\d]/g, ''));
+      return sum + item.price * (item.qty || 1);
     }, 0);
   }
 

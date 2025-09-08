@@ -16,13 +16,14 @@
   <div class="products-grid four-in-row">
     @for (product of filteredProducts; track product.name) {
     <div class="product-card" (click)="openModal(product)" style="cursor:pointer;">
-      <img [src]="product.images[0]" [alt]="product.name"  />
+      <img [src]="product.images[0]" [alt]="product.name" />
       <p> {{ product.name }}</p>
       <p> {{ product.description }}</p>
-      <p> {{ product.price }}</p>
+      <p> Rs. {{ product.price | number }}</p>
+
       <div class="product-overlay">
         <i class="fa-solid fa-cart-shopping" style="color: white; font-size: 2rem;"></i>
-        <p  style="color: white;">Add to Cart</p>
+        <p style="color: white;">Add to Cart</p>
       </div>
     </div>
     }
@@ -55,12 +56,15 @@
         <label for="quantity">QTY:</label>
         <div class="qty-controls">
           <button (click)="decrementQuantity()" class="qty-btn">-</button>
-          <input type="number" id="quantity" [(ngModel)]="quantity" min="1" [max]="selectedProduct.availableQty || 10" readonly />
+          <input type="number" id="quantity" [(ngModel)]="quantity" min="1" [max]="selectedProduct.availableQty || 10"
+            readonly />
           <button (click)="incrementQuantity()" class="qty-btn">+</button>
         </div>
-        <span class="qty-available" *ngIf="selectedProduct.availableQty">Available: {{ selectedProduct.availableQty }}</span>
+        <span class="qty-available" *ngIf="selectedProduct.availableQty">Available: {{ selectedProduct.availableQty
+          }}</span>
       </div>
-      <button class="add-to-bag-modal" (click)="$event.stopPropagation(); addToCart(selectedProduct)">Add to Cart</button>
+      <button class="add-to-bag-modal" (click)="$event.stopPropagation(); addToCart(selectedProduct)">Add to
+        Cart</button>
       <div class="modal-shipping">
         <strong>Shipping:</strong> Free shipping on 5 items.
       </div>

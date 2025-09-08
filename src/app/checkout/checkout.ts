@@ -16,7 +16,7 @@ export class Checkout implements OnInit {
     { id: 'local', carrier: 'Local Shipment', price: 149.00, time: '5-7 days', detial: 'Local Shipment' },
     { id: 'express', carrier: 'Express Shipment', price: 299.00, time: '1-2 days', detial: 'Express Shipment' },
     { id: 'urgent', carrier: 'Urgent Shipment', price: 499.00, time: '1 day', detial: 'Urgent Shipment' },
-    { id: 'free', carrier: 'Free Shipment', price: 0.00, time: '7-10 days', detial: 'minimun order value PKR 5000' },
+    { id: 'free', carrier: 'Free Shipment', price: 0.00, time: '7-10 days', detial: 'minimun order value Rs. 5000' },
   ];
   selectedShipping = 'local';
 
@@ -38,7 +38,6 @@ export class Checkout implements OnInit {
   ngOnInit(): void {
     this.cartService.cartItems$.subscribe(items => {
       this.cartItems = items;
-      console.log(this.cartItems);
     });
     this.loadFormData();
   }
@@ -86,6 +85,13 @@ export class Checkout implements OnInit {
 
   getSubtotal() {
     return this.cartItems.reduce((sum, item) => sum + (item.price * item.qty), 0);
+  }
+
+  get cartTotal() {
+    return this.cartItems.reduce((sum, item) => {
+      // const price = parseInt((item.price || '0').replace(/[^\d]/g, ''));
+      return sum + item.price * (item.qty || 1);
+    }, 0);
   }
 
   getShippingCost() {

@@ -87,13 +87,13 @@
       <div class="items-list">
         <div class="item" *ngFor="let item of getOrderItems()">
           <div class="item-image-container">
-            <img [src]="item.image || 'assets/images/placeholder-product.jpg'" alt="{{ item.name }}" loading="lazy" />
+            <img [src]="item.images[0] || 'assets/images/placeholder-product.jpg'" alt="{{ item.images[0] }}" loading="lazy" />
           </div>
           <div class="item-info">
             <div class="item-title">{{ item.name }}</div>
             <div class="item-meta">
               <span class="item-qty">Qty: {{ item.qty }}</span>
-              <span class="item-price">PKR {{ item.price * item.qty | number:'1.2-2' }}</span>
+              <span class="item-price">Rs. {{ item.price * item.qty | number }}</span>
             </div>
           </div>
         </div>
@@ -120,7 +120,7 @@
               (change)="saveFormData()" /> 
           </td>
           <td>{{ method.carrier }}</td>
-          <td>PKR {{ method.price.toFixed(2) }}</td>
+          <td>Rs. {{ method.price | number }}</td>
           <td>{{ method.time }}</td>
           <td>{{ method.detial }}</td>
           </tr>
@@ -151,4 +151,3 @@
     </button>
   </section>
 </main>
-
