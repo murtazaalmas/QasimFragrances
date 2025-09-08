@@ -33,3 +33,21 @@ body {
     padding: 0 1vw;
   }
 }
+
+
+.notification-toast {
+  position: fixed;
+  top: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #5c5c5c;
+  color: #fff;
+  padding: 0.9rem 2.2rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  box-shadow: 0 2px 12px rgba(230,0,35,0.18);
+  z-index: 99999999;
+  opacity: 0.97;
+  animation: fadeInOut 1.5s;
+}

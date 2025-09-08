@@ -1,6 +1,7 @@
 <!-- Main container -->
 <main class="checkout">
   <h2 class="secure-checkout-title" aria-level="1" tabindex="0">Checkout</h2>
+  <div *ngIf="notification" class="notification-toast">{{ notification }}</div>
 
   <section class="checkout-left" aria-label="Shipping address and methods">
     <div class="drawer-header">
@@ -129,10 +130,10 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let method of shippingMethods">
+        <tr *ngFor="let method of shippingMethods" [class.disabled-row]="method.id === 'free' && !isFreeShippingEligible()">
           <td class="radio-cell" >
             <input type="radio" [id]="method.id" name="shippingMethod" [value]="method.id" [(ngModel)]="selectedShipping"
-              (change)="saveFormData()" /> 
+              (change)="onShippingChange()" [disabled]="method.id === 'free' && !isFreeShippingEligible()" /> 
           </td>
           <td>{{ method.carrier }}</td>
           <td>Rs. {{ method.shippingCast | number }}</td>

@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { NgFor, DecimalPipe } from '@angular/common';
+import { NgFor, DecimalPipe, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-checkout',
   standalone: true,
-  imports: [NgFor, FormsModule, DecimalPipe],
+  imports: [NgIf, NgFor, FormsModule, DecimalPipe],
   templateUrl: './checkout.html',
   styleUrl: './checkout.css'
 })
@@ -18,6 +18,7 @@ export class Checkout implements OnInit {
     { id: 'free', carrier: 'Free Shipment', shippingCast: 0, time: '7-10 days', detial: 'minimum order value Rs. 10,000' },
   ];
   selectedShipping = 'local';
+  notification: string | null = null;
 
   // Form data
   email = '';
@@ -93,13 +94,10 @@ export class Checkout implements OnInit {
     }, 0);
   }
 
-
   getTax() {
     // Assume 0 for now, can be calculated based on location
     return 0;
   }
-
- 
 
   getItemCount() {
     return this.cartItems.length;
@@ -118,5 +116,20 @@ export class Checkout implements OnInit {
         orderButton.classList.remove('animate');
       }, 10000000);
     }
+  }
+
+  isFreeShippingEligible(): boolean {
+    return this.getSubtotal() >= 10000;
+  }
+
+  onShippingChange() {
+    if (this.selectedShipping === 'free' && !this.isFreeShippingEligible()) {
+      this.selectedShipping = 'local';
+      this.notification = 'Minimum order of Rs. 10,000 required for free shipping';
+      setTimeout(() => {
+        this.notification = null;
+      }, 1500);
+    }
+    this.saveFormData();
   }
 }
