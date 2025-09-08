@@ -19,7 +19,7 @@ export interface ContactInfo {
 export class ContactInfoService {
   private contactInfo: ContactInfo = {
     name: 'Itrah pk',
-    address: 'People Colony Gujranwa;a, Pakistan',
+    address: 'People Colony Gujranwala, Pakistan',
     phone: '+923216467893',
     phoneFormatted: '+92 321 6467893',
     email: 'Itrah@gmail.com',
