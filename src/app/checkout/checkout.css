@@ -1242,3 +1242,21 @@ table.shipping-methods-table td.radio-cell {
   font-weight: 700;
   color: #333;
 }
+
+/* Subtotal, Shipping and Total Rows */
+.subtotal-row,
+.shipping-row,
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.total-row {
+  font-weight: bold;
+  font-size: 1.1em;
+  border-top: 1px solid #ddd;
+  margin-top: 8px;
+  padding-top: 16px;
+}

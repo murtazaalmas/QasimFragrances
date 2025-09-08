@@ -13,10 +13,9 @@ import { CartService } from '../cart.service';
 export class Checkout implements OnInit {
   cartItems: any[] = [];
   shippingMethods = [
-    { id: 'local', carrier: 'Local Shipment', price: 149.00, time: '5-7 days', detial: 'Local Shipment' },
-    { id: 'express', carrier: 'Express Shipment', price: 299.00, time: '1-2 days', detial: 'Express Shipment' },
-    { id: 'urgent', carrier: 'Urgent Shipment', price: 499.00, time: '1 day', detial: 'Urgent Shipment' },
-    { id: 'free', carrier: 'Free Shipment', price: 0.00, time: '7-10 days', detial: 'minimun order value Rs. 5000' },
+    { id: 'local', carrier: 'Local Shipment', shippingCast: 500, time: '5-7 days', detial: 'Local Shipment' },
+    { id: 'urgent', carrier: 'Urgent Shipment', shippingCast: 1000, time: '1 day', detial: 'Urgent Shipment' },
+    { id: 'free', carrier: 'Free Shipment', shippingCast: 0, time: '7-10 days', detial: 'minimum order value Rs. 10,000' },
   ];
   selectedShipping = 'local';
 
@@ -94,19 +93,13 @@ export class Checkout implements OnInit {
     }, 0);
   }
 
-  getShippingCost() {
-    const method = this.shippingMethods.find(m => m.id === this.selectedShipping);
-    return method ? method.price : 0;
-  }
 
   getTax() {
     // Assume 0 for now, can be calculated based on location
     return 0;
   }
 
-  getTotal() {
-    return this.getSubtotal() + this.getShippingCost() + this.getTax();
-  }
+ 
 
   getItemCount() {
     return this.cartItems.length;
