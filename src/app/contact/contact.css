@@ -258,6 +258,15 @@
   /* color: #fff; */
 }
 
+@keyframes shake {
+  0%, 100% { transform: translateY(0); }
+  20%, 60% { transform: translateY(-5px); }
+  40%, 80% { transform: translateY(5px); }
+}
+
+.contact-card:hover .icon-container i {
+  animation: shake 0.5s ease-in-out;
+}
 
 .icon-container {
   width: 60px;
