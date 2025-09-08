@@ -1,8 +1,37 @@
 .footer {
-  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  position: relative;
+  /* padding: 1rem; */
+  /* margin-top: 4rem; */
+  /* overflow: hidden; */
+}
+
+footer * {
   color: #fff;
-  padding: 3rem 0 1rem 0;
-  margin-top: 4rem;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('/images/home1-bg-2.webp') center/cover no-repeat;
+  filter: brightness(0.7);
+  z-index: -1;
+}
+
+.footer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(26, 26, 26, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: -1;
 }
 
 .footer-content {
@@ -15,7 +44,7 @@
 }
 
 .footer-section h3 {
-  color: #5c5c5c;
+  /* color: #5c5c5c; */
   font-size: 1.3rem;
   margin-bottom: 1.2rem;
   font-weight: 600;
@@ -34,7 +63,7 @@
   left: 0;
   width: 30px;
   height: 2px;
-  background: #5c5c5c;
+  background: #fff;
   border-radius: 1px;
 }
 
@@ -51,14 +80,14 @@
 .footer-logo .brand-name {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #5c5c5c;
+  /* color: #5c5c5c; */
   margin-left: 0.6rem;
   letter-spacing: 1px;
   font-family: 'Montserrat', Arial, sans-serif;
 }
 
 .company-description {
-  color: #ccc;
+  /* color: #ccc; */
   line-height: 1.6;
   margin-bottom: 1.5rem;
   font-size: 0.95rem;
@@ -78,14 +107,14 @@
   background: rgba(230, 0, 35, 0.1);
   border: 1px solid rgba(230, 0, 35, 0.3);
   border-radius: 50%;
-  color: #5c5c5c;
+  /* color: #5c5c5c; */
   text-decoration: none;
   transition: all 0.3s ease;
 }
 
 .social-link:hover {
   background: #5c5c5c;
-  color: #fff;
+  /* color: #fff; */
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(230, 0, 35, 0.3);
 }
@@ -102,7 +131,7 @@
 }
 
 .footer-link {
-  color: #ccc;
+  /* color: #ccc; */
   text-decoration: none;
   transition: color 0.3s ease;
   cursor: pointer;
@@ -122,7 +151,7 @@
 }
 
 .footer-link:hover {
-  color: #5c5c5c;
+  /* color: #5c5c5c; */
 }
 
 .footer-link:hover::before {
@@ -140,24 +169,24 @@
   display: flex;
   align-items: flex-start;
   gap: 0.8rem;
-  color: #ccc;
+  /* color: #ccc; */
   font-size: 0.95rem;
 }
 
 .contact-item i {
-  color: #5c5c5c;
+  /* color: #5c5c5c; */
   margin-top: 2px;
   min-width: 16px;
 }
 
 .contact-link {
-  color: #ccc;
+  /* color: #ccc; */
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .contact-link:hover {
-  color: #5c5c5c;
+  /* color: #5c5c5c; */
 }
 
 /* Newsletter Section */
@@ -173,14 +202,14 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.1);
-  color: #fff;
+  /* color: #fff; */
   font-size: 0.9rem;
   outline: none;
   transition: all 0.3s ease;
 }
 
 .newsletter-input::placeholder {
-  color: #aaa;
+  /* color: #aaa; */
 }
 
 .newsletter-input:focus {
@@ -193,7 +222,7 @@
   background: #5c5c5c;
   border: none;
   border-radius: 8px;
-  color: #fff;
+  /* color: #fff; */
   cursor: pointer;
   transition: all 0.3s ease;
   display: flex;
@@ -209,23 +238,24 @@
 
 /* Bottom Footer */
 .footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  margin-top: 2.5rem;
-  padding-top: 1.5rem;
+  /* border-top: 1px solid rgba(255, 255, 255, 0.1); */
+  /* margin-top: 1rem; */
+  padding: 1rem ;
 }
 
 .footer-bottom-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
+  /* max-width: 1200px; */
+  /* margin: 0 auto; */
+  /* padding: 0 2rem; */
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .footer-bottom p {
-  color: #aaa;
+  /* color: #aaa; */
   font-size: 0.9rem;
+  margin: 0;
 }
 
 .scroll-to-top {
@@ -234,7 +264,7 @@
   border-radius: 50%;
   width: 45px;
   height: 45px;
-  color: #fff;
+  /* color: #fff; */
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -262,7 +292,7 @@
   }
   
   .footer-bottom-content {
-    flex-direction: column;
+    flex-direction: row;
     gap: 1rem;
     text-align: center;
     padding: 0 1rem;

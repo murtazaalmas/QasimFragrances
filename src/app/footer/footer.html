@@ -1,65 +1,69 @@
-<footer class="footer wrapper">
-    <div class="footer-content">
-        <!-- Company Info Section -->
-        <div class="footer-section">
-            <h3>Itrah Perfume</h3>
+<footer class="footer">
+    <div class="" style="display: none;">
+        <div class="footer-content">
+            <!-- Company Info Section -->
+            <div class="footer-section">
+                <h3>Itrah Perfume</h3>
 
-            <p class="company-description">
-                Discover the finest collection of fragrances that tell your unique story.
-                Premium quality perfumes for every occasion and personality.
-            </p>
-            <div class="social-links">
-                <a href="{{ contactInfo.instagram.url }}" target="_blank" class="social-link">
-                    <i class="fa-brands fa-instagram"></i>
-                </a>
-                <a href="#" class="social-link">
-                    <i class="fa-brands fa-facebook"></i>
-                </a>
-                <a href="#" class="social-link">
-                    <i class="fa-brands fa-twitter"></i>
-                </a>
-                <a href="#" class="social-link">
-                    <i class="fa-brands fa-youtube"></i>
-                </a>
+                <p class="company-description">
+                    Discover the finest collection of fragrances that tell your unique story.
+                    Premium quality perfumes for every occasion and personality.
+                </p>
+                <div class="social-links">
+                    <a href="{{ contactInfo.instagram.url }}" target="_blank" class="social-link">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fa-brands fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+                </div>
             </div>
-        </div>
 
-        <!-- Quick Links Section -->
-        <div class="footer-section">
-            <h3>Quick Links</h3>
-            <ul class="footer-links">
-                <li><a (click)="goHome()" class="footer-link">Home</a></li>
-                <li><a (click)="goReviews()" class="footer-link">Reviews</a></li>
-                <li><a (click)="goContact()" class="footer-link">Contact</a></li>
-            </ul>
-        </div>
-
-        <!-- Contact Info Section -->
-        <div class="footer-section">
-            <h3>Contact Info</h3>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <span>{{ contactInfo.address }}</span>
-                </div>
-                <div class="contact-item">
-                    <i class="fa-solid fa-phone"></i>
-                    <a href="tel:{{ contactInfo.phone }}" class="contact-link">{{ contactInfo.phoneFormatted }}</a>
-                </div>
-                <div class="contact-item">
-                    <i class="fa-solid fa-envelope"></i>
-                    <a href="mailto:{{ contactInfo.email }}" class="contact-link">{{ contactInfo.email }}</a>
-                </div>
-
+            <!-- Quick Links Section -->
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a (click)="goHome()" class="footer-link">Home</a></li>
+                    <li><a (click)="goReviews()" class="footer-link">Reviews</a></li>
+                    <li><a (click)="goContact()" class="footer-link">Contact</a></li>
+                </ul>
             </div>
-        </div>
 
+            <!-- Contact Info Section -->
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>{{ contactInfo.address }}</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <a href="tel:{{ contactInfo.phone }}" class="contact-link">{{ contactInfo.phoneFormatted }}</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <a href="mailto:{{ contactInfo.email }}" class="contact-link">{{ contactInfo.email }}</a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
     </div>
 
     <!-- Bottom Footer -->
     <div class="footer-bottom">
         <div class="footer-bottom-content">
-            <p>&copy; {{ currentYear }} Murtaza Almas. All rights reserved</p>
+            <p>
+                 itrah.pk &#174; <small>Developed by Murtaza Almas</small>
+            </p>
             <button class="scroll-to-top" (click)="scrollToTop()">
                 <i class="fa-solid fa-arrow-up"></i>
             </button>

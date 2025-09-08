@@ -25,7 +25,7 @@ export class ContactInfoService {
     email: 'Itrah.pk@gmail.com',
     instagram: {
       url: '',
-      displayName: 'Itrah Perfume'
+      displayName: 'Itrah.pk'
     },
     businessHours: 'Mon - Sat: 9:00 AM - 8:00 PM'
   };
