@@ -22,7 +22,7 @@ export class ContactInfoService {
     address: 'People Colony Gujranwala, Pakistan',
     phone: '+923216467893',
     phoneFormatted: '+92 321 6467893',
-    email: 'Itrah@gmail.com',
+    email: 'Itrah.pk@gmail.com',
     instagram: {
       url: '',
       displayName: 'Itrah Perfume'

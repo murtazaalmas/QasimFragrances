@@ -36,16 +36,18 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: flex-start;
-  gap: 2.5rem;
+  /* align-items: flex-start; */
+  gap: 1rem;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
-  background-color: rgba(255, 255, 255, 0.85);
+  /* padding: 1rem; */
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
   border-radius: 1rem;
-  /* padding: 1.5rem; */
-  /* margin-bottom: 2rem; */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 .contact-headings {
@@ -69,8 +71,8 @@
 
 .contact-headings p {
   color: #555;
-  margin-bottom: 1.5rem;
-  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
 }
 
 .contact-form-wrapper {
@@ -234,12 +236,26 @@
   height: 100%;
   max-width: 320px;
   width: 100%;
-  background: #faf7f7;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
   border-radius: 1rem;
-  box-shadow: 0 1px 8px rgba(230, 0, 35, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   padding: 1.5rem 1rem;
   margin: 0 auto;
+  transition: all 0.3s ease;
 }
+
+.contact-card:hover {
+  background: rgba(222, 0, 0, 0.3);
+  color: #fff;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+.contact-card:hover * {
+  color: #fff;
+}
+
 
 .icon-container {
   width: 60px;
@@ -311,7 +327,7 @@
 /* Floating Label Styles */
 .form-group {
   position: relative;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0;
 }
 
 .form-group label {
