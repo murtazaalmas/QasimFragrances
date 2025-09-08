@@ -15,7 +15,7 @@ export class Checkout implements OnInit {
   shippingMethods = [
     { id: 'local', carrier: 'Local Shipment', shippingCast: 500, time: '5-7 days', detial: 'Local Shipment' },
     { id: 'urgent', carrier: 'Urgent Shipment', shippingCast: 1000, time: '1 day', detial: 'Urgent Shipment' },
-    { id: 'free', carrier: 'Free Shipment', shippingCast: 0, time: '7-10 days', detial: 'minimum order value Rs. 10,000' },
+    { id: 'free', carrier: 'Free Shipment', shippingCast: 0, time: '7-10 days', detial: 'minimum order value Rs 10,000' },
   ];
   selectedShipping = 'local';
   notification: string | null = null;
@@ -125,7 +125,7 @@ export class Checkout implements OnInit {
   onShippingChange() {
     if (this.selectedShipping === 'free' && !this.isFreeShippingEligible()) {
       this.selectedShipping = 'local';
-      this.notification = 'Minimum order of Rs. 10,000 required for free shipping';
+      this.notification = 'Minimum order of Rs 10,000 required for free shipping';
       setTimeout(() => {
         this.notification = null;
       }, 1500);

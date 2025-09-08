@@ -19,7 +19,7 @@
       <img [src]="product.images[0]" [alt]="product.name" />
       <p> {{ product.name }}</p>
       <p> {{ product.description }}</p>
-      <p> Rs. {{ product.price | number }}</p>
+      <p> Rs {{ product.price | number }}</p>
 
       <div class="product-overlay">
         <i class="fa-solid fa-cart-shopping" style="color: white; font-size: 2rem;"></i>

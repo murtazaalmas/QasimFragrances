@@ -9,25 +9,25 @@
     </div>
     <form class="checkout-form" aria-label="Shipping address form" novalidate (ngSubmit)="onSubmit()">
       <fieldset>
-
+        <div class="two-columns">
+          <div class="form-group">
+            <input id="firstName" type="text" name="firstName" [(ngModel)]="firstName" (input)="saveFormData()" required
+              aria-required="true" />
+            <label for="firstName">Name <span class="required">*</span></label>
+          </div>
+          <div class="form-group">
+            <input id="phone" type="text" name="phone" [(ngModel)]="phone" (input)="saveFormData()" required
+              aria-required="true" />
+            <label for="phone">Phone Number <span class="required">*</span></label>
+          </div>
+        </div>
         <div class="form-group">
           <input id="email" type="email" name="email" [(ngModel)]="email" (input)="saveFormData()" required
             aria-required="true" />
           <label for="email">Email Address <span class="required">*</span></label>
         </div>
-
-        <div class="two-columns">
-          <div class="form-group">
-            <input id="firstName" type="text" name="firstName" [(ngModel)]="firstName" (input)="saveFormData()" required
-              aria-required="true" />
-            <label for="firstName">First Name <span class="required">*</span></label>
-          </div>
-          <div class="form-group">
-            <input id="lastName" type="text" name="lastName" [(ngModel)]="lastName" (input)="saveFormData()" required
-              aria-required="true" />
-            <label for="lastName">Last Name <span class="required">*</span></label>
-          </div>
-        </div>
+       
+      
 
         <div class="form-group">
           <input id="street" type="text" name="street" [(ngModel)]="streetAddress" (input)="saveFormData()" required
@@ -69,11 +69,7 @@
           </div>
         </div>
 
-        <div class="form-group">
-          <input id="phone" type="text" name="phone" [(ngModel)]="phone" (input)="saveFormData()" required
-            aria-required="true" />
-          <label for="phone">Phone Number <span class="required">*</span></label>
-        </div>
+       
       </fieldset>
     </form>
   </section>
@@ -95,7 +91,7 @@
             <div class="item-title">{{ item.name }}</div>
             <div class="item-meta">
               <span class="item-qty">Qty: {{ item.qty }}</span>
-              <span class="item-price">Rs. {{ item.price * item.qty | number }}</span>
+              <span class="item-price">Rs {{ item.price * item.qty | number }}</span>
             </div>
           </div>
         </div>
@@ -103,15 +99,15 @@
 
       <div class="subtotal-row">
         <span> Subtotal:</span>
-        <span>Rs. {{ getSubtotal() | number }}</span>
+        <span>Rs {{ getSubtotal() | number }}</span>
       </div>
       <!-- <div class="shipping-row">
         <span>Shipping:</span>
-        <span>Rs. 500</span>
+        <span>Rs 500</span>
       </div>
       <div class="total-row">
         <span>Total:</span>
-        <span>Rs. {{ getSubtotal() + 500 | number }}</span>
+        <span>Rs {{ getSubtotal() + 500 | number }}</span>
       </div> -->
     </div>
   </section>
@@ -136,8 +132,8 @@
               (change)="onShippingChange()" [disabled]="method.id === 'free' && !isFreeShippingEligible()" /> 
           </td>
           <td>{{ method.carrier }}</td>
-          <td>Rs. {{ method.shippingCast | number }}</td>
-          <td>Rs. {{ getSubtotal() + method.shippingCast | number }}</td>
+          <td>Rs {{ method.shippingCast | number }}</td>
+          <td>Rs {{ getSubtotal() + method.shippingCast | number }}</td>
           <td>{{ method.time }}</td>
           <td>{{ method.detial }}</td>
           </tr>

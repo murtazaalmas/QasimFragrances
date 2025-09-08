@@ -17,11 +17,11 @@
         <div class="cart-sidebar-info">
           <div class="cart-sidebar-name">{{ item.name }}</div>
           <div>Qty: {{ item.qty }}</div>
-          <div>Rs. {{ item.price  | number:'1.2-2'}}</div>
+          <div>Rs {{ item.price  | number:'1.2-2'}}</div>
           <button class="remove-cart-item" (click)="removeFromCart(item)" aria-label="Remove">&times;</button>
         </div>
       </div>
-      <div class="cart-sidebar-total">Total: Rs {{ cartTotal }}</div>
+      <div class="cart-sidebar-total">Total: Rs {{ cartTotal | number}}</div>
       <button class="checkout-btn" *ngIf="cartItems.length" (click)="openInvoice()">Proceed to Checkout</button>
     </div>
     <ng-template #emptyCart>

@@ -16,7 +16,7 @@ import { DecimalPipe } from '@angular/common';
   styleUrls: ['./app.css']
 })
 export class App implements OnInit {
-  protected title = 'Itrah Perfume';
+  protected title = 'Itrah.pk';
   selectedCategory: string = 'All';
   cartItems: any[] = [];
   notification: string | null = null;
