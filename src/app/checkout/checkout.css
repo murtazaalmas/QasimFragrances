@@ -644,8 +644,8 @@ table.shipping-methods-table td.radio-cell {
 
 /* Order Button Animation */
 .order-btn-container {
-  margin: 2rem 0;
   text-align: center;
+  width: 100%;
 }
 
 .order {
