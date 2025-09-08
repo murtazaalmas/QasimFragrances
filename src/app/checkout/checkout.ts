@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { NgIf, NgFor, DecimalPipe } from '@angular/common';
+import { NgFor, DecimalPipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-checkout',
   standalone: true,
-  imports: [NgIf, NgFor, FormsModule, DecimalPipe],
+  imports: [NgFor, FormsModule, DecimalPipe],
   templateUrl: './checkout.html',
   styleUrl: './checkout.css'
 })

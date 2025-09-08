@@ -18,14 +18,14 @@ export interface ContactInfo {
 })
 export class ContactInfoService {
   private contactInfo: ContactInfo = {
-    name: 'Ahmad Daas',
+    name: 'Itrah pk',
     address: 'People Colony Gujranwa;a, Pakistan',
     phone: '+923216467893',
     phoneFormatted: '+92 321 6467893',
-    email: 'daas@gmail.com',
+    email: 'Itrah@gmail.com',
     instagram: {
       url: '',
-      displayName: 'Daas Perfume'
+      displayName: 'Itrah Perfume'
     },
     businessHours: 'Mon - Sat: 9:00 AM - 8:00 PM'
   };
