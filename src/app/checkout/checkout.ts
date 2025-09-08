@@ -13,7 +13,10 @@ import { CartService } from '../cart.service';
 export class Checkout implements OnInit {
   cartItems: any[] = [];
   shippingMethods = [
-    { id: 'local', title: 'Fixed', carrier: 'Local Shipment', price: 149.00 }
+    { id: 'local', carrier: 'Local Shipment', price: 149.00, time: '5-7 days', detial: 'Local Shipment' },
+    { id: 'express', carrier: 'Express Shipment', price: 299.00, time: '1-2 days', detial: 'Express Shipment' },
+    { id: 'urgent', carrier: 'Urgent Shipment', price: 499.00, time: '1 day', detial: 'Urgent Shipment' },
+    { id: 'free', carrier: 'Free Shipment', price: 0.00, time: '7-10 days', detial: 'minimun order value PKR 5000' },
   ];
   selectedShipping = 'local';
 
@@ -30,7 +33,7 @@ export class Checkout implements OnInit {
 
   private readonly CHECKOUT_STORAGE_KEY = 'checkoutFormData';
 
-  constructor(private cartService: CartService) {}
+  constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
     this.cartService.cartItems$.subscribe(items => {

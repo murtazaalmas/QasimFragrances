@@ -106,28 +106,30 @@
     <table class="shipping-methods-table" role="table">
       <thead>
         <tr>
-          <th scope="col">Select Method</th>
+          <th scope="col">Select</th>
+          <th scope="col">Carrier</th>
           <th scope="col">Price</th>
-          <th scope="col">Method Title</th>
-          <th scope="col">Carrier Title</th>
+          <th scope="col">Time</th>
+          <th scope="col">Detail</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let method of shippingMethods">
-          <td class="radio-cell">
+          <td class="radio-cell" >
             <input type="radio" [id]="method.id" name="shippingMethod" [value]="method.id" [(ngModel)]="selectedShipping"
-              (change)="saveFormData()" />
+              (change)="saveFormData()" /> 
           </td>
-          <td>PKR {{ method.price.toFixed(2) }}</td>
-          <td>{{ method.title }}</td>
           <td>{{ method.carrier }}</td>
-        </tr>
+          <td>PKR {{ method.price.toFixed(2) }}</td>
+          <td>{{ method.time }}</td>
+          <td>{{ method.detial }}</td>
+          </tr>
       </tbody>
     </table>
   
-    <div class="shipping-policy" tabindex="0" role="button" aria-pressed="false" aria-label="See our Shipping Policy">
+    <!-- <div class="shipping-policy" tabindex="0" role="button" aria-pressed="false" aria-label="See our Shipping Policy">
       See our Shipping Policy
-    </div>
+    </div> -->
   </section>
   
   <section class="order-btn-container">
