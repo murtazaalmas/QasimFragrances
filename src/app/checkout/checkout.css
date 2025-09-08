@@ -1,4 +1,8 @@
 /* Custom scrollbar for order summary details */
+.checkout {
+  padding: 1rem;
+}
+
 .summary-details {
   max-height: 200px;
   overflow-y: auto;
@@ -103,6 +107,7 @@ select {
 * {
   box-sizing: border-box;
 }
+
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: 0;
@@ -110,11 +115,13 @@ body {
   color: #222;
   background: #fff;
 }
+
 a {
   color: inherit;
   text-decoration: none;
   cursor: pointer;
 }
+
 a:hover {
   text-decoration: underline;
 }
@@ -141,19 +148,23 @@ header {
   background: #fff;
   z-index: 100;
 }
+
 .header-left,
 .header-center,
 .header-right {
   display: flex;
   align-items: center;
 }
+
 .header-left {
   flex: 1;
 }
+
 .header-center {
   flex: 1;
   justify-content: center;
 }
+
 .header-right {
   flex: 1;
   justify-content: flex-end;
@@ -161,17 +172,20 @@ header {
   font-size: 14px;
   line-height: 1.2;
 }
+
 .header-left a {
   font-weight: 600;
   font-size: 14px;
   letter-spacing: 0.05em;
 }
+
 .header-center .logo {
   font-weight: 900;
   font-size: 24px;
   user-select: none;
   font-family: serif;
 }
+
 .header-right div {
   margin-left: 1.5rem;
   white-space: nowrap;
@@ -179,6 +193,7 @@ header {
   font-size: 14px;
   letter-spacing: 0.05em;
 }
+
 .header-right a {
   font-weight: 600;
   font-size: 12px;
@@ -190,41 +205,53 @@ header {
 
 /* Main container */
 main {
-  max-width: 1100px;
+  /* max-width: 1100px; */
   margin: 125px auto 4rem;
   padding-top: 10px;
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 /* Left form container */
 .checkout-left {
-  flex: 0 1 65%;
-  min-width: 300px;
+  flex: 2;
+  /* min-width: 300px; */
+  border: 1px solid #eaeaea;
+  border-radius: 12px;
+  padding: 0;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.checkout-form {
+  padding: 1rem;
 }
 
 /* Right summary container */
 .checkout-right {
-  flex: 0 1 30%;
-  min-width: 280px;
+  flex: 1;
+
+  /* min-width: 280px; */
   border: 1px solid #bbb;
-  padding: 1rem 1.5rem;
+  padding: 1rem;
   font-size: 14px;
   line-height: 1.3;
 }
 
 /* Secure Checkout heading */
 .secure-checkout-title {
-  font-weight: 700;
-  font-size: 1.375rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-size: 2rem;
+  color: #5c5c5c;
+  margin: 1rem;
+  text-align: center;
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: 0.5rem;
-  margin-bottom: 1rem;
+  width: 100%;
 }
+
 .secure-checkout-title::before {
   content: "🔒";
   font-size: 1.5rem;
@@ -257,17 +284,20 @@ main {
   cursor: default;
   user-select: none;
 }
+
 .progress-bar .step.completed {
   background: #222;
   border-color: #222;
   color: #fff;
 }
+
 .progress-bar .step.current {
   background: #fff;
   border-color: #222;
   color: #222;
   font-weight: 900;
 }
+
 /* Checkmark for completed step */
 .progress-bar .step.completed::after {
   content: "✓";
@@ -286,6 +316,7 @@ main {
   border-radius: 3px;
   position: relative;
 }
+
 .progress-bar .line .fill {
   background: #222;
   height: 6px;
@@ -307,6 +338,7 @@ main {
   margin-bottom: 3rem;
   user-select: none;
 }
+
 .progress-bar-labels .completed-label {
   color: #222;
   font-weight: 700;
@@ -318,6 +350,7 @@ form h2 {
   font-size: 1.25rem;
   margin-bottom: 1rem;
 }
+
 label {
   font-size: 12px;
   font-weight: 600;
@@ -325,10 +358,12 @@ label {
   align-items: center;
   margin-bottom: 6px;
 }
+
 label span.required {
   color: #c00;
   margin-left: 3px;
 }
+
 label .tooltip {
   display: inline-block;
   margin-left: 6px;
@@ -338,6 +373,7 @@ label .tooltip {
   user-select: none;
   position: relative;
 }
+
 label .tooltip:hover::after {
   content: attr(data-tooltip);
   position: absolute;
@@ -354,6 +390,7 @@ label .tooltip:hover::after {
   opacity: 1;
   pointer-events: none;
 }
+
 label .tooltip::after {
   content: attr(data-tooltip);
   position: absolute;
@@ -371,6 +408,7 @@ label .tooltip::after {
   pointer-events: none;
   transition: opacity 0.2s ease;
 }
+
 input[type="text"],
 input[type="email"],
 select {
@@ -380,11 +418,12 @@ select {
   padding: 8px 4px 5px;
   font-size: 14px;
   font-weight: 300;
-  margin-bottom: 1.5rem;
+  /* margin-bottom: 1.5rem; */
   outline-offset: 4px;
   outline-color: transparent;
   transition: outline-color 0.3s ease;
 }
+
 input[type="text"]:focus,
 input[type="email"]:focus,
 select:focus {
@@ -395,10 +434,11 @@ select:focus {
 /* Inline two-column fields */
 .two-columns {
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
   flex-wrap: wrap;
 }
-.two-columns > div {
+
+.two-columns>div {
   flex: 1;
   min-width: 140px;
 }
@@ -415,8 +455,15 @@ select:focus {
 
 /* Shipping Methods */
 .shipping-methods {
-  margin-top: 3rem;
+  /* margin-top: 1rem; */
+  width: 100%;
+  border: 1px solid #eaeaea;
+  border-radius: 12px;
+  padding: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
+
 .shipping-methods h3 {
   font-weight: 700;
   font-size: 1.1rem;
@@ -428,6 +475,7 @@ table.shipping-methods-table {
   font-size: 13px;
   border-collapse: collapse;
 }
+
 table.shipping-methods-table th,
 table.shipping-methods-table td {
   padding: 0.4rem 0.5rem;
@@ -435,15 +483,18 @@ table.shipping-methods-table td {
   font-weight: 600;
   text-align: left;
 }
+
 table.shipping-methods-table th {
   font-weight: 700;
   border-bottom: 1px solid #ccc;
   padding-bottom: 0.8rem;
 }
+
 table.shipping-methods-table td {
   font-weight: 600;
   border-bottom: 1px solid #eee;
 }
+
 table.shipping-methods-table td.radio-cell {
   width: 35px;
   text-align: center;
@@ -460,27 +511,31 @@ table.shipping-methods-table td.radio-cell {
   color: #222;
   user-select: none;
 }
+
 .shipping-policy:hover {
   text-decoration: underline;
 }
 
 /* Order Summary */
-.checkout-right h3 {
+.drawer-header h3 {
   font-weight: 700;
   font-size: 1.3rem;
   margin-top: 0;
   margin-bottom: 1rem;
 }
+
 .checkout-right p {
   margin: 0.3rem 0;
   font-size: 13px;
   font-weight: 600;
 }
+
 .checkout-right .item {
   display: flex;
   gap: 0.8rem;
   margin-bottom: 1rem;
 }
+
 .checkout-right .item img {
   width: 80px;
   height: 80px;
@@ -489,18 +544,21 @@ table.shipping-methods-table td.radio-cell {
   background: #f8f8f8;
   padding: 8px;
 }
+
 .checkout-right .item-details {
   flex: 1;
   font-size: 13px;
   font-weight: 600;
   line-height: 1.3;
 }
+
 .checkout-right .item-details .title {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   margin-bottom: 4px;
 }
+
 .checkout-right .view-details {
   font-weight: 400;
   font-size: 12px;
@@ -508,9 +566,11 @@ table.shipping-methods-table td.radio-cell {
   cursor: pointer;
   user-select: none;
 }
+
 .checkout-right .view-details:hover {
   text-decoration: underline;
 }
+
 .checkout-right .item-meta span:last-child {
   font-weight: 600;
   color: #333;
@@ -523,48 +583,62 @@ table.shipping-methods-table td.radio-cell {
     max-width: 600px;
     margin: 1rem auto 3rem;
   }
+
   .checkout-left,
   .checkout-right {
     flex: 1 1 100%;
     min-width: auto;
   }
+
   header {
     padding: 0.75rem 1rem;
   }
+
   .header-left,
   .header-center,
   .header-right {
     flex: none;
   }
+
   .header-left {
     justify-content: flex-start;
   }
+
   .header-center {
     order: -1;
     justify-content: flex-start;
     margin-bottom: 0.5rem;
   }
+
   .header-right {
     justify-content: flex-start;
     font-size: 13px;
     flex-wrap: wrap;
     gap: 0.5rem;
   }
+
   .header-right div,
   .header-right a {
     margin-left: 0;
   }
+
   .two-columns {
     flex-direction: column;
   }
 }
+
 @media (max-width: 480px) {
   header {
     flex-direction: column;
     align-items: flex-start;
   }
+
   .header-center {
     margin-bottom: 1rem;
+  }
+
+  .two-columns {
+    gap: 0;
   }
 }
 
@@ -647,7 +721,8 @@ table.shipping-methods-table td.radio-cell {
   left: 100%;
 }
 
-.order .back, .order .box {
+.order .back,
+.order .box {
   --start: var(--white);
   --stop: var(--grey-light);
   border-radius: 2px;
@@ -665,7 +740,8 @@ table.shipping-methods-table td.radio-cell {
   transform: translateX(24px);
 }
 
-.order .truck:before, .order .truck:after {
+.order .truck:before,
+.order .truck:after {
   --r: -90deg;
   content: '';
   height: 2px;
@@ -707,7 +783,8 @@ table.shipping-methods-table td.radio-cell {
   left: 60px;
 }
 
-.order .truck .front:before, .order .truck .front:after {
+.order .truck .front:before,
+.order .truck .front:after {
   content: '';
   position: absolute;
 }
@@ -742,7 +819,8 @@ table.shipping-methods-table td.radio-cell {
   transform-origin: 0 50%;
 }
 
-.order .truck .front .window:before, .order .truck .front .window:after {
+.order .truck .front .window:before,
+.order .truck .front .window:after {
   content: '';
   position: absolute;
   right: 0;
@@ -808,7 +886,8 @@ table.shipping-methods-table td.radio-cell {
   background-color: #d2cc5a;
 }
 
-.order .box:before, .order .box:after {
+.order .box:before,
+.order .box:after {
   content: '';
   top: 10px;
   position: absolute;
@@ -854,7 +933,8 @@ table.shipping-methods-table td.radio-cell {
   animation: door2 2.4s ease forwards 0.6s;
 }
 
-.order.animate .truck .light:before, .order.animate .truck .light:after {
+.order.animate .truck .light:before,
+.order.animate .truck .light:after {
   animation: light 10s ease forwards;
 }
 
@@ -867,73 +947,99 @@ table.shipping-methods-table td.radio-cell {
 }
 
 @keyframes truck {
-  10%, 30% {
+
+  10%,
+  30% {
     transform: translateX(-164px);
   }
+
   40% {
     transform: translateX(-104px);
   }
+
   60% {
     transform: translateX(-224px);
   }
-  75%, 100% {
+
+  75%,
+  100% {
     transform: translateX(24px);
   }
 }
 
 @keyframes lines {
-  0%, 30% {
+
+  0%,
+  30% {
     opacity: 0;
     transform: scaleY(0.7) translateX(0);
   }
-  35%, 65% {
+
+  35%,
+  65% {
     opacity: 1;
   }
+
   70% {
     opacity: 0;
   }
+
   100% {
     transform: scaleY(0.7) translateX(-400px);
   }
 }
 
 @keyframes light {
-  0%, 30% {
+
+  0%,
+  30% {
     opacity: 0;
     transform: perspective(2px) rotateY(-15deg) scaleX(0.88);
   }
-  40%, 100% {
+
+  40%,
+  100% {
     opacity: 1;
     transform: perspective(2px) rotateY(-15deg) scaleX(0.94);
   }
 }
 
 @keyframes door1 {
-  30%, 50% {
+
+  30%,
+  50% {
     transform: rotate(32deg);
   }
 }
 
 @keyframes door2 {
-  30%, 50% {
+
+  30%,
+  50% {
     transform: rotate(-32deg);
   }
 }
 
 @keyframes box {
-  8%, 10% {
+
+  8%,
+  10% {
     transform: translateX(40px);
     opacity: 1;
   }
+
   25% {
     transform: translateX(112px);
     opacity: 1;
   }
+
   26% {
     transform: translateX(112px);
     opacity: 0;
   }
-  27%, 100% {
+
+  27%,
+  100% {
     transform: translateX(0px);
     opacity: 0;
   }
@@ -942,7 +1048,7 @@ table.shipping-methods-table td.radio-cell {
 /* Floating Label Styles */
 .form-group {
   position: relative;
-  margin-bottom: 1.5rem;
+  /* margin-bottom: 1.5rem; */
 }
 
 .form-group label {
@@ -977,10 +1083,10 @@ table.shipping-methods-table td.radio-cell {
   border-color: #5c5c5c;
 }
 
-.form-group input:focus + label,
-.form-group input:not(:placeholder-shown) + label,
-.form-group select:focus + label,
-.form-group select:not(:placeholder-shown) + label {
+.form-group input:focus+label,
+.form-group input:not(:placeholder-shown)+label,
+.form-group select:focus+label,
+.form-group select:not(:placeholder-shown)+label {
   transform: translateY(-1.4rem) scale(0.8);
   color: #5c5c5c;
 }
@@ -1014,7 +1120,7 @@ table.shipping-methods-table td.radio-cell {
 .item-count {
   font-size: 0.875rem;
   color: #666;
-  margin-top: 0.25rem;
+  padding: 1rem;
 }
 
 .drawer-content {
@@ -1093,7 +1199,7 @@ table.shipping-methods-table td.radio-cell {
   border-radius: 8px;
   background: #fff;
   margin-bottom: 0.75rem;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .item-image-container {

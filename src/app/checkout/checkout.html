@@ -1,37 +1,43 @@
-
 <!-- Main container -->
-<main>
-  <section class="checkout-left" aria-label="Shipping address and methods">
-    <h1 class="secure-checkout-title" aria-level="1" tabindex="0">Secure Checkout</h1>
+<main class="checkout">
+  <h2 class="secure-checkout-title" aria-level="1" tabindex="0">Checkout</h2>
 
-    <form aria-label="Shipping address form" novalidate (ngSubmit)="onSubmit()">
+  <section class="checkout-left" aria-label="Shipping address and methods">
+    <div class="drawer-header">
+      <h3>Shipping Address</h3>
+    </div>
+    <form class="checkout-form" aria-label="Shipping address form" novalidate (ngSubmit)="onSubmit()">
       <fieldset>
-        <legend><h2>Shipping Address</h2></legend>
 
         <div class="form-group">
-          <input id="email" type="email" name="email" [(ngModel)]="email" (input)="saveFormData()" required aria-required="true" />
+          <input id="email" type="email" name="email" [(ngModel)]="email" (input)="saveFormData()" required
+            aria-required="true" />
           <label for="email">Email Address <span class="required">*</span></label>
         </div>
 
         <div class="two-columns">
           <div class="form-group">
-            <input id="firstName" type="text" name="firstName" [(ngModel)]="firstName" (input)="saveFormData()" required aria-required="true" />
+            <input id="firstName" type="text" name="firstName" [(ngModel)]="firstName" (input)="saveFormData()" required
+              aria-required="true" />
             <label for="firstName">First Name <span class="required">*</span></label>
           </div>
           <div class="form-group">
-            <input id="lastName" type="text" name="lastName" [(ngModel)]="lastName" (input)="saveFormData()" required aria-required="true" />
+            <input id="lastName" type="text" name="lastName" [(ngModel)]="lastName" (input)="saveFormData()" required
+              aria-required="true" />
             <label for="lastName">Last Name <span class="required">*</span></label>
           </div>
         </div>
 
         <div class="form-group">
-          <input id="street" type="text" name="street" [(ngModel)]="streetAddress" (input)="saveFormData()" required aria-required="true" />
+          <input id="street" type="text" name="street" [(ngModel)]="streetAddress" (input)="saveFormData()" required
+            aria-required="true" />
           <label for="street">Street Address <span class="required">*</span></label>
         </div>
 
         <div class="two-columns">
           <div class="form-group">
-            <select id="country" name="country" [(ngModel)]="country" (change)="saveFormData()" required aria-required="true">
+            <select id="country" name="country" [(ngModel)]="country" (change)="saveFormData()" required
+              aria-required="true">
               <option selected disabled value="">Pakistan</option>
               <option value="Pakistan">Pakistan</option>
               <option value="India">India</option>
@@ -63,66 +69,20 @@
         </div>
 
         <div class="form-group">
-          <input id="phone" type="text" name="phone" [(ngModel)]="phone" (input)="saveFormData()" required aria-required="true" />
+          <input id="phone" type="text" name="phone" [(ngModel)]="phone" (input)="saveFormData()" required
+            aria-required="true" />
           <label for="phone">Phone Number <span class="required">*</span></label>
         </div>
       </fieldset>
-
-      <section class="shipping-methods" aria-label="Shipping Methods">
-        <h3>Shipping Methods</h3>
-        <table class="shipping-methods-table" role="table">
-          <thead>
-            <tr>
-              <th scope="col">Select Method</th>
-              <th scope="col">Price</th>
-              <th scope="col">Method Title</th>
-              <th scope="col">Carrier Title</th>
-            </tr>
-          </thead>
-          <tbody>
-        <tr *ngFor="let method of shippingMethods">
-          <td class="radio-cell">
-            <input type="radio" [id]="method.id" name="shippingMethod" [value]="method.id" [(ngModel)]="selectedShipping" (change)="saveFormData()" />
-          </td>
-          <td>PKR {{ method.price.toFixed(2) }}</td>
-          <td>{{ method.title }}</td>
-          <td>{{ method.carrier }}</td>
-        </tr>
-          </tbody>
-        </table>
-
-        <div class="shipping-policy" tabindex="0" role="button" aria-pressed="false" aria-label="See our Shipping Policy">
-          See our Shipping Policy
-        </div>
-      </section>
-
-      <div class="order-btn-container">
-        <button class="order" (click)="animateOrderButton()">
-          <span class="default">Complete Order</span>
-          <span class="success">Order Placed<svg viewBox="0 0 12 10">
-              <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
-          </svg></span>
-          <div class="box"></div>
-          <div class="truck">
-            <div class="back"></div>
-            <div class="front">
-              <div class="window"></div>
-            </div>
-            <div class="light top"></div>
-            <div class="light bottom"></div>
-          </div>
-          <div class="lines"></div>
-        </button>
-      </div>
     </form>
   </section>
 
-  <aside class="checkout-right">
+  <section class="checkout-right">
     <div class="drawer-header">
       <h3>Order Summary</h3>
-      <div class="item-count">{{ getItemCount() }} Item{{ getItemCount() !== 1 ? 's' : '' }}</div>
     </div>
-    
+    <div class="item-count">{{ getItemCount() }} Item{{ getItemCount() !== 1 ? 's' : '' }}</div>
+
     <div class="drawer-content">
       <div class="items-list">
         <div class="item" *ngFor="let item of getOrderItems()">
@@ -138,10 +98,55 @@
           </div>
         </div>
       </div>
-      
-      <div class="drawer-footer">
-        <button class="view-details">View Details</button>
-      </div>
     </div>
-  </aside>
+  </section>
+
+  <section class="shipping-methods" aria-label="Shipping Methods">
+    <h3>Shipping Methods</h3>
+    <table class="shipping-methods-table" role="table">
+      <thead>
+        <tr>
+          <th scope="col">Select Method</th>
+          <th scope="col">Price</th>
+          <th scope="col">Method Title</th>
+          <th scope="col">Carrier Title</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let method of shippingMethods">
+          <td class="radio-cell">
+            <input type="radio" [id]="method.id" name="shippingMethod" [value]="method.id" [(ngModel)]="selectedShipping"
+              (change)="saveFormData()" />
+          </td>
+          <td>PKR {{ method.price.toFixed(2) }}</td>
+          <td>{{ method.title }}</td>
+          <td>{{ method.carrier }}</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <div class="shipping-policy" tabindex="0" role="button" aria-pressed="false" aria-label="See our Shipping Policy">
+      See our Shipping Policy
+    </div>
+  </section>
+  
+  <section class="order-btn-container">
+    <button class="order" (click)="animateOrderButton()">
+      <span class="default">Complete Order</span>
+      <span class="success">Order Placed<svg viewBox="0 0 12 10">
+          <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+        </svg></span>
+      <div class="box"></div>
+      <div class="truck">
+        <div class="back"></div>
+        <div class="front">
+          <div class="window"></div>
+        </div>
+        <div class="light top"></div>
+        <div class="light bottom"></div>
+      </div>
+      <div class="lines"></div>
+    </button>
+  </section>
 </main>
+
