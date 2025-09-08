@@ -55,15 +55,15 @@
         <form (ngSubmit)="submitForm()" #contactForm="ngForm" class="contact-form">
           <div class="form-group">
             <input type="text" name="name" [(ngModel)]="name" id="name" required />
-            <label for="name">Your Name</label>
+            <label for="name">Name</label>
           </div>
           <div class="form-group">
             <input type="email" name="email" [(ngModel)]="email" id="email" required />
-            <label for="email">Your Email</label>
+            <label for="email">Email</label>
           </div>
           <div class="form-group textarea-group">
             <textarea name="message" [(ngModel)]="message" id="message" rows="5" required></textarea>
-            <label for="message">Your Message</label>
+            <label for="message">Message</label>
           </div>
           <button type="submit">Send Message</button>
         </form>
