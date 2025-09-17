@@ -12,7 +12,7 @@ import { CartService } from '../cart.service';
   styleUrl: './home.css'
 })
 export class Home implements OnInit {
-  @Input() selectedCategory: string = 'Men';
+  @Input() selectedCategory: number = 1;
   @Output() addToCartSuccess = new EventEmitter<void>();
   products: any[] = [];
 
@@ -21,6 +21,7 @@ export class Home implements OnInit {
   selectedImageIndex: number = 0;
   quantity: number = 1;
   heroSliderIndex = 0;
+  showNotes = false;
 
   heroSlides = [
     {
@@ -43,7 +44,7 @@ export class Home implements OnInit {
   }
 
   ngOnInit(): void {
-    this.selectedCategory = 'Men';
+    this.selectedCategory = 1;
   }
 
   get isSearching() {
@@ -79,7 +80,7 @@ export class Home implements OnInit {
   get filteredProducts() {
     let filtered = this.products;
     if (this.selectedCategory) {
-      filtered = filtered.filter(p => p.category === this.selectedCategory);
+      filtered = filtered.filter(p => p.gender === this.selectedCategory);
     }
     if (this.searchTerm && this.searchTerm.trim() !== '') {
       const term = this.searchTerm.trim().toLowerCase();
@@ -92,8 +93,8 @@ export class Home implements OnInit {
     return !this.isSearching;
   }
 
-  setCategory(category: string) {
-    this.selectedCategory = category;
+  setCategory(gender: number) {
+    this.selectedCategory = gender;
   }
 
   addToCart(product: any) {

@@ -17,7 +17,7 @@ import { DecimalPipe } from '@angular/common';
 })
 export class App implements OnInit {
   protected title = 'Itrah.pk';
-  selectedCategory: string = 'All';
+  selectedCategory: number = 1;
   cartItems: any[] = [];
   notification: string | null = null;
   showCartSidebar: boolean = false;
@@ -31,7 +31,7 @@ export class App implements OnInit {
     });
   }
 
-  setCategory(category: string) {
+  setCategory(category: number) {
     this.selectedCategory = category;
   }
 

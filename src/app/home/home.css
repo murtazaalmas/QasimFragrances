@@ -401,6 +401,7 @@ button:hover {
   width: 100%;
   max-width: 900px;
   max-height: 90vh;
+  min-height: 80vh;
   display: flex;
   flex-direction: row;
   align-items: stretch;
@@ -435,6 +436,7 @@ button:hover {
 .modal-details {
   flex: 1;
   display: flex;
+  gap: 5px;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
@@ -449,10 +451,11 @@ button:hover {
   font-size: 1.8rem;
   margin-bottom: 0.7rem;
   color: #5c5c5c;
+  margin: 0;
   
 }
 .modal-details .product-pricing {
-  margin-bottom: 1.2rem;
+  margin: 1rem 0;
 }
 .close-modal {
   margin-top: 1.2rem;
@@ -492,6 +495,51 @@ button:hover {
   background: #5c5c5c;
   border-color: #5c5c5c;
 }
+
+/* More Details Button */
+.more-details-btn {
+  display: flex;
+  /* align-items: center; */
+  /* justify-content: center; */
+  gap: 8px;
+  /* width: 100%; */
+  padding: 5px 0px 5px;
+  background: transparent;
+  /* border: 1px solid #5c5c5c; */
+  color: #5c5c5c;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  border-radius: 6px;
+  line-height: 1;
+  /* box-shadow: 0 1px 4px rgba(230, 0, 35, 0.10); */
+
+}
+
+/* Modal Notes */
+.modal-notes {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+  margin-top: 0;
+  padding: 0 15px;
+}
+
+.modal-notes.show {
+  max-height: 500px;
+  opacity: 1;
+  margin-top: 15px;
+  padding: 15px;
+  border-top: 1px solid #eee;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 .modal-rating {
   margin-bottom: 1.1rem;
   font-size: 1.3rem;
@@ -514,13 +562,13 @@ button:hover {
   font-weight: 500;
 }
 .add-to-bag-modal {
-  background: transparent;
-  color: #5c5c5c;
+  background: #5c5c5c;;
+  color: #fff;
   border: 2px solid #5c5c5c;
   border-radius: 6px;
   padding: 0.6rem 2.2rem;
   font-size: 1rem;
-  
+  width: 100%;
   cursor: pointer;
   transition: background 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   box-shadow: 0 1px 4px rgba(230,0,35,0.10);
@@ -545,9 +593,8 @@ button:hover {
   min-height: 2.2em;
 }
 .modal-description, .modal-detail {
-  font-size: 1.05rem;
-  color: #5c5c5c;
-  margin-bottom: 0.7rem;
+  font-size: 1rem;
+  color: #999;
 }
 .modal-description strong, .modal-detail strong {
   color: #5c5c5c;
@@ -555,16 +602,11 @@ button:hover {
   margin-right: 0.3em;
 }
 .modal-qty {
-  margin: 0 0 1.1rem 0;
   display: flex;
   align-items: center;
   gap: 0.7rem;
   font-size: 1.08rem;
   width: 100%;
-}
-.modal-qty label {
-  
-  color: #5c5c5c;
 }
 .modal-qty input[type="number"] {
   width: 50px;
@@ -621,7 +663,8 @@ button:hover {
   font-size: 1.08rem;
 }
 .price-label {
-  
+  font-weight: bold;
+  font-size: 1.5rem;
   color: #5c5c5c;
   margin-right: 0.3em;
 }

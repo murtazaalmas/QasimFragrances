@@ -7,8 +7,8 @@
 <h2 class="section-title">BEST SELLERS</h2>
 <section class="home-categories-nav">
   <ul>
-    <li (click)="setCategory('Men')" [ngClass]="{active: selectedCategory === 'Men'}">For Men</li>
-    <li (click)="setCategory('Women')" [ngClass]="{active: selectedCategory === 'Women'}">For Women</li>
+    <li (click)="setCategory(1)" [ngClass]="{active: selectedCategory === 1}">For Men</li>
+    <li (click)="setCategory(2)" [ngClass]="{active: selectedCategory === 2}">For Women</li>
   </ul>
 </section>
 <section class="featured-products">
@@ -43,36 +43,44 @@
       </div>
     </div>
     <div class="modal-details">
-      <h3>{{ selectedProduct.name }}</h3>
+      <h3>{{ selectedProduct.name }} - {{ selectedProduct.size }}</h3>
       <div class="modal-description">
-        {{ selectedProduct.description }}
+        <div>Sku#: {{ selectedProduct.sku }}</div> 
+        <div>{{ selectedProduct.name }}</div> 
+        <div>{{ selectedProduct.inStock ? 'In Stock' : 'Out of Stock' }}</div> 
       </div>
       <div class="product-pricing modal-pricing">
-        <label class="price-label">Price:</label>
-        <span class="price">{{ selectedProduct.price }}</span>
+        <label class="price-label">Rs {{ selectedProduct.price | number }}</label>
         <!-- <span class="old" *ngIf="selectedProduct.old">{{ selectedProduct.old }}</span> -->
       </div>
       <div class="modal-qty">
-        <label for="quantity">QTY:</label>
+        <span for="qty-available">QTY:</span>
         <div class="qty-controls">
           <button (click)="decrementQuantity()" class="qty-btn">-</button>
           <input type="number" id="quantity" [(ngModel)]="quantity" min="1" [max]="selectedProduct.availableQty || 10"
             readonly />
           <button (click)="incrementQuantity()" class="qty-btn">+</button>
         </div>
-        <span class="qty-available" *ngIf="selectedProduct.availableQty">Available: {{ selectedProduct.availableQty
-          }}</span>
+        <span class="qty-available" *ngIf="selectedProduct.availableQty">Available: {{ selectedProduct.availableQty}}</span>
       </div>
-      <button class="add-to-bag-modal" (click)="$event.stopPropagation(); addToCart(selectedProduct)">Add to
-        Cart</button>
+      <button class="add-to-bag-modal" (click)="$event.stopPropagation(); addToCart(selectedProduct)">Add to Cart</button>
+      
+      <p class="more-details-btn" (click)="showNotes = !showNotes">
+        {{ showNotes ? 'Hide Details' : 'More Details' }}
+        <i class="fa-solid" [class.fa-chevron-down]="!showNotes" [class.fa-chevron-up]="showNotes"></i>
+      </p>
+
+      <div class="modal-notes" [class.show]="showNotes">
+        <p class="red" style="color: red;">(!) Fragrances and perfumes are not shipped internationally due to the courier and airline DG policy.</p>
       <div class="modal-shipping">
-        <strong>Shipping:</strong> Free shipping on 5 items.
+        <strong>Category:</strong> {{ selectedProduct.category }}
       </div>
       <div class="modal-delivery">
-        <strong>Delivery:</strong> Estimated 3-5 days
+        <strong>Main Accords:</strong> {{ selectedProduct.accords }}
       </div>
       <div class="modal-payment">
-        <strong>Payment:</strong> JazzCash / COD
+        <strong>Size:</strong>  {{ selectedProduct.size}} Bottle
+      </div>
       </div>
     </div>
   </div>
