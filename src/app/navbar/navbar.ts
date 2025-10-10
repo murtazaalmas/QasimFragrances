@@ -22,7 +22,6 @@ export class Navbar {
   showLoginPopup = false;
   loginUsername = '';
   loginPassword = '';
-  showMobileMenu = false;
   isScrolled = false;
 
   constructor(private router: Router, private productService: ProductService, private cartService: CartService) {
@@ -107,18 +106,13 @@ export class Navbar {
     return false; // Prevent default form submission
   }
 
-  toggleMobileMenu() {
-    this.showMobileMenu = !this.showMobileMenu;
-  }
-
   onTrackOrder() {
     // Placeholder: navigate to tracking page or show a popup
     alert('Track Order feature coming soon!');
   }
 
-  @HostListener('window:scroll', [])
+  @HostListener('window:scroll')
   onWindowScroll() {
-    const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-    this.isScrolled = scrollPosition > 10;
+    this.isScrolled = window.scrollY > 50;
   }
 }

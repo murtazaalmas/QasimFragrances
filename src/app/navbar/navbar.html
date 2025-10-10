@@ -30,43 +30,33 @@
 
   <!-- Mobile Navigation -->
   <div class="mobile-nav">
-      <div class="mobile-hamburger" (click)="toggleMobileMenu()">
-        <i class="fa-solid fa-bars"></i>
-      </div>
-      <div class="logo">
-        <img src="/images/logo.png" alt="Itrah logo" style="width: 90px;" />
-
-        <!-- <span class="brand-name">Itrah</span> -->
-      </div>
-      <div class="cart-icon mobile-cart" (click)="onCartClick()">
-        <i class="fa-solid fa-cart-shopping"></i>
-        <span class="badge">{{ cartCount }}</span>
-      </div>
+    <div class="logo">
+      <img src="/images/logo.png" alt="Itrah logo" style="width: 90px;" />
+    </div>
   </div>
 </header>
 
-<div *ngIf="showMobileMenu" class="mobile-menu-backdrop" (click)="toggleMobileMenu()">
-  <div class="mobile-menu" (click)="$event.stopPropagation()">
-    <button class="close-btn" (click)="toggleMobileMenu()">&times;</button>
-    <div class="mobile-menu-option" (click)="goHome(); toggleMobileMenu()">
-      <i class="fa-solid fa-house"></i> Home
+<!-- Bottom Navigation Bar -->
+<div class="bottom-nav">
+  <a (click)="goHome()" [class.active]="isActive('/')">
+    <i class="fa-solid fa-house"></i>
+    <span>Home</span>
+  </a>
+  <a (click)="goCollections()" [class.active]="isActive('/collections')">
+    <i class="fa-solid fa-layer-group"></i>
+    <span>Collections</span>
+  </a>
+  <a (click)="onTrackOrder()">
+    <i class="fa-solid fa-truck"></i>
+    <span>Track</span>
+  </a>
+  <a (click)="onCartClick()" class="cart-nav-item">
+    <div class="cart-icon">
+      <i class="fa-solid fa-cart-shopping"></i>
+      <span class="badge">{{ cartCount }}</span>
     </div>
-    <div class="mobile-menu-option" (click)="goAbout(); toggleMobileMenu()">
-      <i class="fa-solid fa-circle-info"></i> About
-    </div>
-    <div class="mobile-menu-option" (click)="goCollections(); toggleMobileMenu()">
-      <i class="fa-solid fa-layer-group"></i> Collections
-    </div>
-    <div class="mobile-menu-option" (click)="goContact(); toggleMobileMenu()">
-      <i class="fa-solid fa-envelope"></i> Contact
-    </div>
-    <div class="mobile-menu-option" (click)="onTrackOrder(); toggleMobileMenu()">
-      <i class="fa-solid fa-truck"></i> Track Order
-    </div>
-    <div class="mobile-menu-option" (click)="onCartClick(); toggleMobileMenu()">
-      <i class="fa-solid fa-cart-shopping"></i> Cart
-    </div>
-  </div>
+    <span>Cart</span>
+  </a>
 </div>
 
 <div *ngIf="searchTerm && searchTerm.trim() !== ''" class="navbar-search-results">

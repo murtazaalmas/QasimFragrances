@@ -48,7 +48,6 @@
   color: #fff;
   background-clip: text;
   -webkit-background-clip: text;
-  text-fill-color: transparent;
   -webkit-text-fill-color: transparent;
   animation: rainbowGlitter 3s linear infinite, glitter 0.5s ease-in-out infinite alternate;
 }
@@ -159,60 +158,138 @@
   text-underline-offset: 4px;
 }
 
-/* Mobile Styles */
+/* Bottom Navigation Bar */
+.bottom-nav {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  padding: 8px 0;
+}
+
+.bottom-nav a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  color: #666;
+  text-decoration: none;
+  font-size: 0.75rem;
+  transition: color 0.2s;
+}
+
+.bottom-nav a i {
+  font-size: 1.25rem;
+  margin-bottom: 4px;
+}
+
+.bottom-nav a.active {
+  color: #000;
+  font-weight: 500;
+}
+.bottom-nav .cart-nav-item {
+  position: relative;
+}
+
+.bottom-nav .cart-icon {
+  position: relative;
+}
+
+/* Mobile Navigation */
 .mobile-nav {
-    display: none;
+  display: none;
+  padding: 16px 0;
+  text-align: center;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.mobile-hamburger {
-  display: none; /* Hidden by default */
+.mobile-nav .logo {
+  flex: 1;
+  text-align: center;
 }
 
+.mobile-nav .logo img {
+  max-width: 90px;
+  height: auto;
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+  padding: 8px;
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Responsive Styles */
 @media (max-width: 768px) {
+  .new-navbar {
+    padding: 0 16px;
+    position: relative;
+  }
+  
   .desktop-nav {
     display: none;
   }
   
   .mobile-nav {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 12px 16px;
-  }
-
-  .new-navbar {
-    display: flex;
-    justify-content: center; /* Center the logo on mobile */
-    align-items: center;
+    padding: 10px 0;
     position: relative;
-    padding: 0;
-    background: #fff;
   }
   
-  .new-navbar .brand-name {
-    color: #000;
-    font-size: 1.2rem;
-  }
-
-  .mobile-hamburger {
+  .menu-toggle {
     display: block;
-    font-size: 1.5rem;
-    cursor: pointer;
-    z-index: 120;
-    color: #000;
   }
-
-  .cart-icon.mobile-cart i {
-    color: #000;
+  
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    padding: 16px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    z-index: 1001;
   }
-
+  
+  .nav-links.active {
+    display: flex;
+  }
+  
+  .nav-links a {
+    padding: 12px 16px;
+    text-align: left;
+  }
+  
+  .bottom-nav {
+    display: flex;
+  }
+  
+  /* Hide desktop logo on mobile */
+  .desktop-nav .logo-container {
+    display: none;
+  }
+  
+  /* Ensure cart is properly positioned on mobile */
   .cart-container {
     position: static;
     transform: none;
-  }
-  .cart-icon {
-    display: block;
   }
 }
 
@@ -432,68 +509,7 @@
   color: #5c5c5c;
 }
 
-/* Mobile menu styles (side drawer) */
-.mobile-menu-backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0,0,0,0.25);
-  z-index: 2000;
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-end;
-}
-.mobile-menu {
-  background: #fff;
-  width: 80vw;
-  max-width: 320px;
-  height: 100vh;
-  box-shadow: -2px 0 16px rgba(0,0,0,0.12);
-  padding: 2rem 1.2rem 1.2rem 1.2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  position: relative;
-  animation: slideInMenu 0.25s cubic-bezier(.4,0,.2,1);
-}
-@keyframes slideInMenu {
-  from { transform: translateX(100%); }
-  to { transform: translateX(0); }
-}
-.mobile-menu-option {
-  font-size: 1.2rem;
-  padding: 1rem 0.5rem;
-  width: 100%;
-  border-radius: 8px;
-  margin-bottom: 0.7rem;
-  color: #222;
-  background: #f7f7f7;
-  display: flex;
-  align-items: center;
-  gap: 0.7rem;
-  cursor: pointer;
-  transition: background 0.2s, color 0.2s;
-}
-.mobile-menu-option:hover {
-  background: #5c5c5c;
-  color: #fff;
-}
-.mobile-menu .close-btn {
-  position: absolute;
-  top: 10px;
-  right: 16px;
-  background: none;
-  border: none;
-  font-size: 2rem;
-  color: #888;
-  cursor: pointer;
-  transition: color 0.2s;
-}
-.mobile-menu .close-btn:hover {
-  color: #5c5c5c;
-}
+/* Mobile menu styles removed - using bottom navigation instead */
 
 .mobile-search-input-wrapper {
   width: 100%;
