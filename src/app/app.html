@@ -46,14 +46,27 @@
 
 
 <div class="love-container">
-  <div class="love-message">
-    <h1>fahad Loves Samra <span class="heart">❤️</span></h1>
-    <div class="hearts">
-      <span>❤️</span>
-      <span>💖</span>
-      <span>💗</span>
-      <span>💓</span>
-      <span>💘</span>
+  <div class="couple-messages">
+    <div class="love-message fahad-loves" style="--text-color: #e3f2fd; --heart-color: #64b5f6; --glow-color: #90caf9;">
+      <h1>Fahad Loves Samra <span class="heart">💙</span></h1>
+      <div class="hearts">
+        <span>💙</span>
+        <span>💠</span>
+        <span>💎</span>
+        <span>🔷</span>
+        <span>💦</span>
+      </div>
+    </div>
+    
+    <div class="love-message samra-loves" style="--text-color: #ffebee; --heart-color: #ff4081; --glow-color: #ff80ab;">
+      <h1>Samra Loves Fahad <span class="heart">❤️</span></h1>
+      <div class="hearts">
+        <span>💘</span>
+        <span>💓</span>
+        <span>💗</span>
+        <span>💖</span>
+        <span>❤️</span>
+      </div>
     </div>
   </div>
 </div>
@@ -67,8 +80,18 @@
     background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #a8edea, #fed6e3);
     background-size: 400% 400%;
     animation: gradientBG 15s ease infinite;
-    padding: 20px;
     box-sizing: border-box;
+    padding: 20px;
+  }
+
+  .couple-messages {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+    max-width: 1800px;
+    margin: 0 auto;
   }
 
   .love-message {
@@ -79,16 +102,56 @@
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    max-width: 800px;
-    width: 90%;
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    transition: transform 0.3s ease;
+  }
+
+  .love-message:hover {
+    transform: translateY(-10px);
   }
 
   .love-message h1 {
     font-size: 3.5rem;
     margin: 0 0 1.5rem 0;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    font-family: 'Brush Script MT', cursive, sans-serif;
+    /* font-family: 'Brush Script MT', cursive, sans-serif; */
     animation: glow 2s ease-in-out infinite alternate;
+    color: var(--text-color, #fff);
+  }
+
+  /* Style for Samra's message */
+  .samra-loves {
+    background: rgba(0, 0, 0, 0.2) !important;
+  }
+
+  .samra-loves .heart,
+  .samra-loves .hearts span {
+    color: var(--heart-color, #ff4081);
+    text-shadow: 0 0 10px var(--glow-color, #ff80ab);
+  }
+
+  .samra-loves h1 {
+    color: var(--heart-color, #ff4081);
+  }
+
+  @keyframes glow {
+    from {
+      text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px var(--glow-color, #e60073), 0 0 20px var(--glow-color, #e60073);
+    }
+    to {
+      text-shadow: 0 0 10px #fff, 0 0 20px var(--glow-color, #ff4da6), 0 0 30px var(--glow-color, #ff4da6), 0 0 40px var(--glow-color, #ff4da6);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .love-message h1 {
+      font-size: 2.5rem;
+    }
+    .hearts {
+      font-size: 2rem;
+    }
   }
 
   .heart {
