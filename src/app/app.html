@@ -31,11 +31,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: url('/images/SF.jpeg') no-repeat center center fixed;
-    background-size: cover;
+    background: url('/images/SF.jpeg') no-repeat center center;
+    background-size: 100% auto;
+    background-attachment: fixed;
     position: relative;
     box-sizing: border-box;
     padding: 20px;
+    overflow: hidden;
+  }
+
+  @media (max-aspect-ratio: 1/1) {
+    .love-container {
+      background-size: auto 100%;
+    }
   }
 
   .love-container::before {
@@ -67,11 +75,11 @@
   .love-message {
     text-align: center;
     color: #fff;
-    padding: 2rem;
-    border-radius: 20px;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    /* padding: 2rem; */
+    /* border-radius: 20px; */
+    /* background: rgba(255, 255, 255, 0.1); */
+    /* backdrop-filter: blur(1px); */
+    /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); */
     flex: 1;
     min-width: 300px;
     max-width: 500px;
@@ -79,13 +87,13 @@
   }
 
   .love-message:hover {
-    transform: translateY(-10px);
+    /* transform: translateY(-10px); */
   }
 
   .love-message h1 {
     font-size: 3.5rem;
     margin: 0 0 1.5rem 0;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
     /* font-family: 'Brush Script MT', cursive, sans-serif; */
     animation: glow 2s ease-in-out infinite alternate;
     color: var(--text-color, #fff);
@@ -93,13 +101,13 @@
 
   /* Style for Fahad's message (Blue theme) */
   .fahad-loves {
-    background: rgba(0, 0, 0, 0.15) !important;
+    /* background: rgba(0, 0, 0, 0.15) !important; */
   }
 
   .fahad-loves .heart,
   .fahad-loves .hearts span {
     color: var(--heart-color, #64b5f6);
-    text-shadow: 0 0 10px var(--glow-color, #90caf9);
+    /* text-shadow: 0 0 10px var(--glow-color, #90caf9); */
   }
 
   .fahad-loves h1 {
@@ -108,7 +116,7 @@
 
   /* Style for Samra's message (Pink theme) */
   .samra-loves {
-    background: rgba(0, 0, 0, 0.15) !important;
+    /* background: rgba(0, 0, 0, 0.15) !important; */
   }
 
   .samra-loves .heart,
