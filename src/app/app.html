@@ -1,9 +1,8 @@
-<app-navbar #navbar [cartCount]="cartCount" (cartSidebar)="openCartSidebar()"
+<!-- <app-navbar #navbar [cartCount]="cartCount" (cartSidebar)="openCartSidebar()"
   (addToCartSuccess)="showNotification('Added to cart')"></app-navbar>
 <app-home *ngIf="router.url === '/' && navbar.searchTerm == ''" [selectedCategory]="selectedCategory" (addToCartSuccess)="showNotification('Added to cart')"></app-home>
 <router-outlet *ngIf="router.url !== '/'"></router-outlet>
 <div *ngIf="notification" class="notification-toast">{{ notification }}</div>
-<!-- Right Sidebar Cart -->
 <div class="cart-sidebar-backdrop" *ngIf="showCartSidebar" (click)="closeCartSidebar()">
   <aside class="cart-sidebar" (click)="$event.stopPropagation()">
     <div class="cart-sidebar-header">
@@ -29,4 +28,58 @@
   </aside>
   </div>
 <app-invoice *ngIf="showInvoice" [cartItems]="cartItems" [cartTotal]="cartTotal" (close)="closeInvoice()"></app-invoice>
-<app-footer></app-footer>
+<app-footer></app-footer> -->
+
+
+<div class="love-message">
+  <h1>Samra ❤️</h1>
+  <h2>I Love You</h2>
+  <div class="heart">❤️</div>
+</div>
+
+<style>
+  .love-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+    color: white;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .love-message h1 {
+    font-size: 4rem;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    animation: pulse 2s infinite;
+  }
+
+  .love-message h2 {
+    font-size: 2.5rem;
+    margin: 20px 0 0 0;
+    opacity: 0.9;
+  }
+
+  .heart {
+    font-size: 4rem;
+    margin-top: 30px;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+  }
+</style>
